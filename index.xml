@@ -7,15 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://ayehia0.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Aug 2022 01:10:44 +0200</lastBuildDate><atom:link href="https://ayehia0.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Creating a New Theme</title>
-      <link>https://ayehia0.github.io/posts/creating-a-new-theme/</link>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
+      <title>Tmux Setup</title>
+      <link>https://ayehia0.github.io/posts/tmux-setup/</link>
+      <pubDate>Wed, 10 Aug 2022 01:10:44 +0200</pubDate>
       
-      <guid>https://ayehia0.github.io/posts/creating-a-new-theme/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
+      <guid>https://ayehia0.github.io/posts/tmux-setup/</guid>
+      <description>Why you use tmux ? How to install ? arch
+Configuration config</description>
     </item>
     
     <item>
@@ -24,8 +24,11 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
       <pubDate>Tue, 09 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://ayehia0.github.io/about/</guid>
-      <description>Software Engineer, seeking for learning new things everyday. Interested in :
-Backend Development Linux Open Source projects Find me on GitHub.</description>
+      <description>Whoami Software Engineer, seeking for learning new things everyday. Interested in :
+Backend Development Linux Open Source projects Find me on GitHub.
+Skills I also have some experience about:
+TypeScript Java Ruby Bash C/C++ Projects All The projects can be found Here, but here is a list of my top projects.
+Gimme Gimme is an application that helps users to reach unoffical stores and get their items by tusted users, from the people to the people.</description>
     </item>
     
   </channel>
