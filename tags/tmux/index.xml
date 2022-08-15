@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AYehia0</title>
-    <link>https://ayehia0.github.io/</link>
-    <description>Recent content on AYehia0</description>
+    <title>tmux on AYehia0</title>
+    <link>https://ayehia0.github.io/tags/tmux/</link>
+    <description>Recent content in tmux on AYehia0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 10 Aug 2022 01:10:44 +0200</lastBuildDate><atom:link href="https://ayehia0.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Aug 2022 01:10:44 +0200</lastBuildDate><atom:link href="https://ayehia0.github.io/tags/tmux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tmux Setup</title>
       <link>https://ayehia0.github.io/posts/tmux-setup/</link>
@@ -16,19 +16,6 @@
       <guid>https://ayehia0.github.io/posts/tmux-setup/</guid>
       <description>Why you should use tmux ? Tmux is a terminal multiplexer, it lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and re-attach them to a different terminal.
 It also allows you to have multiple panes open at the same time, each with their own shell running, with a single SSH connection (yes, it supports SSH). Not only that, you can also have multiple windows open at the same time, a bit like tabs with more panes in them.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://ayehia0.github.io/about/</link>
-      <pubDate>Tue, 09 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://ayehia0.github.io/about/</guid>
-      <description>Whoami Software Engineer, seeking for learning new things everyday. Interested in :
-Backend Development Linux Open Source projects Find me on GitHub.
-Skills I also have some experience about:
-TypeScript Java Ruby Bash C/C++ Projects All The projects can be found Here, but here is a list of my top projects.
-Gimme Gimme is an application that helps users to reach unoffical stores and get their items by tusted users, from the people to the people.</description>
     </item>
     
   </channel>

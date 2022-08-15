@@ -15,14 +15,112 @@
             <pubDate>Wed, 10 Aug 2022 01:10:44 +0200</pubDate>
             
             <guid>https://ayehia0.github.io/posts/tmux-setup/</guid>
-            <description>Why you use tmux ? How to install ? arch
-Configuration config</description>
-            <content type="html"><![CDATA[<h2 id="why-you-use-tmux-">Why you use tmux ?</h2>
+            <description>Why you should use tmux ? Tmux is a terminal multiplexer, it lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and re-attach them to a different terminal.
+It also allows you to have multiple panes open at the same time, each with their own shell running, with a single SSH connection (yes, it supports SSH). Not only that, you can also have multiple windows open at the same time, a bit like tabs with more panes in them.</description>
+            <content type="html"><![CDATA[<h2 id="why-you-should-use-tmux-">Why you should use tmux ?</h2>
+<p>Tmux is a terminal multiplexer, it lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and re-attach them to a different terminal.</p>
+<p>It also allows you to have multiple panes open at the same time, each with their own shell running, with a single SSH connection (yes, it supports SSH). Not only that, you can also have multiple windows open at the same time, a bit like tabs with more panes in them.</p>
+
+    <img src="/img/tmux.gif"  alt="stats"  class="center"  style="border-radius: 8px;"  />
+
+
 <h2 id="how-to-install-">How to install ?</h2>
-<p>arch</p>
+<p>Many platforms provide prebuilt packages of tmux, although these are often out
+of date. Details of the commands to discover and install these can be found in
+the documentation for the platform package management tools, for example:</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Install Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arch Linux</td>
+<td><code>pacman -S tmux</code></td>
+</tr>
+<tr>
+<td>Debian or Ubuntu</td>
+<td><code>apt install tmux</code></td>
+</tr>
+<tr>
+<td>Fedora</td>
+<td><code>dnf install tmux</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="configuration">Configuration</h2>
-<p>config</p>
-]]></content>
+<p>First create a config file as <code>~/.tmux.conf</code>, this file holds all the configurations.</p>
+<h3 id="sourcing">Sourcing</h3>
+<p>The first thing to do is sourcing the config file by adding this line : <code>bind r source-file ~/.tmux.conf</code>, this makes sure the source file is sourced by pressing <code>prefix + r</code></p>
+<h3 id="prefix">Prefix</h3>
+<p>What is the prefix, you ask ? Prefix is similar to vim&rsquo;s leader key and it&rsquo;s so important in tmux as almost any command is set behind a prefix.
+Tmux uses <code>C-b</code>. Let&rsquo;s change it to something nice.</p>
+<pre tabindex="0"><code># remap prefix from &#39;C-b&#39; to &#39;C-w&#39;
+unbind C-b
+set-option -g prefix C-w
+bind-key C-w send-prefix
+</code></pre><h3 id="mouse">Mouse</h3>
+<p>By default, the mouse is disabled in tmux. We can use the mouse to scroll and resize panes. To enable it:</p>
+<pre tabindex="0"><code># pane scrolling
+set -g mouse on
+</code></pre><h3 id="colors">Colors</h3>
+<p>After launching tmux for the first time, you will notice that the colors are messed up, to fix it:</p>
+<pre tabindex="0"><code>set-option -ga terminal-overrides &#34;,xterm-256color:Tc&#34;
+set -g default-terminal &#34;screen-256color&#34;
+</code></pre><h3 id="splitting">Splitting</h3>
+<p>One of the great features you use tmux for is : window splitting.
+To split use <code>Prefix + h</code> for horizontal split, and <code>Prefix + v</code> for vertical split.</p>
+<pre tabindex="0"><code># window splitting
+bind v split-window -h
+bind h split-window -v
+unbind &#39;&#34;&#39;
+unbind %
+</code></pre><h3 id="switching">Switching</h3>
+<p>You can switch either between panes or windows in the same tmux session, to easily switch panes by pressing <code>Prefix + w</code> while holding <code>Ctrl</code> :</p>
+<pre tabindex="0"><code># pane switching
+bind ^w select-pane -t :.+
+</code></pre><p>To switch between windows :</p>
+<pre tabindex="0"><code># window switching 
+bind -r C-h select-window -t :-
+</code></pre><h3 id="plugins">Plugins</h3>
+<p>Installing TPM (Tmux Plugin Manager)</p>
+<p>To install TPM, you need to:</p>
+<ol>
+<li>Git clone TPM to a HOME directory (~/.tmux/plugins/tpm)</li>
+<li>Add any plugins with <code>set -g @plugin 'YOUR/PLUGIN'</code> in your tmux config file.</li>
+<li>Point the run command to the TPM repository location (by default it points to <code>~/.tmux/tpm/tpm</code>).</li>
+</ol>
+<h3 id="themes">Themes</h3>
+<p>So we installed TPM, now we can add some plugins for nicer themes, I like the dracula theme :D :</p>
+<pre tabindex="0"><code># dracula plugin
+# only show these
+set -g @dracula-plugins &#34;cpu-usage ram-usage&#34;
+set -g @dracula-show-left-icon session
+
+# plugins
+set -g @plugin &#39;tmux-plugins/tmux-sensible&#39;
+set -g @plugin &#39;dracula/tmux&#39;
+</code></pre><h3 id="extra">Extra</h3>
+<p>Above are the basic customizations, however there are still more configurations we haven&rsquo;t gone through. Feel free to check the <a href="https://github.com/tmux/tmux/wiki">tmux wiki page</a> for more advanced configurations.</p>
+<pre tabindex="0"><code># speed it up in neovim
+set -sg escape-time 0
+
+# don&#39;t rename windows automatically
+set-option -g allow-rename off
+
+# index start with 1
+set -g base-index 1
+setw -g pane-base-index 1
+set -g renumber-windows on
+
+# increase history : default = 2000 lines
+set-option -g history-limit 5000
+
+# jump to marked location
+bind \` switch-client -t&#39;{marked}&#39;
+</code></pre>]]></content>
         </item>
         
     </channel>
