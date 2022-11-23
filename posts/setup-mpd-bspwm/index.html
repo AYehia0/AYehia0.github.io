@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="">
+<meta name="description" content="What is mpd ? MPD (Music Player Daemon) is an audio player, used to play audio tracks, organize playlists with some database for musics. In order to interface with it, a client is needed (in our case (ncmpcpp)[https://rybczak.net/ncmpcpp/] is used).
+Installation Install mpd and ncmpcpp on ArchLinux : sudo pacman -S mpd ncmpcpp Install mpDris2 (provides MPRIS 2 support to mpd): yay -S mpdris2 Setup Autostart There are multiple ways to auto-run mpd and mpdris2 :" />
+<meta name="keywords" content=", mpd, polybar, bspwm, archlinux" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://ayehia0.github.io/posts/setup-mpd-bspwm/" />
+
+
+    <title>
+        
+            Full MPD setup on BSPWM &#43; Polybar :: AYehia0  — My Void
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+<meta itemprop="name" content="Full MPD setup on BSPWM &#43; Polybar">
+<meta itemprop="description" content="What is mpd ? MPD (Music Player Daemon) is an audio player, used to play audio tracks, organize playlists with some database for musics. In order to interface with it, a client is needed (in our case (ncmpcpp)[https://rybczak.net/ncmpcpp/] is used).
+Installation Install mpd and ncmpcpp on ArchLinux : sudo pacman -S mpd ncmpcpp Install mpDris2 (provides MPRIS 2 support to mpd): yay -S mpdris2 Setup Autostart There are multiple ways to auto-run mpd and mpdris2 :"><meta itemprop="datePublished" content="2022-11-23T21:24:34+02:00" />
+<meta itemprop="dateModified" content="2022-11-23T21:24:34+02:00" />
+<meta itemprop="wordCount" content="808"><meta itemprop="image" content="https://ayehia0.github.io"/>
+<meta itemprop="keywords" content="mpd,polybar,bspwm,archlinux," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://ayehia0.github.io"/>
+
+<meta name="twitter:title" content="Full MPD setup on BSPWM &#43; Polybar"/>
+<meta name="twitter:description" content="What is mpd ? MPD (Music Player Daemon) is an audio player, used to play audio tracks, organize playlists with some database for musics. In order to interface with it, a client is needed (in our case (ncmpcpp)[https://rybczak.net/ncmpcpp/] is used).
+Installation Install mpd and ncmpcpp on ArchLinux : sudo pacman -S mpd ncmpcpp Install mpDris2 (provides MPRIS 2 support to mpd): yay -S mpdris2 Setup Autostart There are multiple ways to auto-run mpd and mpdris2 :"/>
+
+
+
+    <meta property="og:title" content="Full MPD setup on BSPWM &#43; Polybar" />
+<meta property="og:description" content="What is mpd ? MPD (Music Player Daemon) is an audio player, used to play audio tracks, organize playlists with some database for musics. In order to interface with it, a client is needed (in our case (ncmpcpp)[https://rybczak.net/ncmpcpp/] is used).
+Installation Install mpd and ncmpcpp on ArchLinux : sudo pacman -S mpd ncmpcpp Install mpDris2 (provides MPRIS 2 support to mpd): yay -S mpdris2 Setup Autostart There are multiple ways to auto-run mpd and mpdris2 :" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ayehia0.github.io/posts/setup-mpd-bspwm/" /><meta property="og:image" content="https://ayehia0.github.io"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-23T21:24:34+02:00" />
+<meta property="article:modified_time" content="2022-11-23T21:24:34+02:00" /><meta property="og:site_name" content="AYehia0" />
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2022-11-23 21:24:34 &#43;0200 EET" />
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">~/None</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/about">About</a></li><li><a href="/posts">Blog</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        4 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://ayehia0.github.io/posts/setup-mpd-bspwm/">Full MPD setup on BSPWM + Polybar</a>
+      </h1>
+
+      
+
+      
+
+      
+
+      <div class="post-content">
+        <h2 id="what-is-mpd-">What is mpd ?</h2>
+<p>MPD (Music Player Daemon) is an audio player, used to play audio tracks, organize playlists with some database for musics. In order to interface with it, a client is needed (in our case (ncmpcpp)[https://rybczak.net/ncmpcpp/] is used).</p>
+<h2 id="installation">Installation</h2>
+<ul>
+<li>Install mpd and ncmpcpp on ArchLinux : <code>sudo pacman -S mpd ncmpcpp</code></li>
+<li>Install mpDris2 (provides MPRIS 2 support to mpd): <code>yay -S mpdris2</code></li>
+</ul>
+<h2 id="setup">Setup</h2>
+<h3 id="autostart">Autostart</h3>
+<p>There are multiple ways to auto-run <code>mpd and mpdris2</code> :</p>
+<ul>
+<li>Autostart with systemd : <code>systemctl enable/start --user mpd/mpDris2</code></li>
+<li>Add to your <code>.xinitrc</code></li>
+</ul>
+<h2 id="configuration">Configuration</h2>
+<h3 id="mpd">MPD</h3>
+<p>In order for MPD to be able to playback audio, ALSA, optionally with PulseAudio, must be set up and working, be default
+Since we&rsquo;re going with per-user setup, the default path for the config file is : <code>~/.config/mpd/mpd.conf</code>
+These are some of the most commonly used configuration options (we&rsquo;re not going to use them all):</p>
+<ul>
+<li><code>pid_file</code> - The file where MPD stores its process ID</li>
+<li><code>db_file</code> - The music database</li>
+<li><code>state_file</code> - MPD&rsquo;s current state is noted here</li>
+<li><code>playlist_directory</code> - The directory where playlists are saved into</li>
+<li><code>music_directory</code> - The directory that MPD scans for music</li>
+<li><code>sticker_file</code> - The sticker database</li>
+<li><code>auto_update_depth</code> - The depth of the directories it should scan, &ldquo;0&rdquo; means all.</li>
+</ul>
+<p>To make the config work, a <code>~/.mpd/</code> must be created and <code>~/.mpd/playlists/</code>.</p>
+<pre tabindex="0"><code>music_directory             &#34;~/Music&#34;
+playlist_directory          &#34;~/.mpd/playlists&#34;
+db_file                     &#34;~/.mpd/database&#34;
+log_file                    &#34;~/.mpd/log&#34;
+pid_file                    &#34;~/.mpd/pid&#34;
+state_file                  &#34;~/.mpd/state&#34;
+sticker_file                &#34;~/.mpd/sticker.sql&#34;
+restore_paused &#34;yes&#34;
+auto_update	&#34;yes&#34;
+auto_update_depth &#34;0&#34;
+audio_output {
+    type                    &#34;pulse&#34;
+    name                    &#34;pulse audio&#34;
+}
+audio_output { 
+    type &#34;fifo&#34; 
+    name &#34;my_fifo&#34; 
+    path &#34;/tmp/mpd.fifo&#34; 
+    format &#34;44100:16:2&#34; 
+}
+</code></pre><h3 id="ncmpcpp">ncmpcpp</h3>
+
+    <img src="/img/ncmpcpp.gif"  alt="stats"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>ncmpcpp is a very cool TUI with some features like regular expressions for library searches, extended song format, items filtering, the ability to sort playlists, and a local filesystem browser.
+To use it, a functional mpd must be present on the system since ncmpcpp/mpd work together in a client/server relationship (that&rsquo;s why it should run on the same port as mpd).</p>
+<pre tabindex="0"><code>mpd_host = &#34;127.0.0.1&#34;
+mpd_port = 6600
+mpd_connection_timeout = &#34;5&#34;  
+mpd_crossfade_time = &#34;5&#34;
+mpd_music_dir = ~/Music
+
+# General
+colors_enabled          = &#34;yes&#34;
+enable_window_title     = &#34;yes&#34;
+main_window_color       = &#34;default&#34;
+execute_on_song_change  = notify-send &#34;Playing..&#34; &#34;$(mpc --format &#39;%title% \n%artist%&#39; current)&#34;
+autocenter_mode         = &#34;yes&#34;
+centered_cursor         = &#34;yes&#34;
+user_interface          = &#34;classic&#34;
+
+# Progess Bar
+progressbar_look = &#34;━━╸&#34;
+progressbar_color = &#34;white&#34;
+progressbar_elapsed_color=&#34;green&#34;
+
+# UI Visibility
+header_visibility = &#34;no&#34;
+statusbar_visibility = &#34;no&#34;
+titles_visibility = &#34;no&#34;
+startup_screen = &#34;playlist&#34;
+#startup_slave_screen = &#34;visualizer&#34;
+locked_screen_width_part = 50
+ask_for_locked_screen_width_part = no
+
+# UI Appearance
+now_playing_prefix = &#34;$b$3&#34;
+now_playing_suffix = &#34;$/b$9&#34;
+song_status_format= &#34;$7%t&#34;
+song_list_format = &#34;$8%a - %t$R  $5%l&#34;
+song_columns_list_format= &#34;(3f)[green]{} (60)[magenta]{t|f:Title} (1)[]{}&#34;
+song_library_format = {{ %a - %t } (%b)}|{%f}
+song_window_title_format = &#34;Music&#34;
+
+# Visualizer
+visualizer_data_source = &#34;/tmp/mpd.fifo&#34;
+visualizer_output_name = &#34;my_fifo&#34;
+visualizer_in_stereo = &#34;yes&#34;
+visualizer_type = &#34;ellipse&#34;
+visualizer_look = ●●
+visualizer_color = &#34;33,39,63,75,81,99,117,153,189&#34;
+visualizer_fps = &#34;60&#34;
+</code></pre><p>Notes:</p>
+<ul>
+<li>On <code>execute_on_song_change</code>: <code>mpc</code> is used to get some metadata about the running track.</li>
+</ul>
+<h3 id="polybar">Polybar</h3>
+<p>To show the current music and get some basic music controlling on the polybar, we need to customize the polybar to add the new changes:</p>
+<ol>
+<li>Create a module to open up ncmpcpp when clicked:</li>
+</ol>
+<pre tabindex="0"><code>[module/music-player]
+type = custom/text
+content = &#34;&#34;
+content-foreground = ${color.purple}
+click-right = termite -t musicplayer -e &#34;ncmpcpp&#34;
+</code></pre><ol start="2">
+<li>Create a module to sync with mpd and show current playing song.</li>
+</ol>
+<pre tabindex="0"><code>[module/mpd]
+type                    = internal/mpd
+host                    = 127.0.0.1
+port                    = 6600
+interval                = 2
+format-offline          = &#34;&#34;
+label-song              = &#34;%artist% - %title%&#34;
+label-song-maxlen       = 40
+icon-repeat             = &#34;&#34;
+
+toggle-on-foreground    = ${color.green}
+toggle-off-foreground   = ${color.red}
+</code></pre><ol start="3">
+<li>Create a module to add basic music control.</li>
+</ol>
+<pre tabindex="0"><code>[module/mpd_control]
+type                    = internal/mpd
+host                    = 127.0.0.1
+port                    = 6600
+interval                = 1
+format-online           = &lt;icon-prev&gt;&lt;toggle&gt;&lt;icon-next&gt;
+format-offline          = &lt;label-offline&gt;
+label-offline           = &#34;󰝛 Offline&#34;
+icon-play               = &#34; %{T2} &#34;
+icon-pause              = &#34; %{T2} &#34;
+icon-stop               = &#34; %{T2} &#34;
+icon-prev               = &#34;%{T2} &#34;
+icon-next               = &#34; %{T2}&#34;
+
+format-offline-foreground = ${color.grey}
+icon-play-foreground    = ${color.lime}
+icon-pause-foreground   = ${color.lime}
+icon-stop-foreground    = ${color.lime}
+icon-prev-foreground    = ${color.blue}
+icon-next-foreground    = ${color.blue}
+toggle-on-foreground    = ${color.green}
+toggle-off-foreground   = ${color.red}
+</code></pre><ol start="4">
+<li>Putting all together.</li>
+</ol>
+
+    <img src="/img/polybar.png"  alt="stats"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>It&rsquo;s up to you on how to add to the bar, but for me I am having it as a separate bar section.</p>
+<pre tabindex="0"><code>[bar/section2]
+monitor-strict = false
+override-redirect = false
+bottom = false
+fixed-center = true
+width = 21.5%
+height = 40
+offset-x = 43.5%
+offset-y = 10
+background = ${color.bg-alt}
+foreground = ${color.fg}
+radius = 6
+line-size = 2
+line-color = ${color.blue}
+border-size = 2
+border-color = ${color.bg}
+padding = 2
+module-margin-left = 0
+module-margin-right = 0
+font-0 = &#34;banana:size=6;2&#34;
+font-1 = &#34;Font Awesome 6 Free Solid:size=10;3&#34;
+modules-left = music-player
+modules-center = mpd
+modules-right = mpd_control
+separator =
+dim-value = 1.0
+cursor-click = pointer 
+cursor-scroll = ns-resize
+</code></pre><h3 id="mpdris2">mpDris2</h3>
+<p>To test if mpdris2 works try to stop the current track using playerctl as : <code>playerctl stop -p &quot;mpd&quot;</code>, if everything works fine you can create some keybindings to control mpd.</p>
+<p>In my case I am using sxhkd:</p>
+<pre tabindex="0"><code># pause everything
+super + m
+    pactl set-sink-mute 0 toggle
+
+super + shift + p
+    playerctl -p &#34;mpd&#34; play-pause
+</code></pre>
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://ayehia0.github.io/tags/mpd/">mpd</a></span>
+        <span class="tag"><a href="https://ayehia0.github.io/tags/polybar/">polybar</a></span>
+        <span class="tag"><a href="https://ayehia0.github.io/tags/bspwm/">bspwm</a></span>
+        <span class="tag"><a href="https://ayehia0.github.io/tags/archlinux/">archlinux</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        808 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2022-11-23 21:24
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fayehia0.github.io%2fposts%2fsetup-mpd-bspwm%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fayehia0.github.io%2fposts%2fsetup-mpd-bspwm%2f&amp;title=Full%20MPD%20setup%20on%20BSPWM%20%2b%20Polybar&amp;summary=Full%20MPD%20setup%20on%20BSPWM%20%2b%20Polybar&amp;source=https%3a%2f%2fayehia0.github.io%2fposts%2fsetup-mpd-bspwm%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fayehia0.github.io%2fposts%2fsetup-mpd-bspwm%2f&amp;resubmit=true&amp;title=Full%20MPD%20setup%20on%20BSPWM%20%2b%20Polybar" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Full%20MPD%20setup%20on%20BSPWM%20%2b%20Polybar&amp;url=https%3a%2f%2fayehia0.github.io%2fposts%2fsetup-mpd-bspwm%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+    <div class="pagination">
+        
+        <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+        </div>
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="https://ayehia0.github.io/posts/tmux-setup/">
+                    <span class="button__text">Tmux Setup</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.bb2c6bc3ed452ca4759660e4020811f248bc2320081559e8a32d8b0092773852941133639d35e8370d03d3ddaa750b1edd6b343c5bd22a55d5bdeae8f648f49b.js" integrity="sha512-uyxrw&#43;1FLKR1lmDkAggR8ki8IyAIFVnooy2LAJJ3OFKUETNjnTXoNw0D092qdQse3Ws0PFvSKlXVvero9kj0mw=="></script>
+
+
+
+    </body>
+</html>

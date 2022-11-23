@@ -6,8 +6,220 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 10 Aug 2022 01:10:44 +0200</lastBuildDate>
+        <lastBuildDate>Wed, 23 Nov 2022 21:24:34 +0200</lastBuildDate>
         <atom:link href="https://ayehia0.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Full MPD setup on BSPWM &#43; Polybar</title>
+            <link>https://ayehia0.github.io/posts/setup-mpd-bspwm/</link>
+            <pubDate>Wed, 23 Nov 2022 21:24:34 +0200</pubDate>
+            
+            <guid>https://ayehia0.github.io/posts/setup-mpd-bspwm/</guid>
+            <description>What is mpd ? MPD (Music Player Daemon) is an audio player, used to play audio tracks, organize playlists with some database for musics. In order to interface with it, a client is needed (in our case (ncmpcpp)[https://rybczak.net/ncmpcpp/] is used).
+Installation Install mpd and ncmpcpp on ArchLinux : sudo pacman -S mpd ncmpcpp Install mpDris2 (provides MPRIS 2 support to mpd): yay -S mpdris2 Setup Autostart There are multiple ways to auto-run mpd and mpdris2 :</description>
+            <content type="html"><![CDATA[<h2 id="what-is-mpd-">What is mpd ?</h2>
+<p>MPD (Music Player Daemon) is an audio player, used to play audio tracks, organize playlists with some database for musics. In order to interface with it, a client is needed (in our case (ncmpcpp)[https://rybczak.net/ncmpcpp/] is used).</p>
+<h2 id="installation">Installation</h2>
+<ul>
+<li>Install mpd and ncmpcpp on ArchLinux : <code>sudo pacman -S mpd ncmpcpp</code></li>
+<li>Install mpDris2 (provides MPRIS 2 support to mpd): <code>yay -S mpdris2</code></li>
+</ul>
+<h2 id="setup">Setup</h2>
+<h3 id="autostart">Autostart</h3>
+<p>There are multiple ways to auto-run <code>mpd and mpdris2</code> :</p>
+<ul>
+<li>Autostart with systemd : <code>systemctl enable/start --user mpd/mpDris2</code></li>
+<li>Add to your <code>.xinitrc</code></li>
+</ul>
+<h2 id="configuration">Configuration</h2>
+<h3 id="mpd">MPD</h3>
+<p>In order for MPD to be able to playback audio, ALSA, optionally with PulseAudio, must be set up and working, be default
+Since we&rsquo;re going with per-user setup, the default path for the config file is : <code>~/.config/mpd/mpd.conf</code>
+These are some of the most commonly used configuration options (we&rsquo;re not going to use them all):</p>
+<ul>
+<li><code>pid_file</code> - The file where MPD stores its process ID</li>
+<li><code>db_file</code> - The music database</li>
+<li><code>state_file</code> - MPD&rsquo;s current state is noted here</li>
+<li><code>playlist_directory</code> - The directory where playlists are saved into</li>
+<li><code>music_directory</code> - The directory that MPD scans for music</li>
+<li><code>sticker_file</code> - The sticker database</li>
+<li><code>auto_update_depth</code> - The depth of the directories it should scan, &ldquo;0&rdquo; means all.</li>
+</ul>
+<p>To make the config work, a <code>~/.mpd/</code> must be created and <code>~/.mpd/playlists/</code>.</p>
+<pre tabindex="0"><code>music_directory             &#34;~/Music&#34;
+playlist_directory          &#34;~/.mpd/playlists&#34;
+db_file                     &#34;~/.mpd/database&#34;
+log_file                    &#34;~/.mpd/log&#34;
+pid_file                    &#34;~/.mpd/pid&#34;
+state_file                  &#34;~/.mpd/state&#34;
+sticker_file                &#34;~/.mpd/sticker.sql&#34;
+restore_paused &#34;yes&#34;
+auto_update	&#34;yes&#34;
+auto_update_depth &#34;0&#34;
+audio_output {
+    type                    &#34;pulse&#34;
+    name                    &#34;pulse audio&#34;
+}
+audio_output { 
+    type &#34;fifo&#34; 
+    name &#34;my_fifo&#34; 
+    path &#34;/tmp/mpd.fifo&#34; 
+    format &#34;44100:16:2&#34; 
+}
+</code></pre><h3 id="ncmpcpp">ncmpcpp</h3>
+
+    <img src="/img/ncmpcpp.gif"  alt="stats"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>ncmpcpp is a very cool TUI with some features like regular expressions for library searches, extended song format, items filtering, the ability to sort playlists, and a local filesystem browser.
+To use it, a functional mpd must be present on the system since ncmpcpp/mpd work together in a client/server relationship (that&rsquo;s why it should run on the same port as mpd).</p>
+<pre tabindex="0"><code>mpd_host = &#34;127.0.0.1&#34;
+mpd_port = 6600
+mpd_connection_timeout = &#34;5&#34;  
+mpd_crossfade_time = &#34;5&#34;
+mpd_music_dir = ~/Music
+
+# General
+colors_enabled          = &#34;yes&#34;
+enable_window_title     = &#34;yes&#34;
+main_window_color       = &#34;default&#34;
+execute_on_song_change  = notify-send &#34;Playing..&#34; &#34;$(mpc --format &#39;%title% \n%artist%&#39; current)&#34;
+autocenter_mode         = &#34;yes&#34;
+centered_cursor         = &#34;yes&#34;
+user_interface          = &#34;classic&#34;
+
+# Progess Bar
+progressbar_look = &#34;━━╸&#34;
+progressbar_color = &#34;white&#34;
+progressbar_elapsed_color=&#34;green&#34;
+
+# UI Visibility
+header_visibility = &#34;no&#34;
+statusbar_visibility = &#34;no&#34;
+titles_visibility = &#34;no&#34;
+startup_screen = &#34;playlist&#34;
+#startup_slave_screen = &#34;visualizer&#34;
+locked_screen_width_part = 50
+ask_for_locked_screen_width_part = no
+
+# UI Appearance
+now_playing_prefix = &#34;$b$3&#34;
+now_playing_suffix = &#34;$/b$9&#34;
+song_status_format= &#34;$7%t&#34;
+song_list_format = &#34;$8%a - %t$R  $5%l&#34;
+song_columns_list_format= &#34;(3f)[green]{} (60)[magenta]{t|f:Title} (1)[]{}&#34;
+song_library_format = {{ %a - %t } (%b)}|{%f}
+song_window_title_format = &#34;Music&#34;
+
+# Visualizer
+visualizer_data_source = &#34;/tmp/mpd.fifo&#34;
+visualizer_output_name = &#34;my_fifo&#34;
+visualizer_in_stereo = &#34;yes&#34;
+visualizer_type = &#34;ellipse&#34;
+visualizer_look = ●●
+visualizer_color = &#34;33,39,63,75,81,99,117,153,189&#34;
+visualizer_fps = &#34;60&#34;
+</code></pre><p>Notes:</p>
+<ul>
+<li>On <code>execute_on_song_change</code>: <code>mpc</code> is used to get some metadata about the running track.</li>
+</ul>
+<h3 id="polybar">Polybar</h3>
+<p>To show the current music and get some basic music controlling on the polybar, we need to customize the polybar to add the new changes:</p>
+<ol>
+<li>Create a module to open up ncmpcpp when clicked:</li>
+</ol>
+<pre tabindex="0"><code>[module/music-player]
+type = custom/text
+content = &#34;&#34;
+content-foreground = ${color.purple}
+click-right = termite -t musicplayer -e &#34;ncmpcpp&#34;
+</code></pre><ol start="2">
+<li>Create a module to sync with mpd and show current playing song.</li>
+</ol>
+<pre tabindex="0"><code>[module/mpd]
+type                    = internal/mpd
+host                    = 127.0.0.1
+port                    = 6600
+interval                = 2
+format-offline          = &#34;&#34;
+label-song              = &#34;%artist% - %title%&#34;
+label-song-maxlen       = 40
+icon-repeat             = &#34;&#34;
+
+toggle-on-foreground    = ${color.green}
+toggle-off-foreground   = ${color.red}
+</code></pre><ol start="3">
+<li>Create a module to add basic music control.</li>
+</ol>
+<pre tabindex="0"><code>[module/mpd_control]
+type                    = internal/mpd
+host                    = 127.0.0.1
+port                    = 6600
+interval                = 1
+format-online           = &lt;icon-prev&gt;&lt;toggle&gt;&lt;icon-next&gt;
+format-offline          = &lt;label-offline&gt;
+label-offline           = &#34;󰝛 Offline&#34;
+icon-play               = &#34; %{T2} &#34;
+icon-pause              = &#34; %{T2} &#34;
+icon-stop               = &#34; %{T2} &#34;
+icon-prev               = &#34;%{T2} &#34;
+icon-next               = &#34; %{T2}&#34;
+
+format-offline-foreground = ${color.grey}
+icon-play-foreground    = ${color.lime}
+icon-pause-foreground   = ${color.lime}
+icon-stop-foreground    = ${color.lime}
+icon-prev-foreground    = ${color.blue}
+icon-next-foreground    = ${color.blue}
+toggle-on-foreground    = ${color.green}
+toggle-off-foreground   = ${color.red}
+</code></pre><ol start="4">
+<li>Putting all together.</li>
+</ol>
+
+    <img src="/img/polybar.png"  alt="stats"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>It&rsquo;s up to you on how to add to the bar, but for me I am having it as a separate bar section.</p>
+<pre tabindex="0"><code>[bar/section2]
+monitor-strict = false
+override-redirect = false
+bottom = false
+fixed-center = true
+width = 21.5%
+height = 40
+offset-x = 43.5%
+offset-y = 10
+background = ${color.bg-alt}
+foreground = ${color.fg}
+radius = 6
+line-size = 2
+line-color = ${color.blue}
+border-size = 2
+border-color = ${color.bg}
+padding = 2
+module-margin-left = 0
+module-margin-right = 0
+font-0 = &#34;banana:size=6;2&#34;
+font-1 = &#34;Font Awesome 6 Free Solid:size=10;3&#34;
+modules-left = music-player
+modules-center = mpd
+modules-right = mpd_control
+separator =
+dim-value = 1.0
+cursor-click = pointer 
+cursor-scroll = ns-resize
+</code></pre><h3 id="mpdris2">mpDris2</h3>
+<p>To test if mpdris2 works try to stop the current track using playerctl as : <code>playerctl stop -p &quot;mpd&quot;</code>, if everything works fine you can create some keybindings to control mpd.</p>
+<p>In my case I am using sxhkd:</p>
+<pre tabindex="0"><code># pause everything
+super + m
+    pactl set-sink-mute 0 toggle
+
+super + shift + p
+    playerctl -p &#34;mpd&#34; play-pause
+</code></pre>]]></content>
+        </item>
         
         <item>
             <title>Tmux Setup</title>
