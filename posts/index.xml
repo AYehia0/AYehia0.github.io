@@ -6,8 +6,58 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 23 Nov 2022 21:24:34 +0200</lastBuildDate>
+        <lastBuildDate>Sat, 26 Nov 2022 12:48:29 +0200</lastBuildDate>
         <atom:link href="https://ayehia0.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>How to download files and directories from github</title>
+            <link>https://ayehia0.github.io/posts/download-files-from-github/</link>
+            <pubDate>Sat, 26 Nov 2022 12:48:29 +0200</pubDate>
+            
+            <guid>https://ayehia0.github.io/posts/download-files-from-github/</guid>
+            <description>Using the github website Probably this is the easiest way to download files from github, by navigating to the file on github and click on the download button.
+Unfortenitaly, it&amp;rsquo;s not the fastest, you will have to move the file to the desired destination and doesn&amp;rsquo;t work for raw files like (txt and .ext).
+Using wget/curl Now we talk :D, here&amp;rsquo;s a bash function (add to your alias section) I wrote to automate the download process by using the URL which contains blob keyword.</description>
+            <content type="html"><![CDATA[<h2 id="using-the-github-website">Using the github website</h2>
+<p>Probably this is the easiest way to download files from github, by navigating to the file on github and click on the download button.</p>
+<p>Unfortenitaly, it&rsquo;s not the fastest, you will have to move the file to the desired destination and doesn&rsquo;t work for raw files like (txt and .ext).</p>
+
+    <img src="/img/github_download_page.png"  alt="stats"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="using-wgetcurl">Using wget/curl</h2>
+<p>Now we talk :D, here&rsquo;s a bash function (add to your alias section) I wrote to automate the download process by using the URL which contains <code>blob</code> keyword.</p>
+<p>Note: you know what to do to make it work with cURL :D</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>gd <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    SEARCH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;\/blob\/&#34;</span>
+</span></span><span style="display:flex;"><span>    replace<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;\/raw\/&#34;</span>
+</span></span><span style="display:flex;"><span>    result<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo $1 | sed -e <span style="color:#e6db74">&#34;s/</span>$SEARCH<span style="color:#e6db74">/</span>$replace<span style="color:#e6db74">/g&#34;</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>    wget $result
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div>
+    <img src="/img/wget.gif"  alt="stats"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="downloading-directories">Downloading directories</h2>
+<p>GitHub doesn&rsquo;t support git-archive (a git feature to download specific folders). However, it supports a variety of Subversion features, one of which we can use. Subversion is a VC (Version Control) just like <code>git</code>.</p>
+<p>Make sure you have <code>subversion</code> installed, for arch : <code>sudo pacman -S subversion</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>modify_url <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    SEARCH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;\/tree\/\w\+\/&#34;</span>
+</span></span><span style="display:flex;"><span>    replace<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;\/trunk\/&#34;</span>
+</span></span><span style="display:flex;"><span>    echo $1 | sed -e <span style="color:#e6db74">&#34;s/</span>$SEARCH<span style="color:#e6db74">/</span>$replace<span style="color:#e6db74">/g&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dgd <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    url<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>modify_url $1<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>    svn export $url
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div>
+    <img src="/img/svn_github.gif"  alt="stats"  class="center"  style="border-radius: 8px;"  />
+
+
+]]></content>
+        </item>
         
         <item>
             <title>Full MPD setup on BSPWM &#43; Polybar</title>
