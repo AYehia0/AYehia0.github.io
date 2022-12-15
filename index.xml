@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 26 Nov 2022 12:48:29 +0200</lastBuildDate><atom:link href="https://ayehia0.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Dec 2022 22:51:07 +0200</lastBuildDate><atom:link href="https://ayehia0.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setup old android tablet for development</title>
+      <link>https://ayehia0.github.io/posts/setup-linux-on-android/</link>
+      <pubDate>Wed, 14 Dec 2022 22:51:07 +0200</pubDate>
+      
+      <guid>https://ayehia0.github.io/posts/setup-linux-on-android/</guid>
+      <description>Getting Started Before Starting, it&amp;rsquo;s a good idea to install a Custom ROM for your old device just to get the best out of it. Head to XDA and search for your device. But why you might ask ?
+The installed custom ROM would bring you newer Android version + new kernel version. (not always) Root access (more control in general). In my case, I am using SM-T585 which came with Android 8.</description>
+    </item>
+    
     <item>
       <title>How to download files and directories from github</title>
       <link>https://ayehia0.github.io/posts/download-files-from-github/</link>

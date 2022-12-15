@@ -6,8 +6,91 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 26 Nov 2022 12:48:29 +0200</lastBuildDate>
+        <lastBuildDate>Wed, 14 Dec 2022 22:51:07 +0200</lastBuildDate>
         <atom:link href="https://ayehia0.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Setup old android tablet for development</title>
+            <link>https://ayehia0.github.io/posts/setup-linux-on-android/</link>
+            <pubDate>Wed, 14 Dec 2022 22:51:07 +0200</pubDate>
+            
+            <guid>https://ayehia0.github.io/posts/setup-linux-on-android/</guid>
+            <description>Getting Started Before Starting, it&amp;rsquo;s a good idea to install a Custom ROM for your old device just to get the best out of it. Head to XDA and search for your device. But why you might ask ?
+The installed custom ROM would bring you newer Android version + new kernel version. (not always) Root access (more control in general). In my case, I am using SM-T585 which came with Android 8.</description>
+            <content type="html"><![CDATA[
+    <img src="/img/tablet.jpg"  alt="anlinux-fedora"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="getting-started">Getting Started</h2>
+<p>Before Starting, it&rsquo;s a good idea to install a Custom ROM for your old device just to get the best out of it.
+Head to <a href="https://www.xda-developers.com/">XDA</a> and search for your device.
+But why you might ask ?</p>
+<ul>
+<li>The installed custom ROM would bring you newer Android version + new kernel version. (not always)</li>
+<li>Root access (more control in general).</li>
+</ul>
+<p>In my case, I am using <a href="https://www.gsmarena.com/samsung_galaxy_tab_a_10_1_(2016)-8090.php">SM-T585</a> which came with Android <code>8.1</code> and later on I upgraded to <code>9</code>.</p>
+<h2 id="requirements">Requirements</h2>
+<p>Make sure you have at least 4gb(more than enough) of free space to install all the required apps :</p>
+<ul>
+<li><a href="https://github.com/termux/termux-app">Termux</a> : used as a terminal emulator.</li>
+<li><a href="https://github.com/EXALAB/AnLinux-App">AnLinux</a> : to install a linux distro without root access.</li>
+</ul>
+<p>Note : AnLinux is just an option for those who don&rsquo;t want to navigate the github repo (easy mode).</p>
+<h2 id="choosing-a-distro">Choosing a distro</h2>
+<p>Open <code>AnLinux</code> and choose your favourite distro, I recommend using <code>fedora</code> since it has the most up-to-date packages.
+Copy the install command and open <code>termux</code> and paste.
+When the installation is done you can start fedora by <code>./start-fedora.sh</code></p>
+
+    <img src="/img/fedora-start.png"  alt="anlinux-fedora"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="setup-the-environment">Setup The Environment</h2>
+<p>If you reached this point, you know what to do next :D, but I am going to continue as a reference for future me.</p>
+<ol>
+<li>Update the system : <code>dnf upgrade</code>.</li>
+<li>Install essential packages : <code>dnf install wget git unzip gcc g++ python3 pip net-tools openssh psmisc rsync fuse-sshfs</code></li>
+<li>Install Workspace packages : <code>dnf install nvim tmux zsh</code></li>
+<li>Change the default shell to zsh.</li>
+<li>Add aliases.</li>
+<li>Have fun hacking :D</li>
+</ol>
+<h2 id="extras">Extras</h2>
+<h3 id="termux-customizations">Termux Customizations</h3>
+<ul>
+<li>Download this <a href="https://f-droid.org/packages/com.termux.styling/">addon</a></li>
+<li>Change the theme and font by hold pressing -&gt; <code>style</code> -&gt; <code>choose color/ choose font</code></li>
+</ul>
+<p>For me, I am using <code>Source Code Pro</code> font with <code>Wild Cherry</code> color.</p>
+<h3 id="system-hack">System Hack</h3>
+<p>Since I use <code>vim</code>, I always swap <code>ESC</code> with <code>CAPS_LOCK</code>, but on Android I couldn&rsquo;t swap the physical keyboard button so I changed the <code>CAPS_LOCK</code> to act like <code>ESC</code> lol.</p>
+<p>Here is how I did it:</p>
+<ul>
+<li>Open the normal termux session.</li>
+<li>Install <code>vim</code> or any text editor.</li>
+<li>Mount the system to Write : <code>mount -o remount,rw /system</code></li>
+<li>Edit <code>/system/usr/keylayout/Generic.kl</code> and search for <code>CAPS_LOCK</code> and change it to <code>ESCAPE</code></li>
+<li>Mount the system to Read only : <code>mount -o remount,ro /system</code></li>
+</ul>
+<h3 id="some-useful-aliases">Some useful aliases</h3>
+<p>I have some aliases for easier navigation and nice overall experience.</p>
+<pre tabindex="0"><code>alias v=&#34;nvim&#34;
+alias install=&#34;dnf install&#34;
+alias neo=&#34;neofetch&#34;
+alias mkd=&#34;mkdir -p&#34;
+alias vc=&#34;nvim ~/.config/nvim/init.lua&#34;
+alias python=&#34;python3&#34;
+</code></pre><h3 id="connect-to-the-network-using-ssh">Connect to the network using SSH</h3>
+<p>I am using SSH to connect to my main machine on the network : <code>ssh none@192.168.1.6</code>, and <code>scp</code> to upload/download content.</p>
+<pre tabindex="0"><code># note the IP might change
+down () {
+    scp -r none@192.168.1.6:$1 $2
+}
+up () {
+    scp -r $1 none@192.168.1.6:$2
+}
+</code></pre>]]></content>
+        </item>
         
         <item>
             <title>How to download files and directories from github</title>

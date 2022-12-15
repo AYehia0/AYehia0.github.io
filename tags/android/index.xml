@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on AYehia0</title>
+    <link>https://ayehia0.github.io/tags/android/</link>
+    <description>Recent content in Android on AYehia0</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 14 Dec 2022 22:51:07 +0200</lastBuildDate><atom:link href="https://ayehia0.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setup old android tablet for development</title>
+      <link>https://ayehia0.github.io/posts/setup-linux-on-android/</link>
+      <pubDate>Wed, 14 Dec 2022 22:51:07 +0200</pubDate>
+      
+      <guid>https://ayehia0.github.io/posts/setup-linux-on-android/</guid>
+      <description>Getting Started Before Starting, it&amp;rsquo;s a good idea to install a Custom ROM for your old device just to get the best out of it. Head to XDA and search for your device. But why you might ask ?
+The installed custom ROM would bring you newer Android version + new kernel version. (not always) Root access (more control in general). In my case, I am using SM-T585 which came with Android 8.</description>
+    </item>
+    
+  </channel>
+</rss>

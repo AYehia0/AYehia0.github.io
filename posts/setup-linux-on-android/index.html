@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="">
+<meta name="description" content="Getting Started Before Starting, it&amp;rsquo;s a good idea to install a Custom ROM for your old device just to get the best out of it. Head to XDA and search for your device. But why you might ask ?
+The installed custom ROM would bring you newer Android version &#43; new kernel version. (not always) Root access (more control in general). In my case, I am using SM-T585 which came with Android 8." />
+<meta name="keywords" content=", Android, Termux, Linux, Development" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://ayehia0.github.io/posts/setup-linux-on-android/" />
+
+
+    <title>
+        
+            Setup old android tablet for development :: AYehia0  — My Void
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+<meta itemprop="name" content="Setup old android tablet for development">
+<meta itemprop="description" content="Getting Started Before Starting, it&rsquo;s a good idea to install a Custom ROM for your old device just to get the best out of it. Head to XDA and search for your device. But why you might ask ?
+The installed custom ROM would bring you newer Android version &#43; new kernel version. (not always) Root access (more control in general). In my case, I am using SM-T585 which came with Android 8."><meta itemprop="datePublished" content="2022-12-14T22:51:07+02:00" />
+<meta itemprop="dateModified" content="2022-12-14T22:51:07+02:00" />
+<meta itemprop="wordCount" content="442"><meta itemprop="image" content="https://ayehia0.github.io"/>
+<meta itemprop="keywords" content="Android,Termux,Linux,Development," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://ayehia0.github.io"/>
+
+<meta name="twitter:title" content="Setup old android tablet for development"/>
+<meta name="twitter:description" content="Getting Started Before Starting, it&rsquo;s a good idea to install a Custom ROM for your old device just to get the best out of it. Head to XDA and search for your device. But why you might ask ?
+The installed custom ROM would bring you newer Android version &#43; new kernel version. (not always) Root access (more control in general). In my case, I am using SM-T585 which came with Android 8."/>
+
+
+
+    <meta property="og:title" content="Setup old android tablet for development" />
+<meta property="og:description" content="Getting Started Before Starting, it&rsquo;s a good idea to install a Custom ROM for your old device just to get the best out of it. Head to XDA and search for your device. But why you might ask ?
+The installed custom ROM would bring you newer Android version &#43; new kernel version. (not always) Root access (more control in general). In my case, I am using SM-T585 which came with Android 8." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ayehia0.github.io/posts/setup-linux-on-android/" /><meta property="og:image" content="https://ayehia0.github.io"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-14T22:51:07+02:00" />
+<meta property="article:modified_time" content="2022-12-14T22:51:07+02:00" /><meta property="og:site_name" content="AYehia0" />
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2022-12-14 22:51:07 &#43;0200 EET" />
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">~/None</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/about">About</a></li><li><a href="/posts">Blog</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        3 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://ayehia0.github.io/posts/setup-linux-on-android/">Setup old android tablet for development</a>
+      </h1>
+
+      
+
+      
+
+      
+
+      <div class="post-content">
+        
+    <img src="/img/tablet.jpg"  alt="anlinux-fedora"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="getting-started">Getting Started</h2>
+<p>Before Starting, it&rsquo;s a good idea to install a Custom ROM for your old device just to get the best out of it.
+Head to <a href="https://www.xda-developers.com/">XDA</a> and search for your device.
+But why you might ask ?</p>
+<ul>
+<li>The installed custom ROM would bring you newer Android version + new kernel version. (not always)</li>
+<li>Root access (more control in general).</li>
+</ul>
+<p>In my case, I am using <a href="https://www.gsmarena.com/samsung_galaxy_tab_a_10_1_(2016)-8090.php">SM-T585</a> which came with Android <code>8.1</code> and later on I upgraded to <code>9</code>.</p>
+<h2 id="requirements">Requirements</h2>
+<p>Make sure you have at least 4gb(more than enough) of free space to install all the required apps :</p>
+<ul>
+<li><a href="https://github.com/termux/termux-app">Termux</a> : used as a terminal emulator.</li>
+<li><a href="https://github.com/EXALAB/AnLinux-App">AnLinux</a> : to install a linux distro without root access.</li>
+</ul>
+<p>Note : AnLinux is just an option for those who don&rsquo;t want to navigate the github repo (easy mode).</p>
+<h2 id="choosing-a-distro">Choosing a distro</h2>
+<p>Open <code>AnLinux</code> and choose your favourite distro, I recommend using <code>fedora</code> since it has the most up-to-date packages.
+Copy the install command and open <code>termux</code> and paste.
+When the installation is done you can start fedora by <code>./start-fedora.sh</code></p>
+
+    <img src="/img/fedora-start.png"  alt="anlinux-fedora"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="setup-the-environment">Setup The Environment</h2>
+<p>If you reached this point, you know what to do next :D, but I am going to continue as a reference for future me.</p>
+<ol>
+<li>Update the system : <code>dnf upgrade</code>.</li>
+<li>Install essential packages : <code>dnf install wget git unzip gcc g++ python3 pip net-tools openssh psmisc rsync fuse-sshfs</code></li>
+<li>Install Workspace packages : <code>dnf install nvim tmux zsh</code></li>
+<li>Change the default shell to zsh.</li>
+<li>Add aliases.</li>
+<li>Have fun hacking :D</li>
+</ol>
+<h2 id="extras">Extras</h2>
+<h3 id="termux-customizations">Termux Customizations</h3>
+<ul>
+<li>Download this <a href="https://f-droid.org/packages/com.termux.styling/">addon</a></li>
+<li>Change the theme and font by hold pressing -&gt; <code>style</code> -&gt; <code>choose color/ choose font</code></li>
+</ul>
+<p>For me, I am using <code>Source Code Pro</code> font with <code>Wild Cherry</code> color.</p>
+<h3 id="system-hack">System Hack</h3>
+<p>Since I use <code>vim</code>, I always swap <code>ESC</code> with <code>CAPS_LOCK</code>, but on Android I couldn&rsquo;t swap the physical keyboard button so I changed the <code>CAPS_LOCK</code> to act like <code>ESC</code> lol.</p>
+<p>Here is how I did it:</p>
+<ul>
+<li>Open the normal termux session.</li>
+<li>Install <code>vim</code> or any text editor.</li>
+<li>Mount the system to Write : <code>mount -o remount,rw /system</code></li>
+<li>Edit <code>/system/usr/keylayout/Generic.kl</code> and search for <code>CAPS_LOCK</code> and change it to <code>ESCAPE</code></li>
+<li>Mount the system to Read only : <code>mount -o remount,ro /system</code></li>
+</ul>
+<h3 id="some-useful-aliases">Some useful aliases</h3>
+<p>I have some aliases for easier navigation and nice overall experience.</p>
+<pre tabindex="0"><code>alias v=&#34;nvim&#34;
+alias install=&#34;dnf install&#34;
+alias neo=&#34;neofetch&#34;
+alias mkd=&#34;mkdir -p&#34;
+alias vc=&#34;nvim ~/.config/nvim/init.lua&#34;
+alias python=&#34;python3&#34;
+</code></pre><h3 id="connect-to-the-network-using-ssh">Connect to the network using SSH</h3>
+<p>I am using SSH to connect to my main machine on the network : <code>ssh none@192.168.1.6</code>, and <code>scp</code> to upload/download content.</p>
+<pre tabindex="0"><code># note the IP might change
+down () {
+    scp -r none@192.168.1.6:$1 $2
+}
+up () {
+    scp -r $1 none@192.168.1.6:$2
+}
+</code></pre>
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://ayehia0.github.io/tags/android/">Android</a></span>
+        <span class="tag"><a href="https://ayehia0.github.io/tags/termux/">Termux</a></span>
+        <span class="tag"><a href="https://ayehia0.github.io/tags/linux/">Linux</a></span>
+        <span class="tag"><a href="https://ayehia0.github.io/tags/development/">Development</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        442 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2022-12-14 22:51
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fayehia0.github.io%2fposts%2fsetup-linux-on-android%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fayehia0.github.io%2fposts%2fsetup-linux-on-android%2f&amp;title=Setup%20old%20android%20tablet%20for%20development&amp;summary=Setup%20old%20android%20tablet%20for%20development&amp;source=https%3a%2f%2fayehia0.github.io%2fposts%2fsetup-linux-on-android%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fayehia0.github.io%2fposts%2fsetup-linux-on-android%2f&amp;resubmit=true&amp;title=Setup%20old%20android%20tablet%20for%20development" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Setup%20old%20android%20tablet%20for%20development&amp;url=https%3a%2f%2fayehia0.github.io%2fposts%2fsetup-linux-on-android%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+    <div class="pagination">
+        
+        <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+        </div>
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="https://ayehia0.github.io/posts/download-files-from-github/">
+                    <span class="button__text">How to download files and directories from github</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.bb2c6bc3ed452ca4759660e4020811f248bc2320081559e8a32d8b0092773852941133639d35e8370d03d3ddaa750b1edd6b343c5bd22a55d5bdeae8f648f49b.js" integrity="sha512-uyxrw&#43;1FLKR1lmDkAggR8ki8IyAIFVnooy2LAJJ3OFKUETNjnTXoNw0D092qdQse3Ws0PFvSKlXVvero9kj0mw=="></script>
+
+
+
+    </body>
+</html>
