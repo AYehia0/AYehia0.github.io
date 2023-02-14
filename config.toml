@@ -1,0 +1,208 @@
+baseURL = "https://ayehia0.github.io"
+defaultContentLanguage = "en"
+languageCode = "en"
+title = "To The Void"
+theme = "DoIt"
+
+# Author config
+[author]
+  name = "Yehia"
+  email = ""
+  link = "https://github.com/AYehia0"
+  gravatarEmail = ""
+
+[params]
+    version = "0.2.X"
+
+    [params.page]
+        fontawesome = true
+        lightgallery = true
+        ruby = true
+        pageStyle = "normal"
+        [params.page.toc]
+          enable = true
+          keepStatic = false
+
+        [params.page.outdatedArticleReminder]
+              enable = true
+              reminder = 30
+              warning = 90
+
+        [params.page.code]
+              copy = true
+              maxShownLines = 40
+
+        [params.page.share]
+              enable = true
+              Twitter = true
+              Linkedin = true
+              Redit = true
+        [params.page.comment]
+          enable = true
+          # Disqus comment config
+          [params.page.comment.disqus]
+            enable = true
+            shortname = ""
+
+    [params.sponsor]
+        enable = true
+        bio = "Say Hello :D"
+        link = "https://github.com/AYehia0" # The link to your sponsor page
+        custom = "" # Custom HTML button
+    [params.home]
+        [params.home.profile]
+            enable = true
+            avatarURL = "avatar.jpg"
+            title = "Yehia :D"
+            social = true
+            subtitle = "All the content is based on my experience and it's my own."
+            typeit = true
+
+        [params.home.posts]
+          enable = true
+          paginate = 6
+  [params.header]
+    desktopMode = "fixed"
+    mobileMode = "auto"
+    themeChangeMode = "switch"
+    [params.header.title]
+      logo = ""
+      name = "~/None"
+      pre = '<i class="fas fa-splotch"></i>'
+      post = ""
+      typeit = true
+
+    [params.social]
+        Github = "AYehia0"
+        Soundcloud = "ahmed-yehia0"
+
+    [params.search]
+      enable = true
+      type = "fuse"
+      contentLength = 4000
+      placeholder = "Search..."
+      maxResultLength = 10
+      snippetLength = 30
+      highlightTag = "em"
+      absoluteURL = false
+      [params.search.fuse]
+        isCaseSensitive = false
+        minMatchCharLength = 2
+        findAllMatches = false
+        location = 0
+        threshold = 0.3
+        distance = 100
+        ignoreLocation = true
+        useExtendedSearch = false
+        ignoreFieldNorm = false
+
+  [params.typeit]
+    speed = 100
+    cursorSpeed = 1000
+    cursorChar = "|"
+    duration = -1
+
+ # Footer config
+  [params.footer]
+    enable = true
+    custom = ''
+    hugo = false 
+    hostedOn = '' 
+    copyright = true
+    author = true
+
+  [params.seo]
+    image = "avatar.jpg"
+    thumbnailUrl = "avatar.jpg"
+
+ [params.section]
+    # special amount of posts in each section page
+    paginate = 20
+    # date format (month and day)
+    dateFormat = "02 Jan 2006"
+    # amount of RSS pages
+    rss = 10
+    [params.section.recentlyUpdated]
+      enable = false
+      rss = false
+      days = 30
+      maxCount = 10
+
+  # DoIt NEW | 0.2.0 List (category or tag) page config
+  [params.list]
+    # special amount of posts in each list page
+    paginate = 20
+    # date format (month and day)
+    dateFormat = "02 Jan 2006"
+    # amount of RSS pages
+    rss = 10
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    pre = ""
+    post = ""
+    name = "Posts"
+    url = "/posts/"
+    # title will be shown when you hover on this menu link
+    title = ""
+    weight = 1
+  [[menu.main]]
+    identifier = "categories"
+    pre = ""
+    post = ""
+    name = "Categories"
+    url = "/categories/"
+    title = ""
+    weight = 2
+  [[menu.main]]
+    identifier = "tags"
+    pre = ""
+    post = ""
+    name = "Tags"
+    url = "/tags/"
+    title = ""
+    weight = 3
+  [[menu.main]]
+    identifier = "about"
+    pre = ""
+    post = ""
+    name = "About"
+    url = "/about/"
+    title = ""
+    weight = 4
+
+[markup]
+  # Syntax Highlighting
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.renderer]
+        unsafe = true
+    [markup.tableOfContents]
+        startLevel = 2
+        endLevel = 6
+
+# Privacy config
+[privacy]
+  [privacy.twitter]
+    enableDNT = true
+  [privacy.youtube]
+    privacyEnhanced = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML", "MarkDown"]
+  section = ["HTML", "RSS"]
