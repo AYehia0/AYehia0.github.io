@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>github - Tag - To The Void</title>
+        <link>https://ayehia0.github.io/tags/github/</link>
+        <description>github - Tag - To The Void</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 26 Nov 2022 12:48:29 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/tags/github/" rel="self" type="application/rss+xml" /><item>
+    <title>How to download files and directories from github</title>
+    <link>https://ayehia0.github.io/posts/github-dl/</link>
+    <pubDate>Sat, 26 Nov 2022 12:48:29 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/posts/github-dl/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/github-dl/featured-image.jpeg" referrerpolicy="no-referrer">
+            </div>Using the github website
+Probably this is the easiest way to download files from github, by navigating to the file on github and click on the download button. Unfortenitaly, it&rsquo;s not the fastest, you will have to move the file to the desired destination and doesn&rsquo;t work for raw files like (txt and .ext).
+Using wget/curlNow we talk :D, here&rsquo;s a bash function (add to your alias section) I wrote to automate the download process by using the URL which contains blob keyword.]]></description>
+</item></channel>
+</rss>

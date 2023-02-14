@@ -1,1 +1,26 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>https://ayehia0.github.io/categories/</loc></url><url><loc>https://ayehia0.github.io/tags/</loc></url><url><loc>https://ayehia0.github.io/</loc></url></urlset>
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    ><url>
+            <loc>https://ayehia0.github.io/tags/android/</loc><lastmod>2022-12-14T22:51:07&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/categories/</loc><lastmod>2022-12-14T22:51:07&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/tags/development/</loc><lastmod>2022-12-14T22:51:07&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/categories/development/</loc><lastmod>2022-12-14T22:51:07&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/tags/linux/</loc><lastmod>2022-12-14T22:51:07&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/posts/</loc><lastmod>2022-12-14T22:51:07&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/posts/android_setup_dev/</loc><lastmod>2022-12-14T22:51:07&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/tags/</loc><lastmod>2022-12-14T22:51:07&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/tags/termux/</loc><lastmod>2022-12-14T22:51:07&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/</loc><lastmod>2022-12-14T22:51:07&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/tags/github/</loc><lastmod>2022-11-26T12:48:29&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/categories/github/</loc><lastmod>2022-11-26T12:48:29&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/posts/github-dl/</loc><lastmod>2022-11-26T12:48:29&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/tags/bspwm/</loc><lastmod>2022-11-23T21:24:34&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/posts/setup_mpd_bspwm/</loc><lastmod>2022-11-23T21:24:34&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/categories/linux/</loc><lastmod>2022-11-23T21:24:34&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/tags/mpd/</loc><lastmod>2022-11-23T21:24:34&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/tags/polybar/</loc><lastmod>2022-11-23T21:24:34&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/posts/tmux_setup/</loc><lastmod>2022-08-10T01:10:44&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/tags/rice/</loc><lastmod>2022-08-10T01:10:44&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/tags/tmux/</loc><lastmod>2022-08-10T01:10:44&#43;02:00</lastmod></url><url>
+            <loc>https://ayehia0.github.io/about/</loc><lastmod>2019-08-02T11:04:49&#43;08:00</lastmod></url></urlset>

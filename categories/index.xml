@@ -1,1 +1,28 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Categories - Category - To The Void</title><link>https://ayehia0.github.io/categories/</link><description>Categories - Category - To The Void</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://ayehia0.github.io/categories/" rel="self" type="application/rss+xml"/></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Categories - Category - To The Void</title>
+        <link>https://ayehia0.github.io/categories/</link>
+        <description>Categories - Category - To The Void</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 14 Dec 2022 22:51:07 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Development</title>
+    <link>https://ayehia0.github.io/categories/development/</link>
+    <pubDate>Wed, 14 Dec 2022 22:51:07 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/categories/development/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Github</title>
+    <link>https://ayehia0.github.io/categories/github/</link>
+    <pubDate>Sat, 26 Nov 2022 12:48:29 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/categories/github/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Linux</title>
+    <link>https://ayehia0.github.io/categories/linux/</link>
+    <pubDate>Wed, 23 Nov 2022 21:24:34 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/categories/linux/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
+</rss>
