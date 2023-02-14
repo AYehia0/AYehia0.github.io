@@ -28,5 +28,5 @@ jobs:
         if: github.ref == 'refs/heads/master'
         with:
           lfs: true
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.SECRET_VOID }}
           publish_dir: ./public
