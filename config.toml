@@ -1,8 +1,12 @@
 baseURL = "https://ayehia0.github.io"
 defaultContentLanguage = "en"
 languageCode = "en"
-title = "To The Void"
+title = "::1 404"
 theme = "DoIt"
+enableRobotsTXT = true
+enableEmoji = true
+description = "A void place for those who seek for knowledge, fun and memes, better than your ::1"
+keywords = ["Void", "archlinux", "unixporn", "foss", "github", "personal", "hacking", "themes", "android", "memes"]
 
 # Author config
 [author]
@@ -111,9 +115,10 @@ theme = "DoIt"
     copyright = true
     author = true
 
+
   [params.seo]
-    image = "avatar.jpg"
-    thumbnailUrl = "avatar.jpg"
+    image = "images/me.jpg"
+    thumbnailUrl = "images/me.jpg"
 
  [params.section]
     # special amount of posts in each section page
@@ -136,6 +141,14 @@ theme = "DoIt"
     dateFormat = "02 Jan 2006"
     # amount of RSS pages
     rss = 10
+
+  [page.seo]
+    # image URL
+    images = []
+    # Publisher info
+    [page.seo.publisher]
+      name = "None"
+      logoUrl = "/images/me.png"
 
 [menu]
   [[menu.main]]
