@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>rice - Tag - To The Void</title>
+        <title>rice - Tag - ::1 404</title>
         <link>https://ayehia0.github.io/tags/rice/</link>
-        <description>rice - Tag - To The Void</description>
+        <description>rice - Tag - ::1 404</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 10 Aug 2022 01:10:44 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/tags/rice/" rel="self" type="application/rss+xml" /><item>
     <title>How to setup tmux for advanced users ?</title>
     <link>https://ayehia0.github.io/posts/tmux_setup/</link>

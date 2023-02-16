@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>bspwm - Tag - To The Void</title>
+        <title>bspwm - Tag - ::1 404</title>
         <link>https://ayehia0.github.io/tags/bspwm/</link>
-        <description>bspwm - Tag - To The Void</description>
+        <description>bspwm - Tag - ::1 404</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 23 Nov 2022 21:24:34 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/tags/bspwm/" rel="self" type="application/rss+xml" /><item>
     <title>Full MPD setup on BSPWM &#43; Polybar</title>
     <link>https://ayehia0.github.io/posts/setup_mpd_bspwm/</link>

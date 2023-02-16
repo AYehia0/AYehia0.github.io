@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>termux - Tag - To The Void</title>
+        <title>termux - Tag - ::1 404</title>
         <link>https://ayehia0.github.io/tags/termux/</link>
-        <description>termux - Tag - To The Void</description>
+        <description>termux - Tag - ::1 404</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 14 Dec 2022 22:51:07 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/tags/termux/" rel="self" type="application/rss+xml" /><item>
     <title>Setup old android tablet for development</title>
     <link>https://ayehia0.github.io/posts/android_setup_dev/</link>
