@@ -3,7 +3,28 @@
         <title>Tags - Tag - ::1 404</title>
         <link>https://ayehia0.github.io/tags/</link>
         <description>Tags - Tag - ::1 404</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 14 Dec 2022 22:51:07 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 16 Feb 2023 08:04:42 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>codingame</title>
+    <link>https://ayehia0.github.io/tags/codingame/</link>
+    <pubDate>Thu, 16 Feb 2023 08:04:42 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/tags/codingame/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>leetcode</title>
+    <link>https://ayehia0.github.io/tags/leetcode/</link>
+    <pubDate>Thu, 16 Feb 2023 08:04:42 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/tags/leetcode/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>problem solving</title>
+    <link>https://ayehia0.github.io/tags/problem-solving/</link>
+    <pubDate>Thu, 16 Feb 2023 08:04:42 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/tags/problem-solving/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>android</title>
     <link>https://ayehia0.github.io/tags/android/</link>
     <pubDate>Wed, 14 Dec 2022 22:51:07 &#43;0200</pubDate><author>
@@ -51,27 +72,6 @@
     <pubDate>Wed, 23 Nov 2022 21:24:34 &#43;0200</pubDate><author>
         <name>Yehia</name>
     </author><guid>https://ayehia0.github.io/tags/mpd/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>polybar</title>
-    <link>https://ayehia0.github.io/tags/polybar/</link>
-    <pubDate>Wed, 23 Nov 2022 21:24:34 &#43;0200</pubDate><author>
-        <name>Yehia</name>
-    </author><guid>https://ayehia0.github.io/tags/polybar/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>rice</title>
-    <link>https://ayehia0.github.io/tags/rice/</link>
-    <pubDate>Wed, 10 Aug 2022 01:10:44 &#43;0200</pubDate><author>
-        <name>Yehia</name>
-    </author><guid>https://ayehia0.github.io/tags/rice/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>tmux</title>
-    <link>https://ayehia0.github.io/tags/tmux/</link>
-    <pubDate>Wed, 10 Aug 2022 01:10:44 &#43;0200</pubDate><author>
-        <name>Yehia</name>
-    </author><guid>https://ayehia0.github.io/tags/tmux/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>
