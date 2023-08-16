@@ -6,7 +6,7 @@ Here I share my thoughts about the universe.
 
 2- Run the development server : `hugo server --disableFastRender --buildDrafts`
 
-3- Expose/Forward the default port to your localhost: `gh codespace forward 1313:1313`
+3- Expose/Forward the default port to your localhost: `gh codespace ports forward 1313:1313`
 
 ## TODO
 
