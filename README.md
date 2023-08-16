@@ -8,6 +8,8 @@ Here I share my thoughts about the universe.
 
 3- Expose/Forward the default port to your localhost: `gh codespace ports forward 1313:1313`
 
+4- Create a new post : `hugo new posts/content_name/index.md`
+
 ## TODO
 
 - [X] Static TOC
