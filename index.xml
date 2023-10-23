@@ -3,9 +3,18 @@
         <title>::1 404</title>
         <link>https://ayehia0.github.io/</link>
         <description>::1 404</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 02 Mar 2023 08:11:12 &#43;0200</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 16 Oct 2023 13:23:21 &#43;0000</lastBuildDate>
             <atom:link href="https://ayehia0.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Git for hackers</title>
+    <link>https://ayehia0.github.io/posts/git_wizard/</link>
+    <pubDate>Mon, 16 Oct 2023 13:23:21 &#43;0000</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/posts/git_wizard/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/git_wizard/featured-image.png" referrerpolicy="no-referrer">
+            </div>Git for hackers Once a wise man said: &ldquo;There are two types of hackers in this world: those who know git, and those who still don&rsquo;t git it&rdquo; When I refer to hackers, I mean those who love to go be behind the things to discover how things work and break them (somehow). Originally, hacker simply meant advanced computer technology enthusiast (both hardware and software) and adherent of programming subculture who used their skill to achieve a goal or overcome an obstacle.]]></description>
+</item><item>
     <title>How email tracking works ?</title>
     <link>https://ayehia0.github.io/posts/email_tracking/</link>
     <pubDate>Thu, 02 Mar 2023 08:11:12 &#43;0200</pubDate><author>
