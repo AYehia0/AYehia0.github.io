@@ -17,6 +17,7 @@ keywords = ["Void", "archlinux", "unixporn", "foss", "github", "personal", "hack
 
 [params]
     version = "0.2.X"
+    defaultTheme = "auto"
 
     [params.page]
         fontawesome = true
