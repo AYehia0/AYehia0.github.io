@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +21,8 @@
 <meta name="theme-color" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://ayehia0.github.io/" /><link rel="alternate" href="/index.xml" type="application/rss+xml" title="::1 404">
-    <link rel="feed" href="/index.xml" type="application/rss+xml" title="::1 404"><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.css">
+    <link rel="feed" href="/index.xml" type="application/rss+xml" title="::1 404">
+<link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.css">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.css">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -30,16 +33,17 @@
                 "name": "Yehia"
             },"image": "https:\/\/ayehia0.github.io\/images\/me.jpg","thumbnailUrl": "https:\/\/ayehia0.github.io\/images\/me.jpg","name": "::1 404"
     }
-    </script><script src="//instant.page/5.1.1" defer type="module" integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"></script>
+    </script><script src="//instant.page/5.2.0" defer type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
 </head>
 
 <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
-        function setTheme(theme) {document.body.setAttribute('theme', theme); document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark');}
+        function setTheme(theme) {document.body.setAttribute('theme', theme); document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark'); window.theme = theme;   window.isDark = window.theme !== 'light' }
         function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
         function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
         if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
         let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
         getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+        window.switchThemeEventSet = new Set()
     </script>
     <div id="back-to-top"></div>
     <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
@@ -50,16 +54,16 @@
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="Search..." id="search-input-desktop">
-                        <a href="#" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
                             <i class="fas fa-search fa-fw"></i>
                         </a>
-                        <a href="#" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
                             <i class="fas fa-times-circle fa-fw"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
                             <i class="fas fa-spinner fa-fw fa-spin"></i>
                         </span>
-                    </span><a href="#" class="menu-item theme-switch" title="Switch Theme">
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a></div>
         </div>
@@ -77,20 +81,20 @@
         <div class="menu" id="menu-mobile"><div class="search-wrapper">
                     <div class="search mobile" id="search-mobile">
                         <input type="text" placeholder="Search..." id="search-input-mobile">
-                        <a href="#" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
                             <i class="fas fa-search fa-fw"></i>
                         </a>
-                        <a href="#" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
                             <i class="fas fa-times-circle fa-fw"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
                             <i class="fas fa-spinner fa-fw fa-spin"></i>
                         </span>
                     </div>
-                    <a href="#" class="search-cancel" id="search-cancel-mobile">
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         Cancel
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a href="#" class="menu-item theme-switch" title="Switch Theme">
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw"></i>
             </a></div>
     </div>
@@ -105,11 +109,11 @@
             <div class="container"><div class="page home" posts><div class="home-profile"><div class="home-avatar"><a href="/posts/" title="Posts"><img
         
         loading="eager"
-        src="avatar.jpg"
-        srcset="/avatar.jpg, avatar.jpg 1.5x, /avatar.jpg 2x"
+        src="/avatar.jpg"
+        srcset="/avatar.jpg, /avatar.jpg 1.5x, /avatar.jpg 2x"
         sizes="auto"
         alt="/avatar.jpg"
-        title="/avatar.jpg" height="100" width="100"></a></div><h1 class="home-title">Yehia :D</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/AYehia0" title="GitHub" target="_blank" rel="noopener noreferrer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://soundcloud.com/ahmed-yehia0" title="SoundCloud" target="_blank" rel="noopener noreferrer me"><i class="fab fa-soundcloud fa-fw"></i></a></div></div>
+        title="/avatar.jpg" height="100"   width="100" ></a></div><h1 class="home-title">Yehia :D</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/AYehia0" title="GitHub" target="_blank" rel="noopener noreferrer me"><span class="fab fa-github-alt fa-fw"></span></a><a href="https://soundcloud.com/ahmed-yehia0" title="SoundCloud" target="_blank" rel="noopener noreferrer me"><span class="fab fa-soundcloud fa-fw"></span></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/posts/git_wizard/" aria-label=Git&#32;for&#32;hackers><img
         
@@ -118,11 +122,11 @@
         srcset="/posts/git_wizard/featured-image.png, /posts/git_wizard/featured-image.png 1.5x, /posts/git_wizard/featured-image.png 2x"
         sizes="auto"
         alt="/posts/git_wizard/featured-image.png"
-        title="/posts/git_wizard/featured-image.png" height="1080" width="1920"></a>
+        title="/posts/git_wizard/featured-image.png" height="1080"   width="1920" ></a>
         </div><h1 class="single-title" itemprop="name headline">
         <a href="/posts/git_wizard/">Git for hackers</a>
     </h1><div class="post-meta">
-        <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
+        <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
         </span>&nbsp;<span class="post-publish">published on <time datetime="2023-10-16">2023-10-16</time></span></div><div class="content">Git for hackers Once a wise man said: &ldquo;There are two types of hackers in this world: those who know git, and those who still don&rsquo;t git it&rdquo; When I refer to hackers, I mean those who love to go be behind the things to discover how things work and break them (somehow). Originally, hacker simply meant advanced computer technology enthusiast (both hardware and software) and adherent of programming subculture who used their skill to achieve a goal or overcome an obstacle.</div><div class="post-footer">
         <a href="/posts/git_wizard/">Read more...</a></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
@@ -133,11 +137,11 @@
         srcset="/posts/email_tracking/featured-image.png, /posts/email_tracking/featured-image.png 1.5x, /posts/email_tracking/featured-image.png 2x"
         sizes="auto"
         alt="/posts/email_tracking/featured-image.png"
-        title="/posts/email_tracking/featured-image.png" height="1000" width="2500"></a>
+        title="/posts/email_tracking/featured-image.png" height="1000"   width="2500" ></a>
         </div><h1 class="single-title" itemprop="name headline">
         <a href="/posts/email_tracking/">How email tracking works ?</a>
     </h1><div class="post-meta">
-        <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
+        <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
         </span>&nbsp;<span class="post-publish">published on <time datetime="2023-03-02">2023-03-02</time></span></div><div class="content"><p>Have you ever wondered how could someone knows if you read their email or not ?</p></div><div class="post-footer">
         <a href="/posts/email_tracking/">Read more...</a></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
@@ -147,12 +151,12 @@
         src="/posts/problem_solving_for_absolute_noobs/featured-image.jpeg"
         srcset="/posts/problem_solving_for_absolute_noobs/featured-image.jpeg, /posts/problem_solving_for_absolute_noobs/featured-image.jpeg 1.5x, /posts/problem_solving_for_absolute_noobs/featured-image.jpeg 2x"
         sizes="auto"
-        alt="/posts/problem_solving_for_absolute_noobs/featured-image.jpeg"
-        title="To be good at something, it requires you to practice a lot. Problem-solving isn&#39;t any different - it just requires a bit more creativity, patience, and probably a Math degree. (just kidding!)" height="560" width="1000"></a>
+        alt="To be good at something, it requires you to practice a lot. Problem-solving isn&#39;t any different - it just requires a bit more creativity, patience, and probably a Math degree. (just kidding!)"
+        title="To be good at something, it requires you to practice a lot. Problem-solving isn&#39;t any different - it just requires a bit more creativity, patience, and probably a Math degree. (just kidding!)" height="560"   width="1000" ></a>
         </div><h1 class="single-title" itemprop="name headline">
         <a href="/posts/problem_solving_for_absolute_noobs/">My Way For Problem solving!</a>
     </h1><div class="post-meta">
-        <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
+        <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
         </span>&nbsp;<span class="post-publish">published on <time datetime="2023-02-16">2023-02-16</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/problem-solving/"><i class="far fa-folder fa-fw"></i>Problem Solving</a></span></div><div class="content"><p>To be good at something, it requires you to practice a lot. Problem-solving isn&rsquo;t any different - it just requires a bit more creativity, patience, and probably a Math degree. (just kidding!).</p></div><div class="post-footer">
         <a href="/posts/problem_solving_for_absolute_noobs/">Read more...</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/problem-solving/">problem solving</a>,&nbsp;<a href="/tags/leetcode/">leetcode</a>,&nbsp;<a href="/tags/codingame/">codingame</a></div></div>
@@ -164,11 +168,11 @@
         srcset="/posts/android_setup_dev/featured-image.webp, /posts/android_setup_dev/featured-image.webp 1.5x, /posts/android_setup_dev/featured-image.webp 2x"
         sizes="auto"
         alt="/posts/android_setup_dev/featured-image.webp"
-        title="/posts/android_setup_dev/featured-image.webp" height="900" width="1600"></a>
+        title="/posts/android_setup_dev/featured-image.webp" height="900"   width="1600" ></a>
         </div><h1 class="single-title" itemprop="name headline">
         <a href="/posts/android_setup_dev/">Setup old android tablet for development</a>
     </h1><div class="post-meta">
-        <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
+        <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
         </span>&nbsp;<span class="post-publish">published on <time datetime="2022-12-14">2022-12-14</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/development/"><i class="far fa-folder fa-fw"></i>Development</a></span></div><div class="content">Getting StartedBefore Starting, it&rsquo;s a good idea to install a Custom ROM for your old device just to get the best out of it. Head to XDA and search for your device. But why you might ask ?
 The installed custom ROM would bring you newer Android version + new kernel version. (not always) Root access (more control in general). In my case, I am using SM-T585 which came with Android 8.</div><div class="post-footer">
         <a href="/posts/android_setup_dev/">Read more...</a><div class="post-tags">
@@ -181,11 +185,11 @@ The installed custom ROM would bring you newer Android version + new kernel vers
         srcset="/posts/github-dl/featured-image.jpeg, /posts/github-dl/featured-image.jpeg 1.5x, /posts/github-dl/featured-image.jpeg 2x"
         sizes="auto"
         alt="/posts/github-dl/featured-image.jpeg"
-        title="/posts/github-dl/featured-image.jpeg" height="403" width="807"></a>
+        title="/posts/github-dl/featured-image.jpeg" height="403"   width="807" ></a>
         </div><h1 class="single-title" itemprop="name headline">
         <a href="/posts/github-dl/">How to download files and directories from github</a>
     </h1><div class="post-meta">
-        <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
+        <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
         </span>&nbsp;<span class="post-publish">published on <time datetime="2022-11-26">2022-11-26</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/github/"><i class="far fa-folder fa-fw"></i>Github</a></span></div><div class="content">Using the github website
 Probably this is the easiest way to download files from github, by navigating to the file on github and click on the download button. Unfortenitaly, it&rsquo;s not the fastest, you will have to move the file to the desired destination and doesn&rsquo;t work for raw files like (txt and .ext).
 Using wget/curlNow we talk :D, here&rsquo;s a bash function (add to your alias section) I wrote to automate the download process by using the URL which contains blob keyword.</div><div class="post-footer">
@@ -199,11 +203,11 @@ Using wget/curlNow we talk :D, here&rsquo;s a bash function (add to your alias s
         srcset="/posts/setup_mpd_bspwm/featured-image.png, /posts/setup_mpd_bspwm/featured-image.png 1.5x, /posts/setup_mpd_bspwm/featured-image.png 2x"
         sizes="auto"
         alt="/posts/setup_mpd_bspwm/featured-image.png"
-        title="/posts/setup_mpd_bspwm/featured-image.png" height="1080" width="1920"></a>
+        title="/posts/setup_mpd_bspwm/featured-image.png" height="1080"   width="1920" ></a>
         </div><h1 class="single-title" itemprop="name headline">
         <a href="/posts/setup_mpd_bspwm/">Full MPD setup on BSPWM &#43; Polybar</a>
     </h1><div class="post-meta">
-        <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
+        <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
         </span>&nbsp;<span class="post-publish">published on <time datetime="2022-11-23">2022-11-23</time></span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>Linux</a></span></div><div class="content">What is mpd ?MPD (Music Player Daemon) is an audio player, used to play audio tracks, organize playlists with some database for musics. In order to interface with it, a client is needed (in our case (ncmpcpp)[https://rybczak.net/ncmpcpp/] is used).
 Installation Install mpd and ncmpcpp on ArchLinux : sudo pacman -S mpd ncmpcpp Install mpDris2 (provides MPRIS 2 support to mpd): yay -S mpdris2 Setup AutostartThere are multiple ways to auto-run mpd and mpdris2 :</div><div class="post-footer">
         <a href="/posts/setup_mpd_bspwm/">Read more...</a><div class="post-tags">
