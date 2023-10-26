@@ -103,7 +103,7 @@ now_playing_suffix = "$/b$9"
 song_status_format = "$7%t"
 song_list_format = "$8%a - %t$R  $5%l"
 song_columns_list_format = "(3f)[green]{} (60)[magenta]{t|f:Title} (1)[]{}"
-song_library_format = {{ %a - %t } (%b)}|{%f} 
+song_library_format = "{{ %a - %t } (%b)}|{%f}"
 song_window_title_format = "Music"
 
 # Visualizer
