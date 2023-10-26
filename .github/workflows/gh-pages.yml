@@ -19,3 +19,4 @@ jobs:
         uses: chabad360/hugo-gh-pages@master
         with:
           githubToken: ${{ secrets.SECRET_VOID }}
+          args: --buildDrafts
