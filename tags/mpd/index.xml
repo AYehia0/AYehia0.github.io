@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>mpd - Tag - ::1 404</title>
+        <link>https://ayehia0.github.io/tags/mpd/</link>
+        <description>mpd - Tag - ::1 404</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 23 Nov 2022 21:24:34 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/tags/mpd/" rel="self" type="application/rss+xml" /><item>
+    <title>Full MPD setup on BSPWM &#43; Polybar</title>
+    <link>https://ayehia0.github.io/posts/setup_mpd_bspwm/</link>
+    <pubDate>Wed, 23 Nov 2022 21:24:34 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/posts/setup_mpd_bspwm/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/setup_mpd_bspwm/featured-image.png" referrerpolicy="no-referrer">
+            </div>What is mpd ?MPD (Music Player Daemon) is an audio player, used to play audio tracks, organize playlists with some database for musics. In order to interface with it, a client is needed (in our case (ncmpcpp)[https://rybczak.net/ncmpcpp/] is used).
+Installation Install mpd and ncmpcpp on ArchLinux : sudo pacman -S mpd ncmpcpp Install mpDris2 (provides MPRIS 2 support to mpd): yay -S mpdris2 Setup AutostartThere are multiple ways to auto-run mpd and mpdris2 :]]></description>
+</item></channel>
+</rss>
