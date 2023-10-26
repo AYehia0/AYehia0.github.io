@@ -21,6 +21,7 @@ jobs:
           hugo-version: 'latest'
 
       - name: Build
+        run: hugo version
         run: hugo --buildDrafts
 
       - name: Deploy
