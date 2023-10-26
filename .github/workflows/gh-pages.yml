@@ -21,8 +21,9 @@ jobs:
           hugo-version: 'latest'
 
       - name: Build
-        run: hugo version
-        run: hugo --buildDrafts
+        run: |
+          hugo version
+          hugo --buildDrafts
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
