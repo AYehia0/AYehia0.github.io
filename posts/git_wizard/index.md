@@ -18,7 +18,7 @@ If you don't know what's git or version control, you should read this book : [Pr
 
 I also assume you have git installed on your machine, and you have some basic experience with Linux Shell.
 
-{{< admonition note true >}}
+{{< admonition note Note >}}
 I will update this blog whenever I find something useful to share.
 {{< /admonition >}}
 
@@ -38,7 +38,38 @@ Anyone who ever used git, will know this flow (and yes, with deep understanding 
 sequenceDiagram
     participant Working Tree
     participant Staging Area
-    Working Tree ->>Staging Area: git commit
+    participant Local Repo
+    Working Tree ->>Staging Area: git add
+    Staging Area ->>Local Repo: git commit
+    Local Repo ->>Staging Area: git reset
+    Staging Area ->>Working Tree: git restore --staged
+    Local Repo ->>Working Tree: git checkout
+    participant Remote
+    Local Repo ->>Remote: git push
+    Remote ->>Local Repo: git pull
 {{< /mermaid >}}
 
+Even though there are some hidden gems that will make your life easier:
+
+#### 1. `git stash`
+Stash the changes in a dirty working directory away
+
+when you want to record the current state of the working directory and the index, but want to go back to a clean working directory. The command saves your local modifications away and reverts the working directory to match the HEAD commit.
+
+The modifications stashed away by this command can be listed with `git stash list`, inspected with `git stash show`, and restored (potentially on top of a different commit) with `git stash apply`. Calling git stash without any arguments is equivalent to `git stash push`
+
+{{< admonition tip Tip >}}
+You can interactively choose which changes to stash when using `git stash -p`
+{{< /admonition >}}
+
+#### 2. `git cherry-pick`
+
+Apply the changes introduced by some existing commits to your repo.
+
+`git cherry-pick` is a very useful command to use in case you want to have some commits to be picked by reference and added to the current working HEAD.
+
+<br>
+<p align="center">
+    <img src="one-simply-cherry-pick.jpg" width="100%">
+</p>
 

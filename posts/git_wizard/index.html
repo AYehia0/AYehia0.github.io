@@ -34,7 +34,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/ayehia0.github.io\/posts\/git_wizard\/"
-        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  251 ,
+        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  457 ,
         "url": "https:\/\/ayehia0.github.io\/posts\/git_wizard\/","datePublished": "2023-10-16T13:23:21+00:00","dateModified": "2023-10-16T13:23:21+00:00","publisher": {
             "@type": "Organization",
             "name": "Yehia"},"author": {
@@ -122,7 +122,12 @@
     <li><a href="#disclaimer">Disclaimer</a></li>
     <li><a href="#introduction">Introduction</a>
       <ul>
-        <li><a href="#uncommon-git-commands">Uncommon git commands</a></li>
+        <li><a href="#uncommon-git-commands">Uncommon git commands</a>
+          <ul>
+            <li><a href="#1-git-stash">1. <code>git stash</code></a></li>
+            <li><a href="#2-git-cherry-pick">2. <code>git cherry-pick</code></a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -131,7 +136,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-10-16">2023-10-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-10-16">2023-10-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;251 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-10-16">2023-10-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-10-16">2023-10-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;457 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         
         loading="eager"
@@ -149,7 +154,12 @@
     <li><a href="#disclaimer">Disclaimer</a></li>
     <li><a href="#introduction">Introduction</a>
       <ul>
-        <li><a href="#uncommon-git-commands">Uncommon git commands</a></li>
+        <li><a href="#uncommon-git-commands">Uncommon git commands</a>
+          <ul>
+            <li><a href="#1-git-stash">1. <code>git stash</code></a></li>
+            <li><a href="#2-git-cherry-pick">2. <code>git cherry-pick</code></a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -171,7 +181,7 @@
 <p>I also assume you have git installed on your machine, and you have some basic experience with Linux Shell.</p>
 <div class="details admonition note open">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-pencil-alt fa-fw"></i>true<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-pencil-alt fa-fw"></i>Note<i class="details-icon fas fa-angle-right fa-fw"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">I will update this blog whenever I find something useful to share.</div>
@@ -191,9 +201,37 @@
 sequenceDiagram
     participant Working Tree
     participant Staging Area
-    Working Tree ->>Staging Area: git commit
+    participant Local Repo
+    Working Tree ->>Staging Area: git add
+    Staging Area ->>Local Repo: git commit
+    Local Repo ->>Staging Area: git reset
+    Staging Area ->>Working Tree: git restore --staged
+    Local Repo ->>Working Tree: git checkout
+    participant Remote
+    Local Repo ->>Remote: git push
+    Remote ->>Local Repo: git pull
 
 </pre>
+<p>Even though there are some hidden gems that will make your life easier:</p>
+<h4 id="1-git-stash" class="headerLink">
+    <a href="#1-git-stash" class="header-mark"></a>1. <code>git stash</code></h4><p>Stash the changes in a dirty working directory away</p>
+<p>when you want to record the current state of the working directory and the index, but want to go back to a clean working directory. The command saves your local modifications away and reverts the working directory to match the HEAD commit.</p>
+<p>The modifications stashed away by this command can be listed with <code>git stash list</code>, inspected with <code>git stash show</code>, and restored (potentially on top of a different commit) with <code>git stash apply</code>. Calling git stash without any arguments is equivalent to <code>git stash push</code></p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>Tip<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">You can interactively choose which changes to stash when using <code>git stash -p</code></div>
+        </div>
+    </div>
+<h4 id="2-git-cherry-pick" class="headerLink">
+    <a href="#2-git-cherry-pick" class="header-mark"></a>2. <code>git cherry-pick</code></h4><p>Apply the changes introduced by some existing commits to your repo.</p>
+<p><code>git cherry-pick</code> is a very useful command to use in case you want to have some commits to be picked by reference and added to the current working HEAD.</p>
+<br>
+<p align="center">
+    <img src="one-simply-cherry-pick.jpg" width="100%">
+</p>
 </div>
 
         <div class="sponsor">
