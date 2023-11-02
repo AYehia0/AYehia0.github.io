@@ -23,6 +23,9 @@ featuredImage: "featured-image.png"
 featuredImagePreview: "featured-image.png"
 ---
 
+A practical guide for git with real life scenarios which can make your git experience better.
+<!--more-->
+
 # Git for hackers
 
 {{< admonition quote "Once a wise man said:" true >}}

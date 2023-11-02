@@ -23,8 +23,11 @@ featuredImage: "featured-image.jpg"
 featuredImagePreview: "featured-image.jpg"
 ---
 
+So you heared it. Askfm Reverse Engineering! to get back the threads to the web version by creating a web extension that calls the mobile api to show the data and more.
+<!--more-->
+
 # What the heck is askfm ?
-Ah Askfm, the good old days when you get back from school and open your askfm account to check these question: which back at the time looked like `'What is your favourite colour ?, What order do you wear your shoes ?,,,etc'`.
+Ah Askfm, the good old days when you get back from school and open your askfm account to check these question: which back at the time looked like 'What is your favourite colour ?, What order do you wear your shoes ? etc...'.
 
 Askfm was something cute when almost few people (those who had opinios about everything) used it, now it became a monster, turned into an ad targeting application with many features that ruined the application : like coins (the first stupid thing), then many more stupid featues and many people used the application the wrong way (you know what I mean if you're using it now).
 
