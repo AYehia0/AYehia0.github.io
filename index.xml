@@ -3,9 +3,19 @@
         <title>::1 404</title>
         <link>https://ayehia0.github.io/</link>
         <description>::1 404</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 16 Oct 2023 13:23:21 &#43;0000</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 02 Nov 2023 13:50:11 &#43;0200</lastBuildDate>
             <atom:link href="https://ayehia0.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Askfm Reverse Engineering: Getting Threads Back!</title>
+    <link>https://ayehia0.github.io/posts/askfm_reverse_engineering/</link>
+    <pubDate>Thu, 02 Nov 2023 13:50:11 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/posts/askfm_reverse_engineering/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/askfm_reverse_engineering/featured-image.jpg" referrerpolicy="no-referrer">
+            </div>What the heck is askfm ?Ah Askfm, the good old days when you get back from school and open your askfm account to check these question: which back at the time looked like 'What is your favourite colour ?, What order do you wear your shoes ?,,,etc'.
+Askfm was something cute when almost few people (those who had opinios about everything) used it, now it became a monster, turned into an ad targeting application with many features that ruined the application : like coins (the first stupid thing), then many more stupid featues and many people used the application the wrong way (you know what I mean if you&rsquo;re using it now).]]></description>
+</item><item>
     <title>Git for hackers</title>
     <link>https://ayehia0.github.io/posts/git_hacks/</link>
     <pubDate>Mon, 16 Oct 2023 13:23:21 &#43;0000</pubDate><author>

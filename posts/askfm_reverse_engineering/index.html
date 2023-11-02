@@ -1,0 +1,1097 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title>Askfm Reverse Engineering: Getting Threads Back! - ::1 404</title><meta name="Description" content=""><meta property="og:title" content="Askfm Reverse Engineering: Getting Threads Back!" />
+<meta property="og:description" content="What the heck is askfm ?Ah Askfm, the good old days when you get back from school and open your askfm account to check these question: which back at the time looked like &#39;What is your favourite colour ?, What order do you wear your shoes ?,,,etc&#39;.
+Askfm was something cute when almost few people (those who had opinios about everything) used it, now it became a monster, turned into an ad targeting application with many features that ruined the application : like coins (the first stupid thing), then many more stupid featues and many people used the application the wrong way (you know what I mean if you&rsquo;re using it now)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ayehia0.github.io/posts/askfm_reverse_engineering/" /><meta property="og:image" content="https://ayehia0.github.io/posts/askfm_reverse_engineering/featured-image.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-02T13:50:11+02:00" />
+<meta property="article:modified_time" content="2023-11-02T13:50:11+02:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://ayehia0.github.io/posts/askfm_reverse_engineering/featured-image.jpg"/>
+<meta name="twitter:title" content="Askfm Reverse Engineering: Getting Threads Back!"/>
+<meta name="twitter:description" content="What the heck is askfm ?Ah Askfm, the good old days when you get back from school and open your askfm account to check these question: which back at the time looked like &#39;What is your favourite colour ?, What order do you wear your shoes ?,,,etc&#39;.
+Askfm was something cute when almost few people (those who had opinios about everything) used it, now it became a monster, turned into an ad targeting application with many features that ruined the application : like coins (the first stupid thing), then many more stupid featues and many people used the application the wrong way (you know what I mean if you&rsquo;re using it now)."/>
+<meta name="application-name" content="::1 404">
+<meta name="apple-mobile-web-app-title" content="::1 404">
+
+<meta name="theme-color" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://ayehia0.github.io/posts/askfm_reverse_engineering/" /><link rel="prev" href="https://ayehia0.github.io/posts/git_hacks/" />
+<link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.css">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.css">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Askfm Reverse Engineering: Getting Threads Back!",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/ayehia0.github.io\/posts\/askfm_reverse_engineering\/"
+        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  2540 ,
+        "url": "https:\/\/ayehia0.github.io\/posts\/askfm_reverse_engineering\/","datePublished": "2023-11-02T13:50:11+02:00","dateModified": "2023-11-02T13:50:11+02:00","publisher": {
+            "@type": "Organization",
+            "name": "Yehia"},"author": {
+                "@type": "Person",
+                "name": "Yehia"
+            },"description": ""
+    }
+    </script><script src="//instant.page/5.2.0" defer type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
+</head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme); document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark'); window.theme = theme;   window.isDark = window.theme !== 'light' }
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+        window.switchThemeEventSet = new Set()
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="::1 404"><span class="header-title-pre"><i class="fas fa-splotch"></i></span><span id="desktop-header-typeit" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="::1 404"><span class="header-title-pre"><i class="fas fa-splotch"></i></span><span id="mobile-header-typeit" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">Contents</h2>
+        <div class="toc-content always-active" id="toc-content-auto"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#motivation">Motivation</a></li>
+    <li><a href="#setup">Setup</a>
+      <ul>
+        <li><a href="#inspecting-the-traffic">Inspecting the Traffic</a></li>
+        <li><a href="#decompiling-the-apk">Decompiling the apk</a></li>
+        <li><a href="#hmm-whats-now">Hmm, what&rsquo;s now</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Askfm Reverse Engineering: Getting Threads Back!</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-11-02">2023-11-02</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-11-02">2023-11-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2540 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;12 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        
+        loading="eager"
+        src="/posts/askfm_reverse_engineering/featured-image.jpg"
+        srcset="/posts/askfm_reverse_engineering/featured-image.jpg, /posts/askfm_reverse_engineering/featured-image.jpg 1.5x, /posts/askfm_reverse_engineering/featured-image.jpg 2x"
+        sizes="auto"
+        alt="/posts/askfm_reverse_engineering/featured-image.jpg"
+        title="/posts/askfm_reverse_engineering/featured-image.jpg" height="400"   width="1440" ></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#motivation">Motivation</a></li>
+    <li><a href="#setup">Setup</a>
+      <ul>
+        <li><a href="#inspecting-the-traffic">Inspecting the Traffic</a></li>
+        <li><a href="#decompiling-the-apk">Decompiling the apk</a></li>
+        <li><a href="#hmm-whats-now">Hmm, what&rsquo;s now</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="what-the-heck-is-askfm-" class="headerLink">
+    <a href="#what-the-heck-is-askfm-" class="header-mark"></a>What the heck is askfm ?</h1><p>Ah Askfm, the good old days when you get back from school and open your askfm account to check these question: which back at the time looked like <code>'What is your favourite colour ?, What order do you wear your shoes ?,,,etc'</code>.</p>
+<p>Askfm was something cute when almost few people (those who had opinios about everything) used it, now it became a monster, turned into an ad targeting application with many features that ruined the application : like coins (the first stupid thing), then many more stupid featues and many people used the application the wrong way (you know what I mean if you&rsquo;re using it now).</p>
+<h2 id="motivation" class="headerLink">
+    <a href="#motivation" class="header-mark"></a>Motivation</h2><p>Probably one important feature which got nuked by askfm is : <code>threads</code>.
+Back in time, <code>threads</code> was the best feature, you basically send a question to something with replies inside it, the reply isn&rsquo;t shown unless the owner publish it with answer. Replying with an image was a thing!</p>
+<p>Now askfm nuked it, and made it only available for the mobile users (really!) with huge differences (it&rsquo;s called <code>chat</code> now):</p>
+<ul>
+<li>Anyone can reply to the question with anything without the permission of account owner!!!</li>
+<li>Can&rsquo;t reply with images as account owner.</li>
+</ul>
+<p>Anyway, I am not here to convince you to leave askfm, I have a history of creating askfm bots and auto_repliers, when I logged into my very old account (which is deleted now btw) I tried to view a thread and I wasn&rsquo;t be able to do so (had to install the application on my phone).</p>
+<p>So I thought it would be a great idea to have some sort of a web extension to just show the questions/replies under a question.</p>
+<p>In this blog, I am sharing my journey to do so!</p>
+<h2 id="setup" class="headerLink">
+    <a href="#setup" class="header-mark"></a>Setup</h2><p>After a quick research and inspection to the web version of the askfm, I found out that askfm mobile is different from the web version (ofc).</p>
+<br>
+<p align="center">
+    <img src="1.png" width="70%">
+</p>
+<br>
+<p>so at first glance, I thought about inspecting the traffic in the mobile application. So I tried many mobile application to inspect the traffic but nothing worked !!.</p>
+<p>That&rsquo;s why I switched to using proxy applications like <a href="https://www.charlesproxy.com/" target="_blank" rel="noopener noreferrer">charles</a> but it didn&rsquo;t work! (i don&rsquo;t remember why!).</p>
+<p>Lastly found this awesome, game changer, program: <a href="https://httptoolkit.com/" target="_blank" rel="noopener noreferrer">HTTPToolKit</a> but this need to run inside a VM, so I installed <a href="https://www.genymotion.com/" target="_blank" rel="noopener noreferrer">Genymotion</a>(coz you know, I am lazy)</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>Installing askfm on a VM<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>I wasn&rsquo;t be able to install the application on the VM on the first try to I had to do some tricks:</p>
+<ul>
+<li>I modified the buildprobs at : <code>/system/build.prop</code> and removed all the VM traces by Genymotion.</li>
+</ul>
+</div>
+        </div>
+    </div>
+<h3 id="inspecting-the-traffic" class="headerLink">
+    <a href="#inspecting-the-traffic" class="header-mark"></a>Inspecting the Traffic</h3><p>As you can see below, The <code>API</code> askfm uses is mobile specific. and it uses <code>HMAC</code> for the authorization.</p>
+<figure><a class="lightgallery" href="/posts/askfm_reverse_engineering/4.png" title="/posts/askfm_reverse_engineering/4.png" data-thumbnail="/posts/askfm_reverse_engineering/4.png" data-sub-html="<h2>HTTPToolKit in VM</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/askfm_reverse_engineering/4.png"
+            srcset="/posts/askfm_reverse_engineering/4.png, /posts/askfm_reverse_engineering/4.png 1.5x, /posts/askfm_reverse_engineering/4.png 2x"
+            sizes="auto"
+            alt="/posts/askfm_reverse_engineering/4.png" height="896"  width="1878" >
+    </a><figcaption class="image-caption">HTTPToolKit in VM</figcaption>
+    </figure>
+<p><code>HMAC</code> (Hash-based Message Authentication Code) is a specific type of message authentication code that involves hashing a message with a <code>secret key</code> to produce a fixed-size output, which can be used to verify the integrity and authenticity of the message. <code>HMAC</code> is commonly used for authentication and integrity checking in various security protocols and applications, such as in web services, API authentication, and data transmission.</p>
+<p>How HMAC authorization works is simple:</p>
+<figure><a class="lightgallery" href="/posts/askfm_reverse_engineering/HMACDiagram.jpg" title="/posts/askfm_reverse_engineering/HMACDiagram.jpg" data-thumbnail="/posts/askfm_reverse_engineering/HMACDiagram.jpg" data-sub-html="<h2>How HMAC Works ?</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/askfm_reverse_engineering/HMACDiagram.jpg"
+            srcset="/posts/askfm_reverse_engineering/HMACDiagram.jpg, /posts/askfm_reverse_engineering/HMACDiagram.jpg 1.5x, /posts/askfm_reverse_engineering/HMACDiagram.jpg 2x"
+            sizes="auto"
+            alt="/posts/askfm_reverse_engineering/HMACDiagram.jpg" height="417"  width="664" >
+    </a><figcaption class="image-caption">How HMAC Works ?</figcaption>
+    </figure>
+<p>So basically, there are 2 steps that the application does to send a <code>HTTP Request</code>:</p>
+<ol>
+<li><b>Key Generation</b> : The key should be in the app and the server agrees on using that key.</li>
+<li><b>HMAC Calculation</b>: The app calculates the HMAC by applying a specific cryptographic hash function (SHA-1) to the message and the secret key. The result of this calculation is a fixed-size hash value which is then send in the headers as : <code>Authorization: HMAC &lt;hash&gt;</code></li>
+</ol>
+<p>So all we have to do now it just find the <code>KEY</code> and how the app generates the <code>HMAC</code> hash! (easy?).</p>
+<br>
+<p align="center">
+    <img src="easy.jpg" width="50%">
+</p>
+<h3 id="decompiling-the-apk" class="headerLink">
+    <a href="#decompiling-the-apk" class="header-mark"></a>Decompiling the apk</h3><p>So you&rsquo;re still here ?, good because we&rsquo;re just about to start the interesting part.
+What&rsquo;s an <code>APK</code> you ask ?
+<code>APK</code> is a compressed archive file that contains all of the data and resources needed by an application to run on Android device. This mean we can extract it.</p>
+<p>For this propose I used <a href="https://github.com/skylot/jadx" target="_blank" rel="noopener noreferrer">Jadx</a> which is a command line and GUI tool for producing Java source code from Android Dex and Apk file, jadx can&rsquo;t decompile all 100% of the code, so errors will occur.</p>
+<br>
+<figure><a class="lightgallery" href="/posts/askfm_reverse_engineering/5.png" title="/posts/askfm_reverse_engineering/5.png" data-thumbnail="/posts/askfm_reverse_engineering/5.png" data-sub-html="<h2>Generating the hash</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/askfm_reverse_engineering/5.png"
+            srcset="/posts/askfm_reverse_engineering/5.png, /posts/askfm_reverse_engineering/5.png 1.5x, /posts/askfm_reverse_engineering/5.png 2x"
+            sizes="auto"
+            alt="/posts/askfm_reverse_engineering/5.png" height="1001"  width="1893" >
+    </a><figcaption class="image-caption">Generating the hash</figcaption>
+    </figure>
+<p>As you can see, I have found the part which generates the HMAC hash.</p>
+<p>Digging the code more we&rsquo;ll find many interesting things:</p>
+<ol>
+<li>The needed headers (which are obvious from the network inspection).</li>
+</ol>
+<ul>
+<li><code>Accept</code>, <code>Accept-Encoding</code></li>
+<li><code>X-Client-Type</code>: maybe used for client identification.</li>
+<li><code>X-Api-Version</code>: the API version to use.</li>
+<li><code>X-Access-Token</code>: the access token, which is fetched, somehow, separately.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">RequestHeaders</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">RequestHeaders</span> <span class="n">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RequestHeaders</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="nf">RequestHeaders</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="nf">headersWithSignature</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">,</span> <span class="n">String</span> <span class="n">accessToken</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Intrinsics</span><span class="o">.</span><span class="na">checkNotNullParameter</span><span class="o">(</span><span class="n">accessToken</span><span class="o">,</span> <span class="s">&#34;accessToken&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeMap</span> <span class="n">treeMap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeMap</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">treeMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;Accept&#34;</span><span class="o">,</span> <span class="s">&#34;application/json; charset=utf-8&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">treeMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;Accept-Encoding&#34;</span><span class="o">,</span> <span class="s">&#34;identity&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">clientType</span> <span class="o">=</span> <span class="n">Initializer</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">getClientType</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Intrinsics</span><span class="o">.</span><span class="na">checkNotNullExpressionValue</span><span class="o">(</span><span class="n">clientType</span><span class="o">,</span> <span class="s">&#34;instance().clientType&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">treeMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;X-Client-Type&#34;</span><span class="o">,</span> <span class="n">clientType</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">apiVersion</span> <span class="o">=</span> <span class="n">Initializer</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">getApiVersion</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Intrinsics</span><span class="o">.</span><span class="na">checkNotNullExpressionValue</span><span class="o">(</span><span class="n">apiVersion</span><span class="o">,</span> <span class="s">&#34;instance().apiVersion&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">treeMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;X-Api-Version&#34;</span><span class="o">,</span> <span class="n">apiVersion</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">hostWithPort</span> <span class="o">=</span> <span class="n">Initializer</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">getHostWithPort</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Intrinsics</span><span class="o">.</span><span class="na">checkNotNullExpressionValue</span><span class="o">(</span><span class="n">hostWithPort</span><span class="o">,</span> <span class="s">&#34;instance().hostWithPort&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">treeMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;Host&#34;</span><span class="o">,</span> <span class="n">hostWithPort</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">treeMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;X-Forwarded-Proto&#34;</span><span class="o">,</span> <span class="s">&#34;https&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(!</span><span class="n">TextUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">accessToken</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">treeMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;X-Access-Token&#34;</span><span class="o">,</span> <span class="n">accessToken</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(!</span><span class="n">TextUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">str</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">StringCompanionObject</span> <span class="n">stringCompanionObject</span> <span class="o">=</span> <span class="n">StringCompanionObject</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">String</span> <span class="n">format</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&#34;HMAC %s&#34;</span><span class="o">,</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">copyOf</span><span class="o">(</span><span class="k">new</span> <span class="n">Object</span><span class="o">[]{</span><span class="n">str</span><span class="o">},</span> <span class="mi">1</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Intrinsics</span><span class="o">.</span><span class="na">checkNotNullExpressionValue</span><span class="o">(</span><span class="n">format</span><span class="o">,</span> <span class="s">&#34;format(format, *args)&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">treeMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;Authorization&#34;</span><span class="o">,</span> <span class="n">format</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">treeMap</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>Server Params.</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ServerParameters</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ADVERTISING_ID_ENABLED_PARAM</span> <span class="o">=</span> <span class="s">&#34;advertiserIdEnabled&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ADVERTISING_ID_PARAM</span> <span class="o">=</span> <span class="s">&#34;advertiserId&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ADVERTISING_ID_WITH_GPS</span> <span class="o">=</span> <span class="s">&#34;isGaidWithGps&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">AD_REVENUE_COUNTER</span> <span class="o">=</span> <span class="s">&#34;adrevenue_counter&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">AD_REVENUE_PAYLOAD</span> <span class="o">=</span> <span class="s">&#34;ad_network&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">AF_DEV_KEY</span> <span class="o">=</span> <span class="s">&#34;appsflyerKey&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">AF_FIREBASE_TOKEN</span> <span class="o">=</span> <span class="s">&#34;af_gcm_token&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">AF_USER_ID</span> <span class="o">=</span> <span class="s">&#34;uid&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">AMAZON_AID</span> <span class="o">=</span> <span class="s">&#34;amazon_aid&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">AMAZON_AID_LIMIT</span> <span class="o">=</span> <span class="s">&#34;amazon_aid_limit&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ANDROID_ID</span> <span class="o">=</span> <span class="s">&#34;android_id&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ANDROID_SDK_INT</span> <span class="o">=</span> <span class="s">&#34;sdk&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">APP_ID</span> <span class="o">=</span> <span class="s">&#34;app_id&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">APP_NAME</span> <span class="o">=</span> <span class="s">&#34;app_name&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">APP_USER_ID</span> <span class="o">=</span> <span class="s">&#34;appUserId&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">APP_VERSION_CODE</span> <span class="o">=</span> <span class="s">&#34;app_version_code&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">APP_VERSION_NAME</span> <span class="o">=</span> <span class="s">&#34;app_version_name&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">BATTERY_CHARGING_KEY</span> <span class="o">=</span> <span class="s">&#34;btch&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">BATTERY_LEVEL_KEY</span> <span class="o">=</span> <span class="s">&#34;btl&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">BRAND</span> <span class="o">=</span> <span class="s">&#34;brand&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">CARRIER</span> <span class="o">=</span> <span class="s">&#34;carrier&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">CHANNEL_SERVER_PARAM</span> <span class="o">=</span> <span class="s">&#34;channel&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">CHECK_SUM1</span> <span class="o">=</span> <span class="s">&#34;cksm_v1&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">COUNTRY</span> <span class="o">=</span> <span class="s">&#34;country&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">CURRENT_STORE</span> <span class="o">=</span> <span class="s">&#34;af_currentstore&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">DDL_METRICS</span> <span class="o">=</span> <span class="s">&#34;ddl&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">DEEP_LINK</span> <span class="o">=</span> <span class="s">&#34;af_deeplink&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">DEEP_LINK_RESOLVED</span> <span class="o">=</span> <span class="s">&#34;af_deeplink_r&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">DEFAULT_HOST</span> <span class="o">=</span> <span class="s">&#34;appsflyer.com&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">DEFAULT_HOST_PREFIX</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">DEVICE_CURRENT_BATTERY_LEVEL</span> <span class="o">=</span> <span class="s">&#34;batteryLevel&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">DEVICE_DATA</span> <span class="o">=</span> <span class="s">&#34;deviceData&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">DEVICE_KEY</span> <span class="o">=</span> <span class="s">&#34;device&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">DEVICE_TRACKING_DISABLED</span> <span class="o">=</span> <span class="s">&#34;deviceTrackingDisabled&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">DEV_KEY</span> <span class="o">=</span> <span class="s">&#34;devkey&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">EVENT_NAME</span> <span class="o">=</span> <span class="s">&#34;eventName&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">EVENT_VALUE</span> <span class="o">=</span> <span class="s">&#34;eventValue&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">FG_TS</span> <span class="o">=</span> <span class="s">&#34;fg_ts&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">FIRST_LAUNCH</span> <span class="o">=</span> <span class="s">&#34;firstLaunchDate&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">FIRST_LAUNCH_METRICS</span> <span class="o">=</span> <span class="s">&#34;first_launch&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">FROM_FG</span> <span class="o">=</span> <span class="s">&#34;from_fg&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">GCD_METRICS</span> <span class="o">=</span> <span class="s">&#34;gcd&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">IMEI</span> <span class="o">=</span> <span class="s">&#34;imei&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">INIT_TO_FG</span> <span class="o">=</span> <span class="s">&#34;init_to_fg&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">INIT_TS</span> <span class="o">=</span> <span class="s">&#34;init_ts&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">INSTALL_DATE</span> <span class="o">=</span> <span class="s">&#34;installDate&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">INSTALL_STORE</span> <span class="o">=</span> <span class="s">&#34;af_installstore&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">IS_BRANDED</span> <span class="o">=</span> <span class="s">&#34;isBrandedDomain&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">IS_STOP_TRACKING_USED</span> <span class="o">=</span> <span class="s">&#34;istu&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">LANG</span> <span class="o">=</span> <span class="s">&#34;lang&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">LANG_CODE</span> <span class="o">=</span> <span class="s">&#34;lang_code&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">LATEST_CHANNEL_SERVER_PARAM</span> <span class="o">=</span> <span class="s">&#34;af_latestchannel&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">LAT_KEY</span> <span class="o">=</span> <span class="s">&#34;lat&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">LAUNCH_COUNTER</span> <span class="o">=</span> <span class="s">&#34;launch_counter&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">LOCATION_KEY</span> <span class="o">=</span> <span class="s">&#34;loc&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">LON_KEY</span> <span class="o">=</span> <span class="s">&#34;lon&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">META</span> <span class="o">=</span> <span class="s">&#34;meta&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">MODEL</span> <span class="o">=</span> <span class="s">&#34;model&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">NET</span> <span class="o">=</span> <span class="s">&#34;net&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">NETWORK</span> <span class="o">=</span> <span class="s">&#34;network&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">OAID</span> <span class="o">=</span> <span class="s">&#34;oaid&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ONELINK_ID</span> <span class="o">=</span> <span class="s">&#34;onelink_id&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ONELINK_VERSION</span> <span class="o">=</span> <span class="s">&#34;onelink_ver&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">OPERATOR</span> <span class="o">=</span> <span class="s">&#34;operator&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ORIGINAL_AF_UID</span> <span class="o">=</span> <span class="s">&#34;originalAppsflyerId&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PAYLOAD_KEY</span> <span class="o">=</span> <span class="s">&#34;payloadKey&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PLATFORM</span> <span class="o">=</span> <span class="s">&#34;platform&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PLATFORM_EXTENSION</span> <span class="o">=</span> <span class="s">&#34;platformextension&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PREVIOUS_SESSION_DURATION</span> <span class="o">=</span> <span class="s">&#34;prev_session_dur&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PRE_INSTALL_NAME</span> <span class="o">=</span> <span class="s">&#34;af_preinstall_name&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">REGISTERED_TO_UNINSTALL</span> <span class="o">=</span> <span class="s">&#34;registeredUninstall&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">REINSTALL_COUNTER</span> <span class="o">=</span> <span class="s">&#34;reinstallCounter&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">RETRIES</span> <span class="o">=</span> <span class="s">&#34;retries&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">RFR_WAIT</span> <span class="o">=</span> <span class="s">&#34;rfr_wait&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">SDK_DATA_SDK_VERSION</span> <span class="o">=</span> <span class="s">&#34;sdk_version&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">STATUS</span> <span class="o">=</span> <span class="s">&#34;status&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">STATUS_TYPE</span> <span class="o">=</span> <span class="s">&#34;statType&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">TIMEOUT_VALUE</span> <span class="o">=</span> <span class="s">&#34;timeout_value&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">TIMESTAMP</span> <span class="o">=</span> <span class="s">&#34;af_timestamp&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">TIMESTAMP_KEY</span> <span class="o">=</span> <span class="s">&#34;ts&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">TIME_PASSED_SINCE_LAST_LAUNCH</span> <span class="o">=</span> <span class="s">&#34;timepassedsincelastlaunch&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">TIME_SPENT_IN_APP</span> <span class="o">=</span> <span class="s">&#34;time_in_app&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">TOKEN_REFRESH_CONFIGURED</span> <span class="o">=</span> <span class="s">&#34;tokenRefreshConfigured&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>Request definitions for all the api routes.</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">enum</span> <span class="n">RequestDefinition</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TOKEN</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/token&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CONFIG</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/config&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">REGISTER</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/register&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">REGISTER_EXTERNAL</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/register/ext&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">REGISTER_EXTERNAL_STATE</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/register/ext/state&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">REGISTER_EXTERNAL_STATE_PUT</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/register/ext/state&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AUTHORIZE</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/authorize&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AUTHORIZE_EXTERNAL</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/authorize/ext&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AUTHORIZE_TWITTER</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/ext/authorize/twitter&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AUTHORIZE_VK</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/ext/authorize/vk&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AUTHORIZE_INSTAGRAM</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/ext/authorize/instagram&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CONNECT_INSTAGRAM</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/ext/connect/instagram&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CONNECT_INSTAGRAM_DELETE</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/connect/instagram&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CONNECT_EXTERNAL</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/connect/ext&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CONNECT_EXTERNAL_DELETE</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/connect/ext&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CONNECT_FACEBOOK_DELETE</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/connect/fb&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CONNECT_TWITTER</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/ext/connect/twitter&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CONNECT_VK</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/ext/connect/vk&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_PROFILE_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/my/profile&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_PROFILE_PUT</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/my/profile&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_PROFILE_EMAIL_PUT</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/my/profile/email&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">FRIENDS_PUT</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/friends&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">FRIENDS_DEL</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/friends&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">FRIENDS_ASK</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/friends/ask&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">FRIENDS_MENTIONS</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/friends/mentions&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BLACKLIST_GET_FULL</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/blacklist/full&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BLACKLIST_DEL</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/blacklist&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SETTINGS_PASSWORD_CHANGE</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/settings/password/change&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SETTINGS_PASSWORD_RECOVER</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/settings/password/recover&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SETTINGS_PASSWORD_RESET</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/settings/password/reset&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SETTINGS_NOTIFICATIONS_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/settings/notifications&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SETTINGS_NOTIFICATIONS_PUT</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/settings/notifications&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SETTINGS_SHARING_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/settings/sharing&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SETTINGS_SHARING_PUT</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/settings/sharing&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_SHOUTOUTS_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/my/shoutouts&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_QUESTIONS_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/my/questions&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_QUESTIONS_THREAD_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/my/questions/thread&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_QUESTIONS_THREAD_DELETE</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/my/questions/thread&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">USERS_THREAD_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/users/thread&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">USERS_QUESTIONS</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/users/questions&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CHECK_NAME</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/users/check_name&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_QUESTIONS</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/my/questions&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_QUESTIONS_ANSWER</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/my/questions/answer&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_QUESTIONS_ANSWER_BACKGROUNDS</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/my/questions/answer/backgrounds&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_VIP_PROGRESS</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/my/vip/progress&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_DIRECT_MESSAGES</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/my/direct_messages&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DIRECT_MESSAGES_MARK_READ</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/direct_messages/mark_read&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">LEADERS_FRIENDS</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/leaders/friends&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">LEADERS_COUNTRY</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/leaders/country&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">USERS_ANSWERS</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/users/answers&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_ANSWERS</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/my/answers&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">USERS_ANSWERS_LIKES_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/users/answers/likes&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">USERS_ANSWERS_LIKES_PUT</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/users/answers/likes&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">USERS_ANSWERS_LIKES_DELETE</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/users/answers/likes&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">USERS_ANSWER_SHARE</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/users/answer/share&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">USERS_INTERESTS</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/users/interests&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ANSWER_REWARDS_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/rewards/answers&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">NOTIFICATIONS</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/notifications&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">COUNTERS</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/counters&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">NOTIFICATIONS_MARK_READ</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/notifications/mark_read&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">USERS_LIKES</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/users/likes&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">USERS_GIFTS_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/users/gifts&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">USERS_DETAILS</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/users/details&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SEARCH_WITH_FRIENDS</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/users/search&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SEARCH</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/search&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SEARCH_FACEBOOK</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/search/fb&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SEARCH_PHONE_CONTACTS</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/search/phone_contacts&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SEARCH_FACEBOOK_COUNT</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/search/fb/count&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SEARCH_TWITTER</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/search/twitter&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SEARCH_VK</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/search/vk&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">WALL</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/wall&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_PROFILE_SHARE_TWITTER</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/my/profile/share/twitter&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_DEVICE_DELETE</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/my/device&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_DEVICE_PUT</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/my/device&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">UPLOAD_PHOTO</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/upload/photo&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">UPLOAD_QUESTION_PHOTO</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/upload/question/photo&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">UPLOAD_AVATAR_INIT</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/upload/avatar/init&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">UPLOAD_AVATAR_FINISH</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/upload/avatar/finish&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">UPLOAD_BACKGROUND_INIT</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/upload/background/init&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">UPLOAD_BACKGROUND_FINISH</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/upload/background/finish&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">UPLOAD_EXT</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/upload/ext&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">REPORT_ANSWER</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/report/answer&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">REPORT_USER</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/report/user&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">REPORT_QUESTION</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/report/question&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">FOLLOW_ALL_FB</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/follow/all/fb&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">FOLLOW_ALL_TW</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/follow/all/tw&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">FOLLOW_ALL_VK</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/follow/all/vk&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">FOLLOW_ALL_PHONE_CONTACTS</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/follow/all/phone_contacts&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">FOLLOW_SUGGESTIONS</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/follow/suggestions&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">KARMA_WARNING_HIDE</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/karma/warning/hide&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BAD_ACTOR_WARNING_HIDE</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/badactor/warning/hide&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">USERS_ACTIVATE</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/users/activate&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">OPEN_EVENT</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/open&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">GET_PYMK</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/pymk/suggestion&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DELETE_PYMK</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/pymk/suggestion&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ADD_TO_FAVORITES</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/friends/favorites&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">REMOVE_FROM_FAVORITES</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/friends/favorites&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DEACTIVATE_ACCOUNT</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/users/disable&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ACCEPT_PRIVACY_POLICY</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/policy/accept&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">UPLOAD_VIDEO</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/upload/video&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">GALLERY_DELETE</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/my/profile/gallery/delete&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">GALLERY_SET_AS_AVATAR</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/my/profile/gallery/setasavatar&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HASHTAG_SAVE</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/users/hashtags&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HASHTAG_REMOVE</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/users/hashtags&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HASHTAG_SEARCH</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/users/hashtags&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HASHTAG_USER_SEARCH</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/users/hashtags/search&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ANNOUNCEMENTS_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/settings/announcements&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ANNOUNCEMENTS_PUT</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/settings/announcements&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PHOTO_POLLS_ITEM</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/photopolls&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PHOTO_POLLS_SAVE</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/photopolls&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PHOTO_POLLS_REMOVE</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/photopolls&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PHOTO_POLLS_REPORT</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/report/photopoll&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PHOTO_POLLS_VOTE</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/photopolls/vote&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PHOTO_POLLS_VOTERS</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/photopolls/users&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PHOTO_POLLS_UPLOAD</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/upload/photopoll&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PHOTO_POLLS_UPLOAD_EXTERNAL</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/upload/photopoll/ext&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PHOTO_POLLS_SHARE</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/users/photopoll/share&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PROFILE_STREAM</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/users/profile/stream&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ADS_TRACK</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/ads/track&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ADS_REWARD_VIDEO_POST</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/ads/videos&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ADS_REWARD_VIDEO_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/ads/videos&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TRACK_VIEW_CARDS</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/track_view/cards&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TRACK_PAGE_VIEW</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/page_view&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TRACK_SOCIAL_DISMISS</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/track_view/soc_dismiss&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TRACK_REGISTRATION_ERROR</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/track_view/register/error&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TRACK_INSTALL</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/track/install&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TRACK_PHOTO_POLL_EVENT</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/track_view/photopoll/creation&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">FETCH_USER_ID_SUGGESTIONS</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/suggest_username&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SHOUTOUT</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/shoutout&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SHOUTOUT_AVAILABLE</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/shoutout/available&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">GEOIP</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/geoip/country&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TRACK_EVENTS</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/trackevents&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CHECK_CAPTCHA_REQUIRED</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/register/captcha_required&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">INVITE_LINK</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/invites/link&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">INVITE_OPEN</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/invite/open&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ME_PUT</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/me&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">USERS_CONSENTS_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/users/consents&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">USERS_CONSENTS_PUT</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&#34;/users/consents&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TRENDING_USER_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/users/trending&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SHARE_LINK_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/users/share/link&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">REWARD_ANSWERS_POST</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/rewards/answers&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_OFFERS_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/my/offers&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_OFFERS_BUY_POST</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/my/offers/purchase&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">VALIDATE_COINS_PURCHASE</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/purchase/coins/google/validate&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">VALIDATE_SUBSCRIPTION_PURCHASE</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/purchase/subscriptions/google&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">FINISH_PURCHASE</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/purchase/coins/google/finish&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">UNLOCK_ANSWER</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/users/answers/unlock&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_DAILY_BONUS_POST</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/my/daily_bonus&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">VIP_PROGRAM_WAIT_LIST</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/vip/program/waitlist&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">VIP_PROGRAM_FORM</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/vip/program/form&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">QUICK_INTRO_REPLIES_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/quick_intro_reply/template&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SHOUTOUT_ONBOARDING_POST</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/shoutout/onboarding&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CHAT_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/answers/chats&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CHAT_DELETE</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/answers/chats&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CHAT_MESSAGE_SEND_POST</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/chats/messages&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CHAT_MESSAGES_DELETE</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/chats/messages&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CHAT_MESSAGES_REPORT_POST</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/report/chats/messages&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PRIVATE_CHAT_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/private_chats&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PRIVATE_CHAT_MESSAGE_SEND_POST</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/private_chats/messages&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PRIVATE_CHAT_DELETE</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/private_chats&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PRIVATE_CHAT_MESSAGES_DELETE</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&#34;/private_chats/messages&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PRIVATE_CHAT_REPORT_POST</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/report/private_chats&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_POPUPS_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/my/popups&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MY_POPUPS_POST</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&#34;/my/popups&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SHOUTOUT_REBOARDING_CATEGORY_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/shoutout/reboarding/categories&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SENT_SHOUTOUT_ANSWERS_GET</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;/shoutouts/country/answers&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">NO_REQUEST</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&#34;&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">endpoint</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">requestMethod</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">RequestDefinition</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="n">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">requestMethod</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">endpoint</span> <span class="o">=</span> <span class="n">str</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">final</span> <span class="kt">int</span> <span class="nf">getRequestMethod</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">requestMethod</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>Parsing the response.</li>
+</ol>
+<p>Note that <code>setNextRequestToken:  'X-Next-Token'</code> from the response. Also the timeDiff (probably some way to check the integrity of the request!)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="nd">@Override</span> <span class="c1">// com.android.volley.Request
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="n">Response</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">parseNetworkResponse</span><span class="o">(</span><span class="n">NetworkResponse</span> <span class="n">response</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Response</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">error</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Intrinsics</span><span class="o">.</span><span class="na">checkNotNullParameter</span><span class="o">(</span><span class="n">response</span><span class="o">,</span> <span class="s">&#34;response&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">RequestTokenStorage</span> <span class="n">instance</span> <span class="o">=</span> <span class="n">RequestTokenStorage</span><span class="o">.</span><span class="na">Companion</span><span class="o">.</span><span class="na">instance</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">headers</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Intrinsics</span><span class="o">.</span><span class="na">checkNotNull</span><span class="o">(</span><span class="n">map</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">instance</span><span class="o">.</span><span class="na">setNextRequestToken</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;X-Next-Token&#34;</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TimeDiff</span> <span class="n">timeDiff</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">timeDiff</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map2</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">headers</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Intrinsics</span><span class="o">.</span><span class="na">checkNotNull</span><span class="o">(</span><span class="n">map2</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="n">map2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;Date&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Intrinsics</span><span class="o">.</span><span class="na">checkNotNull</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">timeDiff</span><span class="o">.</span><span class="na">setTimeDiffFromDate</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">byte</span><span class="o">[]</span> <span class="n">bArr</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">data</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Intrinsics</span><span class="o">.</span><span class="na">checkNotNullExpressionValue</span><span class="o">(</span><span class="n">bArr</span><span class="o">,</span> <span class="s">&#34;response.data&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">String</span> <span class="n">parseCharset</span> <span class="o">=</span> <span class="n">HttpHeaderParser</span><span class="o">.</span><span class="na">parseCharset</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">headers</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Intrinsics</span><span class="o">.</span><span class="na">checkNotNullExpressionValue</span><span class="o">(</span><span class="n">parseCharset</span><span class="o">,</span> <span class="s">&#34;parseCharset(response.headers)&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Charset</span> <span class="n">forName</span> <span class="o">=</span> <span class="n">Charset</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="n">parseCharset</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Intrinsics</span><span class="o">.</span><span class="na">checkNotNullExpressionValue</span><span class="o">(</span><span class="n">forName</span><span class="o">,</span> <span class="s">&#34;forName(charsetName)&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">String</span> <span class="n">str2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">bArr</span><span class="o">,</span> <span class="n">forName</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">StringCompanionObject</span> <span class="n">stringCompanionObject</span> <span class="o">=</span> <span class="n">StringCompanionObject</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">String</span> <span class="n">format</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&#34;Finished %s %s with response: %s&#34;</span><span class="o">,</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">copyOf</span><span class="o">(</span><span class="k">new</span> <span class="n">Object</span><span class="o">[]{</span><span class="k">this</span><span class="o">.</span><span class="na">request</span><span class="o">.</span><span class="na">getRequestMethodString</span><span class="o">(),</span> <span class="k">this</span><span class="o">.</span><span class="na">request</span><span class="o">.</span><span class="na">getEndpoint</span><span class="o">(),</span> <span class="n">str2</span><span class="o">},</span> <span class="mi">3</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Intrinsics</span><span class="o">.</span><span class="na">checkNotNullExpressionValue</span><span class="o">(</span><span class="n">format</span><span class="o">,</span> <span class="s">&#34;format(format, *args)&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Logger</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="s">&#34;ASKNetwork&#34;</span><span class="o">,</span> <span class="n">format</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">Intrinsics</span><span class="o">.</span><span class="na">areEqual</span><span class="o">(</span><span class="k">new</span> <span class="n">JSONObject</span><span class="o">(</span><span class="n">str2</span><span class="o">).</span><span class="na">optString</span><span class="o">(</span><span class="s">&#34;error&#34;</span><span class="o">,</span> <span class="s">&#34;&#34;</span><span class="o">),</span> <span class="s">&#34;&#34;</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Object</span> <span class="n">fromJson</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">gson</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">str2</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">typeToMap</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="o">(</span><span class="n">fromJson</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">request</span><span class="o">.</span><span class="na">getCacheKey</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">ResponseCacheManager</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">saveCachedResponse</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">request</span><span class="o">.</span><span class="na">getCacheKey</span><span class="o">(),</span> <span class="n">str2</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ClassCastException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">error</span> <span class="o">=</span> <span class="n">Response</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="k">new</span> <span class="n">ParseError</span><span class="o">(</span><span class="n">e</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                <span class="n">error</span> <span class="o">=</span> <span class="n">Response</span><span class="o">.</span><span class="na">success</span><span class="o">(</span><span class="n">fromJson</span><span class="o">,</span> <span class="n">HttpHeaderParser</span><span class="o">.</span><span class="na">parseCacheHeaders</span><span class="o">(</span><span class="n">response</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">error</span> <span class="o">=</span> <span class="n">Response</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="k">new</span> <span class="n">ServerError</span><span class="o">(</span><span class="n">response</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Intrinsics</span><span class="o">.</span><span class="na">checkNotNullExpressionValue</span><span class="o">(</span><span class="n">error</span><span class="o">,</span> <span class="s">&#34;{\n            val jsonSt…)\n            }\n        }&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">error</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">JsonSyntaxException</span> <span class="n">e2</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Response</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">error2</span> <span class="o">=</span> <span class="n">Response</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="k">new</span> <span class="n">ParseError</span><span class="o">(</span><span class="n">e2</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Intrinsics</span><span class="o">.</span><span class="na">checkNotNullExpressionValue</span><span class="o">(</span><span class="n">error2</span><span class="o">,</span> <span class="s">&#34;{\n            Response.e…(ParseError(e))\n        }&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">error2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">UnsupportedEncodingException</span> <span class="n">e3</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Response</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">error3</span> <span class="o">=</span> <span class="n">Response</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="k">new</span> <span class="n">ParseError</span><span class="o">(</span><span class="n">e3</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Intrinsics</span><span class="o">.</span><span class="na">checkNotNullExpressionValue</span><span class="o">(</span><span class="n">error3</span><span class="o">,</span> <span class="s">&#34;{\n            Response.e…(ParseError(e))\n        }&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">error3</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">JSONException</span> <span class="n">e4</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Response</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">error4</span> <span class="o">=</span> <span class="n">Response</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="k">new</span> <span class="n">ParseError</span><span class="o">(</span><span class="n">e4</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Intrinsics</span><span class="o">.</span><span class="na">checkNotNullExpressionValue</span><span class="o">(</span><span class="n">error4</span><span class="o">,</span> <span class="s">&#34;{\n            Response.e…(ParseError(e))\n        }&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">error4</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="5">
+<li>The Signature.</li>
+</ol>
+<p>Probably, this is the most interesting peice of code, yes you guessed (HMAC hash generation).</p>
+<script type="application/javascript" src="https://gist.github.com/AYehia0/01926df3692ed1990b38a2fe91d3a2b6.js"></script>
+
+<p>Playing around with code has revealed some nasty parts:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// This is where the KEY is stored!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">this</span><span class="o">.</span><span class="na">apiPrivateKey</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KeyGenerator</span><span class="o">().</span><span class="na">clientKey</span><span class="o">(</span><span class="s">&#34;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// it calls a native lib to somehow encrypt/modify the hash
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">KeyGenerator</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">native</span> <span class="n">String</span> <span class="nf">clientKey</span><span class="o">(</span><span class="n">String</span> <span class="n">key</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">KeyGenerator</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">loadLibrary</span><span class="o">(</span><span class="s">&#34;ffmpcodec&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="hmm-whats-now" class="headerLink">
+    <a href="#hmm-whats-now" class="header-mark"></a>Hmm, what&rsquo;s now</h3><p>So far so good, let&rsquo;s recap what we have achieved so far.</p>
+<ul>
+<li>We found the KEY used in the HMAC generation, but a native lib called <code>ffmpcodec</code> is used to (maybe) perform some string modifications on the KEY.</li>
+<li>The HMAC <code>generateHash</code> method uses custom <code>sha-1</code>.</li>
+<li>The required headers are <code>X-Access-Token</code>, <code>X-Api-Version</code>, <code>X-Client-Type</code>.</li>
+</ul>
+</div>
+
+        <div class="sponsor">
+        <div class="sponsor-avatar"></div><p class="sponsor-bio"><em>Say Hello :D</em></p><a href="https://github.com/AYehia0" title="Sponsor" target="_blank" class="sponsor-button" rel="noopener noreferrer">
+                <i class="far fa-heart fa-fw icon" style="color: #ec6cb9;"></i>
+                <span>Sponsor</span>
+            </a></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-11-02</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share"><button title="Share on Twitter" data-sharer="twitter" data-url="https://ayehia0.github.io/posts/askfm_reverse_engineering/" data-title="Askfm Reverse Engineering: Getting Threads Back!"><span class="fab fa-twitter fa-fw"></span></button><button title="Share on Linkedin" data-sharer="linkedin" data-url="https://ayehia0.github.io/posts/askfm_reverse_engineering/"><span class="fab fa-linkedin fa-fw"></span></button></div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/git_hacks/" class="prev" rel="prev" title="Git for hackers"><i class="fas fa-angle-left fa-fw"></i>Git for hackers</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/AYehia0" target="_blank" rel="noopener noreferrer">Yehia</a></span></div>
+            <div class="footer-line"></div>
+            <div class="footer-line">
+            </div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="Back to Top">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":40},"comment":{},"data":{"desktop-header-typeit":"~/None","mobile-header-typeit":"~/None"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":true,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"sharerjs":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"desktop-header-typeit":["desktop-header-typeit"],"mobile-header-typeit":["mobile-header-typeit"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script></div>
+</body>
+
+</html>
