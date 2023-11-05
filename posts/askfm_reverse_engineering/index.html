@@ -34,7 +34,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/ayehia0.github.io\/posts\/askfm_reverse_engineering\/"
-        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  2573 ,
+        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  2762 ,
         "url": "https:\/\/ayehia0.github.io\/posts\/askfm_reverse_engineering\/","datePublished": "2023-11-02T13:50:11+02:00","dateModified": "2023-11-02T13:50:11+02:00","publisher": {
             "@type": "Organization",
             "name": "Yehia"},"author": {
@@ -125,6 +125,11 @@
         <li><a href="#inspecting-the-traffic">Inspecting the Traffic</a></li>
         <li><a href="#decompiling-the-apk">Decompiling the apk</a></li>
         <li><a href="#hmm-whats-now">Hmm, what&rsquo;s now</a></li>
+        <li><a href="#decompile-modifiy-recompile">Decompile, Modifiy, Recompile</a>
+          <ul>
+            <li><a href="#logging">Logging</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -133,7 +138,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-11-02">2023-11-02</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-11-02">2023-11-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2573 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;13 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-11-02">2023-11-02</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-11-02">2023-11-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2762 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;13 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         
         loading="eager"
@@ -154,6 +159,11 @@
         <li><a href="#inspecting-the-traffic">Inspecting the Traffic</a></li>
         <li><a href="#decompiling-the-apk">Decompiling the apk</a></li>
         <li><a href="#hmm-whats-now">Hmm, what&rsquo;s now</a></li>
+        <li><a href="#decompile-modifiy-recompile">Decompile, Modifiy, Recompile</a>
+          <ul>
+            <li><a href="#logging">Logging</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -1045,7 +1055,86 @@ What&rsquo;s an <code>APK</code> you ask ?
 <li>We found the KEY used in the HMAC generation, but a native lib called <code>ffmpcodec</code> is used to (maybe) perform some string modifications on the KEY.</li>
 <li>The HMAC <code>generateHash</code> method uses custom <code>sha-1</code>.</li>
 <li>The required headers are <code>X-Access-Token</code>, <code>X-Api-Version</code>, <code>X-Client-Type</code>.</li>
-</ul></div>
+</ul>
+<p>Probably, the hardest thing to achieve here is that the KEY has some sort of native lib to apply some modifications and returns a new string, if you know the new string <code>KEY_NEW</code>, we could you it directly after rewriting the other parts like <code>generateHash</code>.</p>
+<h3 id="decompile-modifiy-recompile" class="headerLink">
+    <a href="#decompile-modifiy-recompile" class="header-mark"></a>Decompile, Modifiy, Recompile</h3><p>We can use the <a href="https://apktool.org/" target="_blank" rel="noopener noreferrer">apktool</a> to decode/decompile the apk, then make some modifications, recompile and test.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apktool d askfm.apk
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>Smali!!!<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>After decompiling, the source is converted to samli, samli is a human readable format of the dex code.
+Take this example:</p>
+<ol>
+<li>Java code looks like this:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">String</span> <span class="n">x</span> <span class="o">=</span> <span class="s">&#34;HI&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>The dex code, which will most likely contain the hexadecimal sequence:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">14 00 4A 00
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>The samli version:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">const-string v0, &#34;HI&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+        </div>
+    </div>
+<p>Now let&rsquo;s modify the file where the <code>apiPrivateKey</code> is called, recompile and install the app. Here I am using <a href="https://marketplace.visualstudio.com/items?itemName=Surendrajat.apklab" target="_blank" rel="noopener noreferrer">APKLab</a> which is a nice VS code extension for android reverse engineering.</p>
+<figure><a class="lightgallery" href="/posts/askfm_reverse_engineering/6.png" title="/posts/askfm_reverse_engineering/6.png" data-thumbnail="/posts/askfm_reverse_engineering/6.png" data-sub-html="<h2>Modifiy in Samli</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/askfm_reverse_engineering/6.png"
+            srcset="/posts/askfm_reverse_engineering/6.png, /posts/askfm_reverse_engineering/6.png 1.5x, /posts/askfm_reverse_engineering/6.png 2x"
+            sizes="auto"
+            alt="/posts/askfm_reverse_engineering/6.png" height="871"  width="1688" >
+    </a><figcaption class="image-caption">Modifiy in Samli</figcaption>
+    </figure>
+<h4 id="logging" class="headerLink">
+    <a href="#logging" class="header-mark"></a>Logging</h4><p>Since I am connecting through adb, it would be obvious to use <a href="https://developer.android.com/tools/logcat" target="_blank" rel="noopener noreferrer">logcat</a>.</p>
+<p>Let&rsquo;s now get all the logs from askfm : <code>adb logcat | grep askfm</code></p>
+<figure><a class="lightgallery" href="/posts/askfm_reverse_engineering/7.png" title="/posts/askfm_reverse_engineering/7.png" data-thumbnail="/posts/askfm_reverse_engineering/7.png" data-sub-html="<h2>Logs try#1</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/askfm_reverse_engineering/7.png"
+            srcset="/posts/askfm_reverse_engineering/7.png, /posts/askfm_reverse_engineering/7.png 1.5x, /posts/askfm_reverse_engineering/7.png 2x"
+            sizes="auto"
+            alt="/posts/askfm_reverse_engineering/7.png" height="999"  width="1888" >
+    </a><figcaption class="image-caption">Logs try#1</figcaption>
+    </figure>
+<p>great, no logs :'(</p></div>
 
         <div class="sponsor">
         <div class="sponsor-avatar"></div><p class="sponsor-bio"><em>Say Hello :D</em></p><a href="https://github.com/AYehia0" title="Sponsor" target="_blank" class="sponsor-button" rel="noopener noreferrer">

@@ -494,3 +494,44 @@ So far so good, let's recap what we have achieved so far.
 - The HMAC `generateHash` method uses custom `sha-1`.
 - The required headers are `X-Access-Token`, `X-Api-Version`, `X-Client-Type`.
 
+Probably, the hardest thing to achieve here is that the KEY has some sort of native lib to apply some modifications and returns a new string, if you know the new string `KEY_NEW`, we could you it directly after rewriting the other parts like `generateHash`.
+
+### Decompile, Modifiy, Recompile
+
+We can use the [apktool](https://apktool.org/) to decode/decompile the apk, then make some modifications, recompile and test.
+
+```bash
+apktool d askfm.apk
+```
+{{< admonition tip "Smali!!!" >}}
+After decompiling, the source is converted to samli, samli is a human readable format of the dex code.
+Take this example:
+
+1. Java code looks like this:
+```java
+String x = "HI"
+```
+2. The dex code, which will most likely contain the hexadecimal sequence:
+```
+14 00 4A 00
+```
+3. The samli version:
+```
+const-string v0, "HI"
+```
+{{< /admonition >}}
+
+Now let's modify the file where the `apiPrivateKey` is called, recompile and install the app. Here I am using [APKLab](https://marketplace.visualstudio.com/items?itemName=Surendrajat.apklab) which is a nice VS code extension for android reverse engineering.
+
+{{< image src="6.png" caption="Modifiy in Samli" >}}
+
+
+#### Logging
+Since I am connecting through adb, it would be obvious to use [logcat](https://developer.android.com/tools/logcat).
+
+Let's now get all the logs from askfm : `adb logcat | grep askfm`
+
+{{< image src="7.png" caption="Logs try#1" >}}
+
+great, no logs :'(
+
