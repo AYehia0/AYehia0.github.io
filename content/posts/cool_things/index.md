@@ -59,6 +59,7 @@ You can find my setup on my github.
 - Task Management and Todos: [dooit](https://github.com/kraanzu/dooit)
 - Code Snippets in terminal: [nap](https://github.com/maaslalani/nap)
 - Telegram CLI (huh): [tg](https://github.com/paul-nameless/tg)
+- Terminal multiplexer. It lets you switch easily between several programs in one terminal: [tmux](https://github.com/tmux/tmux/wiki)
 
 ### Utils
 - Video Downloader: [yt-dlp](https://github.com/yt-dlp/yt-dlp)
