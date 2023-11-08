@@ -71,6 +71,7 @@ You can find my setup on my github.
 - Anime Cli: [ani-cli](https://github.com/pystardust/ani-cli)
 - Send requests from terminal : [HTTPie](https://httpie.io/cli)
 - ADB (Android Debug Bridge): [adb](https://developer.android.com/tools/adb)
+- A key remapping daemon: [keyd](https://github.com/rvaiya/keyd)
 
 ## Apps (General Apps)
 - Video Player: [mpv](https://github.com/mpv-player/mpv)
