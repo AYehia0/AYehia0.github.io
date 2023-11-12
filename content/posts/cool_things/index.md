@@ -182,3 +182,21 @@ Videos (probably most of these videos are from the above channels lol)
 
 ### Others
 
+## Be A Wizard
+Showing the practical things I have learnt in a specific technology, again IDK how to categorize. So I will just put things based on the technology.
+
+### Vim
+1. <b>Vim navigations inside command mode #1</b>:
+- `q:`
+Opens up a vim buffer at the bottom of the current screen, allowing you to enter commands and navigate just like vi.
+
+2. <b>Vim navigations inside command mode #2</b>:
+- Opening the command mode, and pressing `C-f` opens a buffer at the bottom of the screen just like <b>#1</b>.
+
+3. <b>Capitalize/Lowercase characters</b>:
+- `gU`, `gu`
+You can combine them with other shortcuts, example you want to make the text inside <> uppercase!:
+    - `<hello, world>` -> `gUi<` -> `<HELLO, WORLD>`
+
+### Ranger
+1. <b>Extracting archives inside ranger</b>: `1l`
