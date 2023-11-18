@@ -3,7 +3,17 @@
         <title>Linux - Category - ::1 404</title>
         <link>https://ayehia0.github.io/categories/linux/</link>
         <description>Linux - Category - ::1 404</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 23 Nov 2022 21:24:34 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 08 Nov 2023 12:33:28 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Linux And Other Cool Things</title>
+    <link>https://ayehia0.github.io/posts/cool_things/</link>
+    <pubDate>Wed, 08 Nov 2023 12:33:28 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/posts/cool_things/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/cool_things/featured-image1.jpg" referrerpolicy="no-referrer">
+            </div><p>Life is a long journey of learning and experience, once you stop learning you die!, also sharing is caring.
+That&rsquo;s why I am sharing this thing :D</p>]]></description>
+</item><item>
     <title>Full MPD setup on BSPWM &#43; Polybar</title>
     <link>https://ayehia0.github.io/posts/setup_mpd_bspwm/</link>
     <pubDate>Wed, 23 Nov 2022 21:24:34 &#43;0200</pubDate><author>

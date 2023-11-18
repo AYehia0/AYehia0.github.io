@@ -38,6 +38,28 @@ Yes, even though I hate doing problems for getting a job, but it's undoubtedly t
 - A challenge for yourself, sometimes fun but most of the time pain in the ass.
 - Solving a problem makes you happy, you get some Dopamine at the end.
 
+## Progress
+I will commit on doing problem solving everyday for <b>30 days</b> (2 Problems/day), I am going to begin with [this](https://leetcode.com/studyplan/top-interview-150/) from leetcode.
+
+I am going to be following 3 aspects:
+1. I can solve any problem, anything comes with practice.
+2. I will commit at least 1-2 hours/day on solving problems for the next 30days, starting from today.
+3. I will never give up on any problem that is put at me, I will ask for help if needed.
+
+### Simplicity
+Understanding the basic approach by mastering smallest things first, that's what big tech do!.
+
+For example, you won't be able to solve a problem that requires DFS without understanding how queues works. You've to move your way from smallest building up to the largest things, and if you got stuck just break things into the smallest again.
+
+### Before solving a problem
+1. Understand the problem clearly.
+
+Ask questions. Not all questions might be applicable to your problem, but it is important to ask questions to yourself at this stage before you go ahead trying to solve the problem.
+
+2. Visualize
+
+That is where a pen and a paper/notebook (or) a white board comes into play. Try to visualize the problem at hand and try to picturize the problem. That is also one of the steps to make sure that you understand the problem clearly.
+
 ## Resources
 So you want to start, but you don't know where to go!. Let me tell you that practicing is the key, but practicing without a good base (basics) and good plan is waste of time.
 

@@ -1,0 +1,35 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>hacking - Category - ::1 404</title>
+        <link>https://ayehia0.github.io/categories/hacking/</link>
+        <description>hacking - Category - ::1 404</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 08 Nov 2023 12:33:28 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/categories/hacking/" rel="self" type="application/rss+xml" /><item>
+    <title>Linux And Other Cool Things</title>
+    <link>https://ayehia0.github.io/posts/cool_things/</link>
+    <pubDate>Wed, 08 Nov 2023 12:33:28 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/posts/cool_things/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/cool_things/featured-image1.jpg" referrerpolicy="no-referrer">
+            </div><p>Life is a long journey of learning and experience, once you stop learning you die!, also sharing is caring.
+That&rsquo;s why I am sharing this thing :D</p>]]></description>
+</item><item>
+    <title>Askfm Reverse Engineering: Getting Threads Back!</title>
+    <link>https://ayehia0.github.io/posts/askfm_reverse_engineering/</link>
+    <pubDate>Thu, 02 Nov 2023 13:50:11 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/posts/askfm_reverse_engineering/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/askfm_reverse_engineering/featured-image.jpg" referrerpolicy="no-referrer">
+            </div><p>So you heared it. Askfm Reverse Engineering! to get back the threads to the web version by creating a web extension that calls the mobile api to show the data and more.</p>]]></description>
+</item><item>
+    <title>How email tracking works ?</title>
+    <link>https://ayehia0.github.io/posts/email_tracking/</link>
+    <pubDate>Thu, 02 Mar 2023 08:11:12 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/posts/email_tracking/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/email_tracking/featured-image.png" referrerpolicy="no-referrer">
+            </div><p>Have you ever wondered how could someone knows if you read their email or not ?</p>]]></description>
+</item></channel>
+</rss>

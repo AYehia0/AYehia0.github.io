@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>automation - Tag - ::1 404</title>
+        <link>https://ayehia0.github.io/tags/automation/</link>
+        <description>automation - Tag - ::1 404</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 16 Oct 2023 13:23:21 &#43;0000</lastBuildDate><atom:link href="https://ayehia0.github.io/tags/automation/" rel="self" type="application/rss+xml" /><item>
+    <title>Git for hackers</title>
+    <link>https://ayehia0.github.io/posts/git_hacks/</link>
+    <pubDate>Mon, 16 Oct 2023 13:23:21 &#43;0000</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/posts/git_hacks/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/git_hacks/featured-image.png" referrerpolicy="no-referrer">
+            </div><p>A practical guide for git with real life scenarios which can make your git experience better.</p>]]></description>
+</item></channel>
+</rss>
