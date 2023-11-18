@@ -11,7 +11,7 @@ share:
 
 description: "To be good at something, it requires you to practice a lot. Problem-solving isn't any different - it just requires a bit more creativity, patience, and probably a Math degree. (just kidding!)"
 
-tags: [problem solving, leetcode, codingame, ]
+tags: [problem solving, leetcode, codingame]
 categories: [Problem Solving]
 
 hiddenFromHomePage: false

@@ -10,10 +10,10 @@ share:
   enable: true
 
 authors: []
-description: ""
+description: "Does your recipient see the email or not ?"
 
 tags: []
-categories: []
+categories: [hacking, learning]
 series: []
 
 hiddenFromHomePage: false

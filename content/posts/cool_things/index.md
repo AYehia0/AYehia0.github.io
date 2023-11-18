@@ -10,10 +10,10 @@ share:
   enable: true
 
 authors: []
-description: ""
+description: "Cool thing starts by using linux, you're not cool if you use windoz"
 
-tags: []
-categories: []
+tags: [linux, learning, hacks]
+categories: [Linux, Vim, hacking]
 series: []
 
 hiddenFromHomePage: false

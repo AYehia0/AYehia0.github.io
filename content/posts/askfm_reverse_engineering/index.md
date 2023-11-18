@@ -13,7 +13,7 @@ authors: []
 description: ""
 
 tags: []
-categories: []
+categories: [hacking]
 series: []
 
 hiddenFromHomePage: false

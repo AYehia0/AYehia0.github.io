@@ -12,8 +12,8 @@ share:
 authors: []
 description: ""
 
-tags: []
-categories: []
+tags: [git, automation]
+categories: [git, learning]
 series: []
 
 hiddenFromHomePage: false

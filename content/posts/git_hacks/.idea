@@ -1,0 +1,7 @@
+# Take about
+
+- git submodules
+- handle big repositories with Git : https://www.atlassian.com/git/tutorials/big-repositories
+- git hooks
+- git init vs git init --bare
+
