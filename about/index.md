@@ -105,3 +105,6 @@ ImageToolKit is GUI application which implements the image processing functional
 <br>
 {{< image src="https://raw.githubusercontent.com/AYehia0/ImageToolKit/python-gui/project/1.PNG" alt="stats" position="center" width="100%" style="border-radius: 8px;" >}}
 
+## Contacts
+- Email: [mail](mailto:ahmedyehia611@gmail.com.com)
+
