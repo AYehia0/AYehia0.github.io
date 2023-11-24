@@ -34,7 +34,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/ayehia0.github.io\/posts\/git_hacks\/"
-        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","keywords": "git, automation","wordcount":  1187 ,
+        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","keywords": "git, automation","wordcount":  1304 ,
         "url": "https:\/\/ayehia0.github.io\/posts\/git_hacks\/","datePublished": "2023-10-16T13:23:21+00:00","dateModified": "2023-10-16T13:23:21+00:00","publisher": {
             "@type": "Organization",
             "name": "Yehia"},"author": {
@@ -139,6 +139,11 @@
             <li><a href="#b4-git-archiveb"><b>4. <code>git archive</code></b></a></li>
           </ul>
         </li>
+        <li><a href="#useful-git-scenarios">Useful git scenarios</a>
+          <ul>
+            <li><a href="#creating-an-orphan-branch">Creating an orphan branch</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -147,7 +152,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
                 </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">categories <a href="/categories/git/"><i class="far fa-folder fa-fw"></i>git</a>&nbsp;<a href="/categories/learning/"><i class="far fa-folder fa-fw"></i>learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-10-16">2023-10-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-10-16">2023-10-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1187 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;6 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-10-16">2023-10-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-10-16">2023-10-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1304 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;7 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         
         loading="eager"
@@ -180,6 +185,11 @@
               </ul>
             </li>
             <li><a href="#b4-git-archiveb"><b>4. <code>git archive</code></b></a></li>
+          </ul>
+        </li>
+        <li><a href="#useful-git-scenarios">Useful git scenarios</a>
+          <ul>
+            <li><a href="#creating-an-orphan-branch">Creating an orphan branch</a></li>
           </ul>
         </li>
       </ul>
@@ -413,6 +423,23 @@ The bug happens in <code>feat/master</code> (Bad) and version <code>v3.4</code> 
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># upload somewhere</span>
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Uploading to server ...&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="useful-git-scenarios" class="headerLink">
+    <a href="#useful-git-scenarios" class="header-mark"></a>Useful git scenarios</h3><h4 id="creating-an-orphan-branch" class="headerLink">
+    <a href="#creating-an-orphan-branch" class="header-mark"></a>Creating an orphan branch</h4><p>An orphan branch is a branch that starts with no commit history but exists alongside your main development branch. It can be useful in specific situations:</p>
+<ol>
+<li>Separate Documentation or Website: like this blog website, it has 2 branches one for writing markdown files, and the other orphan branch for the generated website.</li>
+<li>Starting a New Project: if for example you&rsquo;re creating a full stack application and you want to make the server side and front side in one big repo (which I don&rsquo;t recommend) you can have 2 branches, main one and the orphan frontend (coz you know backend comes first).</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git checkout --orphan &lt;branch-name&gt;
+</span></span><span class="line"><span class="cl">git rm -rf .
 </span></span></code></pre></td></tr></table>
 </div>
 </div></div>

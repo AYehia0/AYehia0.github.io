@@ -179,4 +179,15 @@ git archive --format=tar --prefix=git-1.4.0/ v1.4.0 | gzip >build-1.4.0.tar.gz
 # upload somewhere
 echo "Uploading to server ..."
 ```
+### Useful git scenarios
+
+#### Creating an orphan branch
+An orphan branch is a branch that starts with no commit history but exists alongside your main development branch. It can be useful in specific situations:
+1. Separate Documentation or Website: like this blog website, it has 2 branches one for writing markdown files, and the other orphan branch for the generated website.
+2. Starting a New Project: if for example you're creating a full stack application and you want to make the server side and front side in one big repo (which I don't recommend) you can have 2 branches, main one and the orphan frontend (coz you know backend comes first).
+
+```bash
+git checkout --orphan <branch-name>
+git rm -rf .
+```
 
