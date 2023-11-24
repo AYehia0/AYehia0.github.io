@@ -139,6 +139,7 @@ I am not responsible for what you do with these tools, use them at your own risk
 - [hashcat](https://github.com/hashcat/hashcat)
 - crunch
 - arpspoof
+- frida
 
 ## Resources
 All the interesting resources (about tech obviously) I find in the internet.

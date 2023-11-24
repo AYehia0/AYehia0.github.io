@@ -13,7 +13,7 @@ authors: []
 description: ""
 
 tags: []
-categories: [hacking]
+categories: [API, hacking, reverse engineering]
 series: []
 
 hiddenFromHomePage: false
