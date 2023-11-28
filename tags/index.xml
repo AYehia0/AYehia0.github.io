@@ -3,7 +3,14 @@
         <title>Tags - Tag - ::1 404</title>
         <link>https://ayehia0.github.io/tags/</link>
         <description>Tags - Tag - ::1 404</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 08 Nov 2023 12:33:28 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 27 Nov 2023 18:21:53 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>diy-projects</title>
+    <link>https://ayehia0.github.io/tags/diy-projects/</link>
+    <pubDate>Mon, 27 Nov 2023 18:21:53 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/tags/diy-projects/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>hacks</title>
     <link>https://ayehia0.github.io/tags/hacks/</link>
     <pubDate>Wed, 08 Nov 2023 12:33:28 &#43;0200</pubDate><author>
@@ -65,13 +72,6 @@
     <pubDate>Wed, 14 Dec 2022 22:51:07 &#43;0200</pubDate><author>
         <name>Yehia</name>
     </author><guid>https://ayehia0.github.io/tags/android/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>development</title>
-    <link>https://ayehia0.github.io/tags/development/</link>
-    <pubDate>Wed, 14 Dec 2022 22:51:07 &#43;0200</pubDate><author>
-        <name>Yehia</name>
-    </author><guid>https://ayehia0.github.io/tags/development/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>

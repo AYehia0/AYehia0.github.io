@@ -3,7 +3,16 @@
         <title>All Posts - ::1 404</title>
         <link>https://ayehia0.github.io/posts/</link>
         <description>All Posts | ::1 404</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 24 Nov 2023 23:18:52 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 27 Nov 2023 18:21:53 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Use you home modem when electricity is down !</title>
+    <link>https://ayehia0.github.io/posts/no_elect_no_internet_no_problem/</link>
+    <pubDate>Mon, 27 Nov 2023 18:21:53 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/posts/no_elect_no_internet_no_problem/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/no_elect_no_internet_no_problem/featured-image.jpg" referrerpolicy="no-referrer">
+            </div><p>In the palce I live in, electricity goes off everyday for 2 hours and I really need the internet connectoin that time, because you know it&rsquo;s 2023, Internet is a like water, no one can live without it.</p>]]></description>
+</item><item>
     <title>How to update discord on archlinux ?</title>
     <link>https://ayehia0.github.io/posts/updating_discord_linux/</link>
     <pubDate>Fri, 24 Nov 2023 23:18:52 &#43;0200</pubDate><author>
@@ -90,15 +99,5 @@ Using wget/curlNow we talk :D, here&rsquo;s a bash function (add to your alias s
                 <img src="/posts/setup_mpd_bspwm/featured-image.png" referrerpolicy="no-referrer">
             </div>What is mpd ?MPD (Music Player Daemon) is an audio player, used to play audio tracks, organize playlists with some database for musics. In order to interface with it, a client is needed (in our case (ncmpcpp)[https://rybczak.net/ncmpcpp/] is used).
 Installation Install mpd and ncmpcpp on ArchLinux : sudo pacman -S mpd ncmpcpp Install mpDris2 (provides MPRIS 2 support to mpd): yay -S mpdris2 Setup AutostartThere are multiple ways to auto-run mpd and mpdris2 :]]></description>
-</item><item>
-    <title>How to setup tmux for advanced users ?</title>
-    <link>https://ayehia0.github.io/posts/tmux_setup/</link>
-    <pubDate>Wed, 10 Aug 2022 01:10:44 &#43;0200</pubDate><author>
-        <name>Yehia</name>
-    </author><guid>https://ayehia0.github.io/posts/tmux_setup/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/posts/tmux_setup/featured-image.png" referrerpolicy="no-referrer">
-            </div>Why you should use tmux ?Tmux is a terminal multiplexer, it lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and re-attach them to a different terminal.
-It also allows you to have multiple panes open at the same time, each with their own shell running, with a single SSH connection (yes, it supports SSH). Not only that, you can also have multiple windows open at the same time, a bit like tabs with more panes in them.]]></description>
 </item></channel>
 </rss>
