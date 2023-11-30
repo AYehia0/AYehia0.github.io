@@ -487,7 +487,7 @@ public class KeyGenerator {
 }
 ```
 
-### Hmm, what's now
+### Hmm, now what?
 So far so good, let's recap what we have achieved so far.
 
 - We found the KEY used in the HMAC generation, but a native lib called `ffmpcodec` is used to (maybe) perform some string modifications on the KEY.
@@ -534,4 +534,65 @@ Let's now get all the logs from askfm : `adb logcat | grep askfm`
 {{< image src="7.png" caption="Logs try#1" >}}
 
 great, no logs :'(
+
+Here are what I found about after some investigations using `mobile-security-framework-mobsf`:
+- The app uses some anti-debugging mechanism.
+- I need to dynamically analyse the app in runtime.
+
+### Dynamic Analysis
+That's where [frida](https://frida.re/) shines, firda is a reverse engineering tool used for dynamic analysis and manipulation of software. It allows developers and security researchers to analyze and modify running applications, helping them understand how the software works and identify potential vulnerabilities. Frida is widely used in the cybersecurity and software development industries.
+
+{{< admonition type=info title="Resources" open=true >}}
+Here is a great tuturiol, explains basics of reverse engineering + frida:
+{{< youtube 9Zz6upAOyo0 >}}
+{{< /admonition >}}
+
+
+I install frida and hooked up the frida server to the VM. And here's the script I wrote:
+```js
+// frida -U -l log.js -f com.askfm
+Java.perform(() => {
+    const cl = Java.use("com.askfm.network.utils.Signature") 
+    console.log("Started logging ...")
+
+    cl.generateHashWithKey
+        .overload('java.lang.String', 'java.lang.String', 'java.lang.String', 'java.lang.String', 'java.util.Map')
+            .implementation = function(key, method, host, path, obj) {
+            console.log(key, method, host, path, obj)
+            return this.generateHashWithKey(key, method, host, path, obj)
+        }
+
+    cl.serializeParams.overload('java.util.Map')
+        .implementation = function (m) {
+        const s = this.serializeParams(m)
+        console.log("Serialized Params: ", s)
+        return s
+    }
+
+    cl.sha1.overload('java.lang.String', 'java.lang.String')
+        .implementation = function (s, keyString) {
+
+        console.log(s, keyString)
+        const sha = this.sha1(s, keyString)
+        console.log("Hash", sha)
+        return sha
+    }
+});
+```
+#### And finally the key!
+With many tries, finally I have logged the key!
+{{< image src="finally_the_key.png" caption="Getting the key!" >}}
+
+
+## What's next?
+After I successfully got the API, I created a web extension to call the mobile APIs, get the data and modify the HTML.
+
+{{< admonition type=info title="Resources" open=true >}}
+Link to the full project: [get-threads-back](https://github.com/AYehia0/askfm-threads-back/tree/extension)
+{{< /admonition >}}
+
+
+{{< image src="https://raw.githubusercontent.com/AYehia0/askfm-threads-back/extension/.assets/ext.png" caption="A working version of the extension">}}
+
+
 

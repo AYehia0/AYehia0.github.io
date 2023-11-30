@@ -34,7 +34,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/ayehia0.github.io\/posts\/askfm_reverse_engineering\/"
-        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  2762 ,
+        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  3033 ,
         "url": "https:\/\/ayehia0.github.io\/posts\/askfm_reverse_engineering\/","datePublished": "2023-11-02T13:50:11+02:00","dateModified": "2023-11-02T13:50:11+02:00","publisher": {
             "@type": "Organization",
             "name": "Yehia"},"author": {
@@ -124,21 +124,27 @@
       <ul>
         <li><a href="#inspecting-the-traffic">Inspecting the Traffic</a></li>
         <li><a href="#decompiling-the-apk">Decompiling the apk</a></li>
-        <li><a href="#hmm-whats-now">Hmm, what&rsquo;s now</a></li>
+        <li><a href="#hmm-now-what">Hmm, now what?</a></li>
         <li><a href="#decompile-modifiy-recompile">Decompile, Modifiy, Recompile</a>
           <ul>
             <li><a href="#logging">Logging</a></li>
           </ul>
         </li>
+        <li><a href="#dynamic-analysis">Dynamic Analysis</a>
+          <ul>
+            <li><a href="#and-finally-the-key">And finally the key!</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
+    <li><a href="#whats-next">What&rsquo;s next?</a></li>
   </ul>
 </nav></div>
     </div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Askfm Reverse Engineering: Getting Threads Back!</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
                 </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">categories <a href="/categories/api/"><i class="far fa-folder fa-fw"></i>API</a>&nbsp;<a href="/categories/hacking/"><i class="far fa-folder fa-fw"></i>hacking</a>&nbsp;<a href="/categories/reverse-engineering/"><i class="far fa-folder fa-fw"></i>reverse engineering</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-11-02">2023-11-02</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-11-02">2023-11-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2762 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;13 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-11-02">2023-11-02</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-11-02">2023-11-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;3033 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;15 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         
         loading="eager"
@@ -158,14 +164,20 @@
       <ul>
         <li><a href="#inspecting-the-traffic">Inspecting the Traffic</a></li>
         <li><a href="#decompiling-the-apk">Decompiling the apk</a></li>
-        <li><a href="#hmm-whats-now">Hmm, what&rsquo;s now</a></li>
+        <li><a href="#hmm-now-what">Hmm, now what?</a></li>
         <li><a href="#decompile-modifiy-recompile">Decompile, Modifiy, Recompile</a>
           <ul>
             <li><a href="#logging">Logging</a></li>
           </ul>
         </li>
+        <li><a href="#dynamic-analysis">Dynamic Analysis</a>
+          <ul>
+            <li><a href="#and-finally-the-key">And finally the key!</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
+    <li><a href="#whats-next">What&rsquo;s next?</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>So you heared it. Askfm Reverse Engineering! to get back the threads to the web version by creating a web extension that calls the mobile api to show the data and more.</p>
@@ -1049,8 +1061,8 @@ What&rsquo;s an <code>APK</code> you ask ?
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="hmm-whats-now" class="headerLink">
-    <a href="#hmm-whats-now" class="header-mark"></a>Hmm, what&rsquo;s now</h3><p>So far so good, let&rsquo;s recap what we have achieved so far.</p>
+</div><h3 id="hmm-now-what" class="headerLink">
+    <a href="#hmm-now-what" class="header-mark"></a>Hmm, now what?</h3><p>So far so good, let&rsquo;s recap what we have achieved so far.</p>
 <ul>
 <li>We found the KEY used in the HMAC generation, but a native lib called <code>ffmpcodec</code> is used to (maybe) perform some string modifications on the KEY.</li>
 <li>The HMAC <code>generateHash</code> method uses custom <code>sha-1</code>.</li>
@@ -1134,7 +1146,121 @@ Take this example:</p>
             alt="/posts/askfm_reverse_engineering/7.png" height="999"  width="1888" >
     </a><figcaption class="image-caption">Logs try#1</figcaption>
     </figure>
-<p>great, no logs :'(</p></div>
+<p>great, no logs :'(</p>
+<p>Here are what I found about after some investigations using <code>mobile-security-framework-mobsf</code>:</p>
+<ul>
+<li>The app uses some anti-debugging mechanism.</li>
+<li>I need to dynamically analyse the app in runtime.</li>
+</ul>
+<h3 id="dynamic-analysis" class="headerLink">
+    <a href="#dynamic-analysis" class="header-mark"></a>Dynamic Analysis</h3><p>That&rsquo;s where <a href="https://frida.re/" target="_blank" rel="noopener noreferrer">frida</a> shines, firda is a reverse engineering tool used for dynamic analysis and manipulation of software. It allows developers and security researchers to analyze and modify running applications, helping them understand how the software works and identify potential vulnerabilities. Frida is widely used in the cybersecurity and software development industries.</p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>Resources<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>Here is a great tuturiol, explains basics of reverse engineering + frida:</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/9Zz6upAOyo0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</div>
+        </div>
+    </div>
+<p>I install frida and hooked up the frida server to the VM. And here&rsquo;s the script I wrote:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// frida -U -l log.js -f com.askfm
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">Java</span><span class="p">.</span><span class="nx">perform</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">cl</span> <span class="o">=</span> <span class="nx">Java</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s2">&#34;com.askfm.network.utils.Signature&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Started logging ...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">cl</span><span class="p">.</span><span class="nx">generateHashWithKey</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="nx">overload</span><span class="p">(</span><span class="s1">&#39;java.lang.String&#39;</span><span class="p">,</span> <span class="s1">&#39;java.lang.String&#39;</span><span class="p">,</span> <span class="s1">&#39;java.lang.String&#39;</span><span class="p">,</span> <span class="s1">&#39;java.lang.String&#39;</span><span class="p">,</span> <span class="s1">&#39;java.util.Map&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="nx">implementation</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">method</span><span class="p">,</span> <span class="nx">host</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">method</span><span class="p">,</span> <span class="nx">host</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">obj</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateHashWithKey</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">method</span><span class="p">,</span> <span class="nx">host</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">obj</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">cl</span><span class="p">.</span><span class="nx">serializeParams</span><span class="p">.</span><span class="nx">overload</span><span class="p">(</span><span class="s1">&#39;java.util.Map&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="nx">implementation</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">s</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">serializeParams</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Serialized Params: &#34;</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">s</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">cl</span><span class="p">.</span><span class="nx">sha1</span><span class="p">.</span><span class="nx">overload</span><span class="p">(</span><span class="s1">&#39;java.lang.String&#39;</span><span class="p">,</span> <span class="s1">&#39;java.lang.String&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="nx">implementation</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">keyString</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">keyString</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">sha</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">sha1</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">keyString</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Hash&#34;</span><span class="p">,</span> <span class="nx">sha</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">sha</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="and-finally-the-key" class="headerLink">
+    <a href="#and-finally-the-key" class="header-mark"></a>And finally the key!</h4><p>With many tries, finally I have logged the key!
+<figure><a class="lightgallery" href="/posts/askfm_reverse_engineering/finally_the_key.png" title="/posts/askfm_reverse_engineering/finally_the_key.png" data-thumbnail="/posts/askfm_reverse_engineering/finally_the_key.png" data-sub-html="<h2>Getting the key!</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/askfm_reverse_engineering/finally_the_key.png"
+            srcset="/posts/askfm_reverse_engineering/finally_the_key.png, /posts/askfm_reverse_engineering/finally_the_key.png 1.5x, /posts/askfm_reverse_engineering/finally_the_key.png 2x"
+            sizes="auto"
+            alt="/posts/askfm_reverse_engineering/finally_the_key.png" height="1080"  width="1920" >
+    </a><figcaption class="image-caption">Getting the key!</figcaption>
+    </figure></p>
+<h2 id="whats-next" class="headerLink">
+    <a href="#whats-next" class="header-mark"></a>What&rsquo;s next?</h2><p>After I successfully got the API, I created a web extension to call the mobile APIs, get the data and modify the HTML.</p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>Resources<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Link to the full project: <a href="https://github.com/AYehia0/askfm-threads-back/tree/extension" target="_blank" rel="noopener noreferrer">get-threads-back</a></div>
+        </div>
+    </div>
+<figure><a class="lightgallery" href="https://raw.githubusercontent.com/AYehia0/askfm-threads-back/extension/.assets/ext.png" title="https://raw.githubusercontent.com/AYehia0/askfm-threads-back/extension/.assets/ext.png" data-thumbnail="https://raw.githubusercontent.com/AYehia0/askfm-threads-back/extension/.assets/ext.png" data-sub-html="<h2>A working version of the extension</h2>">
+        <img
+            
+            loading="lazy"
+            src="https://raw.githubusercontent.com/AYehia0/askfm-threads-back/extension/.assets/ext.png"
+            srcset="https://raw.githubusercontent.com/AYehia0/askfm-threads-back/extension/.assets/ext.png, https://raw.githubusercontent.com/AYehia0/askfm-threads-back/extension/.assets/ext.png 1.5x, https://raw.githubusercontent.com/AYehia0/askfm-threads-back/extension/.assets/ext.png 2x"
+            sizes="auto"
+            alt="https://raw.githubusercontent.com/AYehia0/askfm-threads-back/extension/.assets/ext.png">
+    </a><figcaption class="image-caption">A working version of the extension</figcaption>
+    </figure></div>
 
         <div class="sponsor">
         <div class="sponsor-avatar"></div><p class="sponsor-bio"><em>Say Hello :D</em></p><a href="https://github.com/AYehia0" title="Sponsor" target="_blank" class="sponsor-button" rel="noopener noreferrer">
