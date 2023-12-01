@@ -1,0 +1,174 @@
+---
+title: "Getting into hacking [Hacking Challenges]: Can you hack it?"
+date: 2023-12-01T21:36:06+02:00
+lastmod: 2023-12-01T21:36:06+02:00
+draft: true
+toc:
+  enable: true
+  auto: false
+share:
+  enable: true
+
+authors: []
+description: "Attempting to solve CanYouHackIt Challenge."
+
+tags: []
+categories: [hacking, linux]
+series: []
+
+hiddenFromHomePage: false
+hiddenFromSearch: false
+
+featuredImage: "featured-image.png"
+featuredImagePreview: "featured-image.png"
+---
+This is my attempt to solve the "Can you hack it?" Challenge. I will share the solutions and how to achieve thme, without spoiling the secrets.
+<!--more-->
+
+## Can you hack it?
+What da heck is `Can you hack it?` challenge?. `Can you hack it?` is a challenge hosted by `AIS - ainfosec` to give participants a chance to join the team. Score a total of 700 points to unlock the ability to submit your score. Your score submission and email will be sent directly to AIS and someone will be in touch.
+
+I like challenges, that's why I am trying to give it a shot, while I might not solve them all, but I will be learning alot by time I give up.
+
+
+{{< admonition warning "Before getting started!!!" >}}
+Before reading my attempts, make sure to give it a try first, and you got stuck come for solutions.
+{{< /admonition >}}
+
+## How to play?
+Navigate to [the challenge](https://hack.ainfosec.com/) and hover over a challenge tile to flip it. Once a challenge is solved the points will appear in the top right. You may need to refresh the page to update the points depending on how you solved the challenge.
+
+## Categories
+The challenge has many categories with different difficulties based on the score number (the bigger, the harder):-
+- Client-side Protections
+- Networking
+- Crypto
+- Steganography
+- Exploitation
+- Reverse Engineering
+- Input Validation
+- Programming
+
+###  Client-side Protections
+#### Disabled 
+That's really easy and stright-forward challenge. button is disabled on the `HTML`, so just edit that html tag.
+
+#### Button Clicker 
+That's really interesting one, first I tried to click the button using `js`:
+```js
+for (let i = 0; i < 999999999; i++) {
+    document.querySelector("#id_of_button").click()
+}
+```
+and yeah, as expected my browser crashed lol. After some time playing with the console (which sometimes can contain the answer!), I found the source code for `ButtonClicker`.
+
+{{< image src="button_clicker.png" caption="Button Clicker Source Code" >}}
+
+setting `ButtonClicker_num_clicks` with the desired number solves this one.
+
+#### Weird Input
+This one is funny, coz there is a js function which changes the input to 'a's. Just as the previous one, make this function do nothing and you will be able to solve it.
+
+{{< image src="weird_input.png" caption="Weird Input, aaaaaaaaa!" >}}
+
+#### Paid Content 
+This challenge taught me a lot, coz I was searching in the wrong direction. I first checked the source code as usual (and it didn't look that great).
+{{< image src="paid_content_attempt1.png" caption="Wtf is that?" >}}
+
+then I inspected the network and the response I found looked like this:
+```json
+{
+    "error": "You're not a paid user.",
+    "hc_challenge": {
+        "oid": "08be3a909cb31a4f2e80",
+        "meta": {
+            "points": 50,
+            "challenge_id": "paid_content",
+            "name": "Paid Content",
+            "description": "Pay for things you want! (2.0!!!)",
+            "prompt": "You must be a paid user to proceed.",
+            "category": {
+                "value": "client_side_protections",
+                "name": "Client-side Protections"
+            },
+            "console_message": "[Paid Content]: This challenge got a minor update for the 2023 holidays. It's version 2.0. It's (2 * challenge)!",
+            "mobile_friendly": false,
+            "encoded": true,
+            "error_msg": "You're not a paid user.",
+            "version": "2.0",
+            "inputs": [],
+            "retired": false,
+            "bin_hashes": null
+        },
+        "solved": false,
+        "js_file": "...",
+        "js_function": "PaidContent",
+        "num_solves": 1945,
+        "paid": false, <--------- Can you spot this ?
+        "challenge": 1964
+    }
+}
+```
+can you see it ?, if I could just set this to true before making the request, that would be it.
+{{< image src="paid_content_ans2.png" caption="Yes, you can edit the JS code!" >}}
+
+###  Networking
+#### HTTP Basic 
+That's another easy and stright-forward challenge. Download the `http-auth.cap` and open it with wireshark (not that doo doo doo), and filter all `POST` (`http.request.method == "POST"`) requests (coz you know post requests usually contains data to be sent!).
+
+{{< image src="basic_http.png" caption="Wireshark doo doo doo, sorry :D" >}}
+
+#### WPA2 Deauth 
+Hacking networks!, the good old days. In this challenge I used `aircrack-ng` coz why not?
+- Extract info from `.cap`
+```bash
+aircrack-ng ./de-auth.cap  
+```
+Cracking the password, and here I wasted lot of time trying to find where I put my wordlists lol (for future me, the path is : `/usr/share/hack/`).
+
+{{< image src="wpa2_deauth.png" caption="I love when I find the needle in the hay stack!" >}}
+
+###  Crypto
+#### Skip Cipher 
+This challenge is easy as it clearly says the cipher, so with quick search you will find many online tools to decode, I used [this](https://www.dcode.fr/skip-cipher).
+
+#### Encoded 
+That's a kinda interesting one, it says `Encoding is not cryptography! (2.0!!! Now with even more layers!)`. At the first glance I thought about that mores code challenge on `hackthebox`, and it was close (many layers).
+```
+504b0304140000000800308281576ed34a1e5c0000005c00000008000000666c61672e74787405c1c10e83200c00d0cf5a3c96c6a106b354d4aab7ed02acb8193501ffdef7286eff57ff546c979ec9653609a0c2194a8019c0812629062c8d7475b48dcd72ea4b7f31ad9c99d2d8caded23bf80faebe31e121e187be562a1c93bb01504b01021403140000000800308281576ed34a1e5c0000005c000000080000000000000000000000800100000000666c61672e747874504b0506000000000100010036000000820000000000
+```
+This looks like a `zip` format, so let's extract the data inside:
+```python
+st = "..."
+binary_data = bytes.fromhex(st)
+with open("output.zip", "wb") as f:
+    f.write(binary_data)
+```
+After extracting the data it show `flag.txt` which contains `base64` string, trying to decode it gives some trash string (but it's not!):
+```
+BZh91AY&SY��@�@�`�0�i fuxg+ͅW85-F)6cedYhE64SmfCk=knU+>.p!c
+```
+as you can see `bz`, another compression. Let's extract again (this time using bash):
+```bash
+echo "$base64_encoded_string" | base64 --decode | bzcat > output.txt
+```
+output.txt contains binary (great!):
+```
+110110 110110 110110 1100011 110110 110001 110110 110111 110111 1100010 110110 110111 110111 110101 110111 110010 110110 110110 110110 1100011 110110 110101 110010 1100001 110110 111000 110110 110101 110011 110001 110110 1100011 110011 110000 110010 1100110 110111 110111 110011 110000 110111 110010 110110 1100011 110110 110100 110101 1100110 110110 1100101 110111 110101 110110 1100011 110110 1100011 110101 1100110 110100 110000 110110 110110 110110 1100010 110011 1100100 110111 110011 110111 110101 110110 110100 110110 1100110 110111 1100100
+```
+Let's convert it to ASCII:
+```
+666c61677b677572666c652a6865316c302f7730726c645f6e756c6c5f40666b3d7375646f7d
+```
+Now we have HEX lol (it's convert it to ASCII again):
+```bash
+echo "$hex_string" | xxd -r -p
+```
+Finally we get the flag: `flag{gurfle*he1l0/***********}`
+
+#### ENIGMA 
+
+#### Ransom 
+
+#### XOR 
+
