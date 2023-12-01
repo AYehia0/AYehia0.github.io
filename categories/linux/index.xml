@@ -1,9 +1,18 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Linux - Category - ::1 404</title>
+        <title>linux - Category - ::1 404</title>
         <link>https://ayehia0.github.io/categories/linux/</link>
-        <description>Linux - Category - ::1 404</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 24 Nov 2023 23:18:52 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+        <description>linux - Category - ::1 404</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 01 Dec 2023 21:36:06 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Getting into hacking [Hacking Challenges]: Can you hack it?</title>
+    <link>https://ayehia0.github.io/posts/can_you_hack_it/</link>
+    <pubDate>Fri, 01 Dec 2023 21:36:06 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/posts/can_you_hack_it/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/can_you_hack_it/featured-image.png" referrerpolicy="no-referrer">
+            </div><p>This is my attempt to solve the &ldquo;Can you hack it?&rdquo; Challenge. I will share the solutions and how to achieve thme, without spoiling the secrets.</p>]]></description>
+</item><item>
     <title>How to update discord on archlinux ?</title>
     <link>https://ayehia0.github.io/posts/updating_discord_linux/</link>
     <pubDate>Fri, 24 Nov 2023 23:18:52 &#43;0200</pubDate><author>
