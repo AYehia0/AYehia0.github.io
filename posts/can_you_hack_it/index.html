@@ -34,7 +34,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/ayehia0.github.io\/posts\/can_you_hack_it\/"
-        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  1623 ,
+        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  1748 ,
         "url": "https:\/\/ayehia0.github.io\/posts\/can_you_hack_it\/","datePublished": "2023-12-01T21:36:06+02:00","dateModified": "2023-12-01T21:36:06+02:00","publisher": {
             "@type": "Organization",
             "name": "Yehia"},"author": {
@@ -154,7 +154,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
                 </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">categories <a href="/categories/hacking/"><i class="far fa-folder fa-fw"></i>hacking</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1623 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;8 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1748 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;9 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         
         loading="eager"
@@ -745,7 +745,34 @@ I renamed the ransomed data file to <code>encrypt_me</code> and run the ransom b
     </figure>
 <p>As we can see, running the ransomware on that file modified it and it&rsquo;s compressed file of type <code>bz2</code>. To find the flag, just extract it and cat the <code>flag.txt</code>.</p>
 <h4 id="xor" class="headerLink">
-    <a href="#xor" class="header-mark"></a>XOR</h4></div>
+    <a href="#xor" class="header-mark"></a>XOR</h4><p>Another interesting question, XOR is always challenging to work with, this time it&rsquo;s kinda different as I didn&rsquo;t want to write code lol. That&rsquo;s why I used <a href="https://www.dcode.fr/xor-cipher" target="_blank" rel="noopener noreferrer">dcode</a> as we also know the length of the key and we need to find that key.</p>
+<figure><a class="lightgallery" href="/posts/can_you_hack_it/dcode_clues.png" title="/posts/can_you_hack_it/dcode_clues.png" data-thumbnail="/posts/can_you_hack_it/dcode_clues.png" data-sub-html="<h2>That&rsquo;s a clue!</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/can_you_hack_it/dcode_clues.png"
+            srcset="/posts/can_you_hack_it/dcode_clues.png, /posts/can_you_hack_it/dcode_clues.png 1.5x, /posts/can_you_hack_it/dcode_clues.png 2x"
+            sizes="auto"
+            alt="/posts/can_you_hack_it/dcode_clues.png" height="793"  width="675" >
+    </a><figcaption class="image-caption">That&rsquo;s a clue!</figcaption>
+    </figure>
+<p>I asked chatGPT since AI is really good finding patterns, and here is what I got:</p>
+<ul>
+<li>AI answer : <code>&quot;It has been discovered that Cj+ provides remarkable facilities&quot;</code></li>
+</ul>
+<p>With quick googling : I found this <a href="https://en.uncyclopedia.co/wiki/C%2B%2B#Code_Example" target="_blank" rel="noopener noreferrer">wiki</a>:</p>
+<figure><a class="lightgallery" href="/posts/can_you_hack_it/c&#43;&#43;_quote.png" title="/posts/can_you_hack_it/c&#43;&#43;_quote.png" data-thumbnail="/posts/can_you_hack_it/c&#43;&#43;_quote.png" data-sub-html="<h2>That&rsquo;s a clue!</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/can_you_hack_it/c&#43;&#43;_quote.png"
+            srcset="/posts/can_you_hack_it/c&#43;&#43;_quote.png, /posts/can_you_hack_it/c&#43;&#43;_quote.png 1.5x, /posts/can_you_hack_it/c&#43;&#43;_quote.png 2x"
+            sizes="auto"
+            alt="/posts/can_you_hack_it/c&#43;&#43;_quote.png" height="402"  width="1601" >
+    </a><figcaption class="image-caption">That&rsquo;s a clue!</figcaption>
+    </figure>
+<p>We have the decoded message now : <code>It has been discovered that C++ provides a remarkable facility for concealing the trivial details of a program...</code></p>
+<p>Finally I used <a href="https://github.com/hellman/xortool" target="_blank" rel="noopener noreferrer">this</a> to get the key ! (as far as I remember lol)</p></div>
 
         <div class="sponsor">
         <div class="sponsor-avatar"></div><p class="sponsor-bio"><em>Say Hello :D</em></p><a href="https://github.com/AYehia0" title="Sponsor" target="_blank" class="sponsor-button" rel="noopener noreferrer">
