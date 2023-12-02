@@ -145,8 +145,136 @@ echo "$hex_string" | xxd -r -p
 Finally we get the flag: `flag{gurfle*he1l0/***********}`
 
 #### ENIGMA 
+This is really badass challenge!, i wasted too much time in it and I could solve but there are what you should do to be able to solve it properly:
+- Inspecting the console, gives us some hints (that's where you should always start from)
 
+{{< image src="enigma_hints.png" caption="Hints but at what cost!" >}}
+
+Let's analysis those hints:
+1. `QK JO LU XG DV` looks like plugboard wiring map.
+2. `UKW B` is indeed the reflector being used.
+3. `3 of 5 Rotors` it's not clear what does that mean but I guess it's the number of used rotors.
+4. `First 5 digits of Pi` that's another ambiguous hint, but it could be the (ring settings/Position setting) as `"3 14 15"`
+5. `Metasploit Acquired by Rapid7` hmm the date?!, Metasploit acquired by Rapid7 on `20 Oct, 2009` so (ring settings/Position setting) could be (`"20 10 09"`, `"10 20 09"`). there is another possiblity but I just ignored it.
+
+{{< image src="enigma_online.png" caption="How to solve online ?" >}}
+
+There are many possiblities and permutations to try, so it's better to write a code for that
+```python
+from itertools import permutations
+from string import ascii_uppercase
+
+def enigma_decrypt(encrypted_message, rotor_order, reflector_type, plugboard_settings, initial_positions):
+    rotor_wirings = {
+        'I': 'EKMFLGDQVZNTOWYHXUSPAIBRCJ',
+        'II': 'AJDKSIRUXBLHWTMCQGZNPYFVOE',
+        'III': 'BDFHJLCPRTXVZNYEIWGAKMUSQO',
+        'IV': 'ESOVPZJAYQUIRHXLNFTGKDCMWB',
+        'V': 'VZBRGITYUPSDNHLXAWMJQOFECK'
+    }
+
+    reflector_wirings = {
+        'UKW-B': 'YRUHQSLDPXNGOKMIEBFZCWVJAT'
+    }
+
+    plugboard = {char: char for char in ascii_uppercase}
+    plugboard.update(plugboard_settings)
+
+    rotor_positions = {rotor: initial_positions.split()[i] for i, rotor in enumerate(rotor_order.split())}
+
+    decrypted_message = ''
+    for char in encrypted_message:
+        if char in plugboard:
+            char = plugboard[char]
+
+        for rotor, position in rotor_positions.items():
+            char = rotor_wirings[rotor][(ord(char) - ord('A') + ord(position) - ord('A')) % 26]
+
+        char = reflector_wirings[reflector_type][ord(char) - ord('A')]
+
+        for rotor, position in reversed(rotor_positions.items()):
+            char = chr((ord(char) - ord(position) + ord('A')) % 26 + ord('A'))
+
+        if char in plugboard:
+            char = plugboard[char]
+
+        decrypted_message += char
+
+        for rotor in rotor_positions:
+            rotor_positions[rotor] = chr((ord(rotor_positions[rotor]) - ord('A') + 1) % 26 + ord('A'))
+
+    return decrypted_message
+
+def get_rotor_permutations():
+    """Return all the possible permutations"""
+    rotor_labels = ['I', 'II', 'III', 'IV', 'V']
+    num_rotors = 3
+
+    rotor_combinations = permutations(rotor_labels, num_rotors)
+
+    return list(rotor_combinations)
+
+encoded_message = "RSHDQ VKAXO LONTP SXKHY DGOWH BKUBK MAAGT YEGAJ ZMKIB AJYDV MFFYH ZOWSW SQYMK CEZXK DBLEA GZTIF IHHNQ PARET PSOXE JPRHO RXLYY GSIHG YBIFC NYUSN JSDXF TGHIX KVWVQ GNWBC CCPFU MKOLT PMLDX DCMSX BEGEN USMUQ BJSJC OEREZ SZ"
+
+# Provided information
+plugboard_wiring = {'Q': 'K', 'J': 'O', 'L': 'U', 'X': 'G', 'D': 'V'}
+reflector_type = 'UKW-B'
+first_5_pi = 'CNO'
+metasploit_date = 'JTI'
+
+# Generate all possible combinations
+all_combinations = []
+
+# 1. Plugboard wiring
+plugboard_permutations = permutations(plugboard_wiring.keys())
+for plugboard_permutation in plugboard_permutations:
+    plugboard_settings = dict(zip(plugboard_wiring.keys(), plugboard_permutation))
+
+    # 2. Rotor order
+    rotor_labels = ['I', 'II', 'III', 'IV', 'V']
+    rotor_order_permutations = permutations(rotor_labels, 3)
+    for rotor_order_permutation in rotor_order_permutations:
+        rotor_order = ' '.join(rotor_order_permutation)
+
+        # 3. Reflectors
+        reflector_types = ['UKW-B']
+        for reflector_type in reflector_types:
+
+            # 4. Initial positions
+            initial_position_permutations = permutations('ABCDEFGHIJKLMNOPQRSTUVWXYZ', 3)
+            for initial_positions_permutation in initial_position_permutations:
+                initial_positions = ' '.join(initial_positions_permutation)
+
+                # Attempt decryption
+                decrypted_message = enigma_decrypt(encoded_message, rotor_order, reflector_type, plugboard_settings, initial_positions)
+
+                print(decrypted_message)
+                print("-----")
+```
 #### Ransom 
+This one looks tough, coz there are only 3 people who managed to solve it, but it's not!. I managed to solve it in 15m!.
+
+- `ransom` the binary
+- `important_company_data_backup.zip.ransomed`: At the first glance I thought it's kinda of compressed randomed file so I tried to extract it but it didn't work!.
+
+1. <b>Basic analysis</b>
+
+{{< image src="ransom_basic.png" caption="Basic analysis using file & strings" >}}
+
+Maybe static analysis is the way to go ?, so I tried `radare2`:
+
+{{< image src="radare2.png" caption="Creepy huh?" >}}
+
+After some playing around I found out that `ransom` checks the stats of a file called `encrypt_me`
+
+{{< image src="strace.png" caption="What happens when running the program ?" >}}
+
+2. <b>Actual work</b>
+I renamed the ransomed data file to `encrypt_me` and run the ransom bin, and Voilà something happened.
+
+{{< image src="ransom_ans.png" caption="The flag !!?" >}}
+
+As we can see, running the ransomware on that file modified it and it's compressed file of type `bz2`. To find the flag, just extract it and cat the `flag.txt`.
 
 #### XOR 
 

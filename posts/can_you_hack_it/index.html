@@ -34,7 +34,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/ayehia0.github.io\/posts\/can_you_hack_it\/"
-        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  916 ,
+        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  1623 ,
         "url": "https:\/\/ayehia0.github.io\/posts\/can_you_hack_it\/","datePublished": "2023-12-01T21:36:06+02:00","dateModified": "2023-12-01T21:36:06+02:00","publisher": {
             "@type": "Organization",
             "name": "Yehia"},"author": {
@@ -154,7 +154,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
                 </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">categories <a href="/categories/hacking/"><i class="far fa-folder fa-fw"></i>hacking</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;916 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;5 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1623 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;8 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         
         loading="eager"
@@ -471,8 +471,280 @@
 </div>
 </div><p>Finally we get the flag: <code>flag{gurfle*he1l0/***********}</code></p>
 <h4 id="enigma" class="headerLink">
-    <a href="#enigma" class="header-mark"></a>ENIGMA</h4><h4 id="ransom" class="headerLink">
-    <a href="#ransom" class="header-mark"></a>Ransom</h4><h4 id="xor" class="headerLink">
+    <a href="#enigma" class="header-mark"></a>ENIGMA</h4><p>This is really badass challenge!, i wasted too much time in it and I could solve but there are what you should do to be able to solve it properly:</p>
+<ul>
+<li>Inspecting the console, gives us some hints (that&rsquo;s where you should always start from)</li>
+</ul>
+<figure><a class="lightgallery" href="/posts/can_you_hack_it/enigma_hints.png" title="/posts/can_you_hack_it/enigma_hints.png" data-thumbnail="/posts/can_you_hack_it/enigma_hints.png" data-sub-html="<h2>Hints but at what cost!</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/can_you_hack_it/enigma_hints.png"
+            srcset="/posts/can_you_hack_it/enigma_hints.png, /posts/can_you_hack_it/enigma_hints.png 1.5x, /posts/can_you_hack_it/enigma_hints.png 2x"
+            sizes="auto"
+            alt="/posts/can_you_hack_it/enigma_hints.png" height="302"  width="1436" >
+    </a><figcaption class="image-caption">Hints but at what cost!</figcaption>
+    </figure>
+<p>Let&rsquo;s analysis those hints:</p>
+<ol>
+<li><code>QK JO LU XG DV</code> looks like plugboard wiring map.</li>
+<li><code>UKW B</code> is indeed the reflector being used.</li>
+<li><code>3 of 5 Rotors</code> it&rsquo;s not clear what does that mean but I guess it&rsquo;s the number of used rotors.</li>
+<li><code>First 5 digits of Pi</code> that&rsquo;s another ambiguous hint, but it could be the (ring settings/Position setting) as <code>&quot;3 14 15&quot;</code></li>
+<li><code>Metasploit Acquired by Rapid7</code> hmm the date?!, Metasploit acquired by Rapid7 on <code>20 Oct, 2009</code> so (ring settings/Position setting) could be (<code>&quot;20 10 09&quot;</code>, <code>&quot;10 20 09&quot;</code>). there is another possiblity but I just ignored it.</li>
+</ol>
+<figure><a class="lightgallery" href="/posts/can_you_hack_it/enigma_online.png" title="/posts/can_you_hack_it/enigma_online.png" data-thumbnail="/posts/can_you_hack_it/enigma_online.png" data-sub-html="<h2>How to solve online ?</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/can_you_hack_it/enigma_online.png"
+            srcset="/posts/can_you_hack_it/enigma_online.png, /posts/can_you_hack_it/enigma_online.png 1.5x, /posts/can_you_hack_it/enigma_online.png 2x"
+            sizes="auto"
+            alt="/posts/can_you_hack_it/enigma_online.png" height="689"  width="1237" >
+    </a><figcaption class="image-caption">How to solve online ?</figcaption>
+    </figure>
+<p>There are many possiblities and permutations to try, so it&rsquo;s better to write a code for that</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">permutations</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">ascii_uppercase</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">enigma_decrypt</span><span class="p">(</span><span class="n">encrypted_message</span><span class="p">,</span> <span class="n">rotor_order</span><span class="p">,</span> <span class="n">reflector_type</span><span class="p">,</span> <span class="n">plugboard_settings</span><span class="p">,</span> <span class="n">initial_positions</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rotor_wirings</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;I&#39;</span><span class="p">:</span> <span class="s1">&#39;EKMFLGDQVZNTOWYHXUSPAIBRCJ&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;II&#39;</span><span class="p">:</span> <span class="s1">&#39;AJDKSIRUXBLHWTMCQGZNPYFVOE&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;III&#39;</span><span class="p">:</span> <span class="s1">&#39;BDFHJLCPRTXVZNYEIWGAKMUSQO&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;IV&#39;</span><span class="p">:</span> <span class="s1">&#39;ESOVPZJAYQUIRHXLNFTGKDCMWB&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;V&#39;</span><span class="p">:</span> <span class="s1">&#39;VZBRGITYUPSDNHLXAWMJQOFECK&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">reflector_wirings</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;UKW-B&#39;</span><span class="p">:</span> <span class="s1">&#39;YRUHQSLDPXNGOKMIEBFZCWVJAT&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">plugboard</span> <span class="o">=</span> <span class="p">{</span><span class="n">char</span><span class="p">:</span> <span class="n">char</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">ascii_uppercase</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plugboard</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">plugboard_settings</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">rotor_positions</span> <span class="o">=</span> <span class="p">{</span><span class="n">rotor</span><span class="p">:</span> <span class="n">initial_positions</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">rotor</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rotor_order</span><span class="o">.</span><span class="n">split</span><span class="p">())}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">decrypted_message</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">encrypted_message</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">plugboard</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">char</span> <span class="o">=</span> <span class="n">plugboard</span><span class="p">[</span><span class="n">char</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">rotor</span><span class="p">,</span> <span class="n">position</span> <span class="ow">in</span> <span class="n">rotor_positions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">            <span class="n">char</span> <span class="o">=</span> <span class="n">rotor_wirings</span><span class="p">[</span><span class="n">rotor</span><span class="p">][(</span><span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">ord</span><span class="p">(</span><span class="n">position</span><span class="p">)</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">))</span> <span class="o">%</span> <span class="mi">26</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">char</span> <span class="o">=</span> <span class="n">reflector_wirings</span><span class="p">[</span><span class="n">reflector_type</span><span class="p">][</span><span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">rotor</span><span class="p">,</span> <span class="n">position</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">rotor_positions</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">char</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">((</span><span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="n">position</span><span class="p">)</span> <span class="o">+</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">))</span> <span class="o">%</span> <span class="mi">26</span> <span class="o">+</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">plugboard</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">char</span> <span class="o">=</span> <span class="n">plugboard</span><span class="p">[</span><span class="n">char</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">decrypted_message</span> <span class="o">+=</span> <span class="n">char</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">rotor</span> <span class="ow">in</span> <span class="n">rotor_positions</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">rotor_positions</span><span class="p">[</span><span class="n">rotor</span><span class="p">]</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">((</span><span class="nb">ord</span><span class="p">(</span><span class="n">rotor_positions</span><span class="p">[</span><span class="n">rotor</span><span class="p">])</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">26</span> <span class="o">+</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">decrypted_message</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_rotor_permutations</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Return all the possible permutations&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rotor_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;II&#39;</span><span class="p">,</span> <span class="s1">&#39;III&#39;</span><span class="p">,</span> <span class="s1">&#39;IV&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_rotors</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">rotor_combinations</span> <span class="o">=</span> <span class="n">permutations</span><span class="p">(</span><span class="n">rotor_labels</span><span class="p">,</span> <span class="n">num_rotors</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">rotor_combinations</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">encoded_message</span> <span class="o">=</span> <span class="s2">&#34;RSHDQ VKAXO LONTP SXKHY DGOWH BKUBK MAAGT YEGAJ ZMKIB AJYDV MFFYH ZOWSW SQYMK CEZXK DBLEA GZTIF IHHNQ PARET PSOXE JPRHO RXLYY GSIHG YBIFC NYUSN JSDXF TGHIX KVWVQ GNWBC CCPFU MKOLT PMLDX DCMSX BEGEN USMUQ BJSJC OEREZ SZ&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Provided information</span>
+</span></span><span class="line"><span class="cl"><span class="n">plugboard_wiring</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Q&#39;</span><span class="p">:</span> <span class="s1">&#39;K&#39;</span><span class="p">,</span> <span class="s1">&#39;J&#39;</span><span class="p">:</span> <span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="s1">&#39;U&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="s1">&#39;V&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">reflector_type</span> <span class="o">=</span> <span class="s1">&#39;UKW-B&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">first_5_pi</span> <span class="o">=</span> <span class="s1">&#39;CNO&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">metasploit_date</span> <span class="o">=</span> <span class="s1">&#39;JTI&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Generate all possible combinations</span>
+</span></span><span class="line"><span class="cl"><span class="n">all_combinations</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 1. Plugboard wiring</span>
+</span></span><span class="line"><span class="cl"><span class="n">plugboard_permutations</span> <span class="o">=</span> <span class="n">permutations</span><span class="p">(</span><span class="n">plugboard_wiring</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">plugboard_permutation</span> <span class="ow">in</span> <span class="n">plugboard_permutations</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plugboard_settings</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">plugboard_wiring</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">plugboard_permutation</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 2. Rotor order</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rotor_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;II&#39;</span><span class="p">,</span> <span class="s1">&#39;III&#39;</span><span class="p">,</span> <span class="s1">&#39;IV&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rotor_order_permutations</span> <span class="o">=</span> <span class="n">permutations</span><span class="p">(</span><span class="n">rotor_labels</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">rotor_order_permutation</span> <span class="ow">in</span> <span class="n">rotor_order_permutations</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">rotor_order</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">rotor_order_permutation</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 3. Reflectors</span>
+</span></span><span class="line"><span class="cl">        <span class="n">reflector_types</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;UKW-B&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">reflector_type</span> <span class="ow">in</span> <span class="n">reflector_types</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 4. Initial positions</span>
+</span></span><span class="line"><span class="cl">            <span class="n">initial_position_permutations</span> <span class="o">=</span> <span class="n">permutations</span><span class="p">(</span><span class="s1">&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">initial_positions_permutation</span> <span class="ow">in</span> <span class="n">initial_position_permutations</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">initial_positions</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">initial_positions_permutation</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1"># Attempt decryption</span>
+</span></span><span class="line"><span class="cl">                <span class="n">decrypted_message</span> <span class="o">=</span> <span class="n">enigma_decrypt</span><span class="p">(</span><span class="n">encoded_message</span><span class="p">,</span> <span class="n">rotor_order</span><span class="p">,</span> <span class="n">reflector_type</span><span class="p">,</span> <span class="n">plugboard_settings</span><span class="p">,</span> <span class="n">initial_positions</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="n">decrypted_message</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;-----&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="ransom" class="headerLink">
+    <a href="#ransom" class="header-mark"></a>Ransom</h4><p>This one looks tough, coz there are only 3 people who managed to solve it, but it&rsquo;s not!. I managed to solve it in 15m!.</p>
+<ul>
+<li><code>ransom</code> the binary</li>
+<li><code>important_company_data_backup.zip.ransomed</code>: At the first glance I thought it&rsquo;s kinda of compressed randomed file so I tried to extract it but it didn&rsquo;t work!.</li>
+</ul>
+<ol>
+<li><b>Basic analysis</b></li>
+</ol>
+<figure><a class="lightgallery" href="/posts/can_you_hack_it/ransom_basic.png" title="/posts/can_you_hack_it/ransom_basic.png" data-thumbnail="/posts/can_you_hack_it/ransom_basic.png" data-sub-html="<h2>Basic analysis using file &amp; strings</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/can_you_hack_it/ransom_basic.png"
+            srcset="/posts/can_you_hack_it/ransom_basic.png, /posts/can_you_hack_it/ransom_basic.png 1.5x, /posts/can_you_hack_it/ransom_basic.png 2x"
+            sizes="auto"
+            alt="/posts/can_you_hack_it/ransom_basic.png" height="471"  width="1895" >
+    </a><figcaption class="image-caption">Basic analysis using file &amp; strings</figcaption>
+    </figure>
+<p>Maybe static analysis is the way to go ?, so I tried <code>radare2</code>:</p>
+<figure><a class="lightgallery" href="/posts/can_you_hack_it/radare2.png" title="/posts/can_you_hack_it/radare2.png" data-thumbnail="/posts/can_you_hack_it/radare2.png" data-sub-html="<h2>Creepy huh?</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/can_you_hack_it/radare2.png"
+            srcset="/posts/can_you_hack_it/radare2.png, /posts/can_you_hack_it/radare2.png 1.5x, /posts/can_you_hack_it/radare2.png 2x"
+            sizes="auto"
+            alt="/posts/can_you_hack_it/radare2.png" height="933"  width="1736" >
+    </a><figcaption class="image-caption">Creepy huh?</figcaption>
+    </figure>
+<p>After some playing around I found out that <code>ransom</code> checks the stats of a file called <code>encrypt_me</code></p>
+<figure><a class="lightgallery" href="/posts/can_you_hack_it/strace.png" title="/posts/can_you_hack_it/strace.png" data-thumbnail="/posts/can_you_hack_it/strace.png" data-sub-html="<h2>What happens when running the program ?</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/can_you_hack_it/strace.png"
+            srcset="/posts/can_you_hack_it/strace.png, /posts/can_you_hack_it/strace.png 1.5x, /posts/can_you_hack_it/strace.png 2x"
+            sizes="auto"
+            alt="/posts/can_you_hack_it/strace.png" height="785"  width="1881" >
+    </a><figcaption class="image-caption">What happens when running the program ?</figcaption>
+    </figure>
+<ol start="2">
+<li><b>Actual work</b>
+I renamed the ransomed data file to <code>encrypt_me</code> and run the ransom bin, and Voilà something happened.</li>
+</ol>
+<figure><a class="lightgallery" href="/posts/can_you_hack_it/ransom_ans.png" title="/posts/can_you_hack_it/ransom_ans.png" data-thumbnail="/posts/can_you_hack_it/ransom_ans.png" data-sub-html="<h2>The flag !!?</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/can_you_hack_it/ransom_ans.png"
+            srcset="/posts/can_you_hack_it/ransom_ans.png, /posts/can_you_hack_it/ransom_ans.png 1.5x, /posts/can_you_hack_it/ransom_ans.png 2x"
+            sizes="auto"
+            alt="/posts/can_you_hack_it/ransom_ans.png" height="656"  width="1523" >
+    </a><figcaption class="image-caption">The flag !!?</figcaption>
+    </figure>
+<p>As we can see, running the ransomware on that file modified it and it&rsquo;s compressed file of type <code>bz2</code>. To find the flag, just extract it and cat the <code>flag.txt</code>.</p>
+<h4 id="xor" class="headerLink">
     <a href="#xor" class="header-mark"></a>XOR</h4></div>
 
         <div class="sponsor">
