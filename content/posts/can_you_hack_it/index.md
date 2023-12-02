@@ -299,4 +299,17 @@ I renamed the ransomed data file to `encrypt_me` and run the ransom bin, and Voi
 As we can see, running the ransomware on that file modified it and it's compressed file of type `bz2`. To find the flag, just extract it and cat the `flag.txt`.
 
 #### XOR 
+Another interesting question, XOR is always challenging to work with, this time it's kinda different as I didn't want to write code lol. That's why I used [dcode](https://www.dcode.fr/xor-cipher) as we also know the length of the key and we need to find that key.
 
+{{< image src="dcode_clues.png" caption="That's a clue!" >}}
+
+I asked chatGPT since AI is really good finding patterns, and here is what I got:
+- AI answer : `"It has been discovered that Cj+ provides remarkable facilities"`
+
+With quick googling : I found this [wiki](https://en.uncyclopedia.co/wiki/C%2B%2B#Code_Example):
+
+{{< image src="c++_quote.png" caption="That's a clue!" >}}
+
+We have the decoded message now : `It has been discovered that C++ provides a remarkable facility for concealing the trivial details of a program...`
+
+Finally I used [this](https://github.com/hellman/xortool) to get the key ! (as far as I remember lol)
