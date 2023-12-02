@@ -10,7 +10,7 @@ I like challenges, that's why I am trying to give it a shot, while I might not s
 
 
 {{< admonition warning "Before getting started!!!" >}}
-Before reading my attempts, make sure to give it a try first, and you got stuck come for solutions.
+Before reading this blog, first give it a try, and come for solutions if you get stuck.
 {{< /admonition >}}
 
 ## How to play?
