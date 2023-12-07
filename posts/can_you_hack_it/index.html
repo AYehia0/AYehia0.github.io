@@ -34,7 +34,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/ayehia0.github.io\/posts\/can_you_hack_it\/"
-        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  2042 ,
+        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  2163 ,
         "url": "https:\/\/ayehia0.github.io\/posts\/can_you_hack_it\/","datePublished": "2023-12-01T21:36:06+02:00","dateModified": "2023-12-01T21:36:06+02:00","publisher": {
             "@type": "Organization",
             "name": "Yehia"},"author": {
@@ -149,6 +149,7 @@
         <li><a href="#programming">Programming</a>
           <ul>
             <li><a href="#birthday">Birthday</a></li>
+            <li><a href="#secure-otp">Secure OTP</a></li>
           </ul>
         </li>
       </ul>
@@ -159,7 +160,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
                 </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">categories <a href="/categories/hacking/"><i class="far fa-folder fa-fw"></i>hacking</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2042 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;10 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2163 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;11 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         
         loading="eager"
@@ -204,6 +205,7 @@
         <li><a href="#programming">Programming</a>
           <ul>
             <li><a href="#birthday">Birthday</a></li>
+            <li><a href="#secure-otp">Secure OTP</a></li>
           </ul>
         </li>
       </ul>
@@ -883,7 +885,45 @@ The concept is easy as the hint suggests <code>&quot;far from retirement&quot;</
             sizes="auto"
             alt="/posts/can_you_hack_it/solved_first_birthday.png" height="364"  width="626" >
     </a><figcaption class="image-caption">I am the first one to solve it :D</figcaption>
-    </figure></div>
+    </figure>
+<h4 id="secure-otp" class="headerLink">
+    <a href="#secure-otp" class="header-mark"></a>Secure OTP</h4><p>That was an easy one, once you got all the hints which btw can be found by submitting many times with wrong answers or seen in the response which first clicking the problem card, anyway let&rsquo;s jump to the solution.</p>
+<p>The hints : seed is given, digits are random int from 0 to 9. So based on these 2 factors we can regenerate the OTP.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">random</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">seed</span> <span class="o">=</span> <span class="mi">1701957089</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generate_otp</span><span class="p">(</span><span class="n">seed</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">otp</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">digit</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">otp</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">otp</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">otp</span> <span class="o">=</span> <span class="n">generate_otp</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Generated OTP with seed </span><span class="si">{</span><span class="n">seed</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">otp</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>PS: make sure to submit before the timer.</p></div>
 
         <div class="sponsor">
         <div class="sponsor-avatar"></div><p class="sponsor-bio"><em>Say Hello :D</em></p><a href="https://github.com/AYehia0" title="Sponsor" target="_blank" class="sponsor-button" rel="noopener noreferrer">
