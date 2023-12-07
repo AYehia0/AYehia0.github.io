@@ -34,7 +34,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/ayehia0.github.io\/posts\/can_you_hack_it\/"
-        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  1746 ,
+        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  2042 ,
         "url": "https:\/\/ayehia0.github.io\/posts\/can_you_hack_it\/","datePublished": "2023-12-01T21:36:06+02:00","dateModified": "2023-12-01T21:36:06+02:00","publisher": {
             "@type": "Organization",
             "name": "Yehia"},"author": {
@@ -146,6 +146,11 @@
             <li><a href="#xor">XOR</a></li>
           </ul>
         </li>
+        <li><a href="#programming">Programming</a>
+          <ul>
+            <li><a href="#birthday">Birthday</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -154,7 +159,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
                 </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">categories <a href="/categories/hacking/"><i class="far fa-folder fa-fw"></i>hacking</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1746 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;9 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2042 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;10 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         
         loading="eager"
@@ -194,6 +199,11 @@
             <li><a href="#enigma">ENIGMA</a></li>
             <li><a href="#ransom">Ransom</a></li>
             <li><a href="#xor">XOR</a></li>
+          </ul>
+        </li>
+        <li><a href="#programming">Programming</a>
+          <ul>
+            <li><a href="#birthday">Birthday</a></li>
           </ul>
         </li>
       </ul>
@@ -772,7 +782,108 @@ I renamed the ransomed data file to <code>encrypt_me</code> and run the ransom b
     </a><figcaption class="image-caption">That&rsquo;s a clue!</figcaption>
     </figure>
 <p>We have the decoded message now : <code>It has been discovered that C++ provides a remarkable facility for concealing the trivial details of a program...</code></p>
-<p>Finally I used <a href="https://github.com/hellman/xortool" target="_blank" rel="noopener noreferrer">this</a> to get the key ! (as far as I remember lol)</p></div>
+<p>Finally I used <a href="https://github.com/hellman/xortool" target="_blank" rel="noopener noreferrer">this</a> to get the key ! (as far as I remember lol)</p>
+<h3 id="programming" class="headerLink">
+    <a href="#programming" class="header-mark"></a>Programming</h3><h4 id="birthday" class="headerLink">
+    <a href="#birthday" class="header-mark"></a>Birthday</h4><p>When I saw that it only gives you 5 points I thought it&rsquo;s going to be easy and I was wrong!, it took me so much time as I didn&rsquo;t know how to properly send the request lol, and what to do as the challenge leave you no where near the solution with really ambiguous hint : <code>[Birthday]: Yes, you need the year too. Hint: I'm alive and far from retirement.</code></p>
+<p>Let&rsquo;s get started:</p>
+<ul>
+<li>First Inspect the network : you will find that there exist a GET request when you first click on the challenge which fetches the data (date hashed in <code>SHA-256</code> and don&rsquo;t ask me how I know that!)</li>
+</ul>
+<figure><a class="lightgallery" href="/posts/can_you_hack_it/response_birthday.png" title="/posts/can_you_hack_it/response_birthday.png" data-thumbnail="/posts/can_you_hack_it/response_birthday.png" data-sub-html="<h2>SHA-256 date</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/can_you_hack_it/response_birthday.png"
+            srcset="/posts/can_you_hack_it/response_birthday.png, /posts/can_you_hack_it/response_birthday.png 1.5x, /posts/can_you_hack_it/response_birthday.png 2x"
+            sizes="auto"
+            alt="/posts/can_you_hack_it/response_birthday.png" height="572"  width="888" >
+    </a><figcaption class="image-caption">SHA-256 date</figcaption>
+    </figure>
+<ul>
+<li>Try to crack the hash:
+The concept is easy as the hint suggests <code>&quot;far from retirement&quot;</code>, I will try all possible dates lol to <code>1900</code> hehe.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">hashlib</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">calculate_sha256_hash</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sha256</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sha256</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">sha256</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">check_birthday_hash</span><span class="p">(</span><span class="n">target_hash</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">2023</span><span class="p">):</span>  <span class="c1"># Adjust the range based on reasonable birth years</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">birthday</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">day</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">calculated_hash</span> <span class="o">=</span> <span class="n">calculate_sha256_hash</span><span class="p">(</span><span class="n">birthday</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">calculated_hash</span> <span class="o">==</span> <span class="n">target_hash</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">return</span> <span class="n">birthday</span>
+</span></span><span class="line"><span class="cl">                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">provided_hash</span> <span class="o">=</span> <span class="s2">&#34;6c833595c7502119465895442b340b3118a8c1aec222882d35e364f75e57b268&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">birthday</span> <span class="o">=</span> <span class="n">check_birthday_hash</span><span class="p">(</span><span class="n">provided_hash</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Found birthday: </span><span class="si">{</span><span class="n">birthday</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now what?!, I got the desired date (here I got stuck lol, I didn&rsquo;t know how to send to the server lol). The answer is so easy but I was so dumb lol.</p>
+<figure><a class="lightgallery" href="/posts/can_you_hack_it/answer_birthday.png" title="/posts/can_you_hack_it/answer_birthday.png" data-thumbnail="/posts/can_you_hack_it/answer_birthday.png" data-sub-html="<h2>And that&rsquo;s when I know, I am so stupid lol</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/can_you_hack_it/answer_birthday.png"
+            srcset="/posts/can_you_hack_it/answer_birthday.png, /posts/can_you_hack_it/answer_birthday.png 1.5x, /posts/can_you_hack_it/answer_birthday.png 2x"
+            sizes="auto"
+            alt="/posts/can_you_hack_it/answer_birthday.png" height="311"  width="652" >
+    </a><figcaption class="image-caption">And that&rsquo;s when I know, I am so stupid lol</figcaption>
+    </figure>
+<p>And btw, I am the first one to solve it :D</p>
+<figure><a class="lightgallery" href="/posts/can_you_hack_it/solved_first_birthday.png" title="/posts/can_you_hack_it/solved_first_birthday.png" data-thumbnail="/posts/can_you_hack_it/solved_first_birthday.png" data-sub-html="<h2>I am the first one to solve it :D</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/can_you_hack_it/solved_first_birthday.png"
+            srcset="/posts/can_you_hack_it/solved_first_birthday.png, /posts/can_you_hack_it/solved_first_birthday.png 1.5x, /posts/can_you_hack_it/solved_first_birthday.png 2x"
+            sizes="auto"
+            alt="/posts/can_you_hack_it/solved_first_birthday.png" height="364"  width="626" >
+    </a><figcaption class="image-caption">I am the first one to solve it :D</figcaption>
+    </figure></div>
 
         <div class="sponsor">
         <div class="sponsor-avatar"></div><p class="sponsor-bio"><em>Say Hello :D</em></p><a href="https://github.com/AYehia0" title="Sponsor" target="_blank" class="sponsor-button" rel="noopener noreferrer">
