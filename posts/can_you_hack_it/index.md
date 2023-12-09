@@ -361,4 +361,41 @@ otp = generate_otp(seed)
 print(f"Generated OTP with seed {seed}: {otp}")
 ```
 PS: make sure to submit before the timer.
+#### Code Breaker
+I am a hecker, just like the ones in the movies LOL, that was an easy one. You just try all the possible char at one index, if the score changes, then it's a correct one, keep it and move to the next index.
+PS: Here I used `sleep` but it's not needed, the server doesn't block you anyways :D.
+```python
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+async function crackCode() {
+    const targetCode = "-------";
+    let bestScore = 0;
+    let currentCode = targetCode;
+
+    for (let position = 0; position < targetCode.length - 1; position++) {
+        for (const char of "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz") {
+            if (char === targetCode[position]) {
+                continue;
+            }
+
+            const newCode = currentCode.substring(0, position) + char + currentCode.substring(position + 1);
+            const score = await CodeBreaker_submit(newCode);
+            await sleep(1200); // Simulating a delay, replace with your actual requirements
+            
+            console.log(`Code: ${currentCode}, Score: ${score}`);
+            
+            if (score > bestScore) {
+                bestScore = score;
+                currentCode = newCode;
+
+                // Stop trying more characters for this position if the score changes
+                break;
+            }
+        }
+    }
+
+    console.log(`Final Code: ${currentCode}`);
+}
+crackCode();
+```
 

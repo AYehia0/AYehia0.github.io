@@ -34,7 +34,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/ayehia0.github.io\/posts\/can_you_hack_it\/"
-        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  2163 ,
+        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  2370 ,
         "url": "https:\/\/ayehia0.github.io\/posts\/can_you_hack_it\/","datePublished": "2023-12-01T21:36:06+02:00","dateModified": "2023-12-01T21:36:06+02:00","publisher": {
             "@type": "Organization",
             "name": "Yehia"},"author": {
@@ -150,6 +150,7 @@
           <ul>
             <li><a href="#birthday">Birthday</a></li>
             <li><a href="#secure-otp">Secure OTP</a></li>
+            <li><a href="#code-breaker">Code Breaker</a></li>
           </ul>
         </li>
       </ul>
@@ -160,7 +161,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
                 </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">categories <a href="/categories/hacking/"><i class="far fa-folder fa-fw"></i>hacking</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2163 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;11 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-12-01">2023-12-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2370 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;12 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         
         loading="eager"
@@ -206,6 +207,7 @@
           <ul>
             <li><a href="#birthday">Birthday</a></li>
             <li><a href="#secure-otp">Secure OTP</a></li>
+            <li><a href="#code-breaker">Code Breaker</a></li>
           </ul>
         </li>
       </ul>
@@ -923,7 +925,81 @@ The concept is easy as the hint suggests <code>&quot;far from retirement&quot;</
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Generated OTP with seed </span><span class="si">{</span><span class="n">seed</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">otp</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>PS: make sure to submit before the timer.</p></div>
+</div><p>PS: make sure to submit before the timer.</p>
+<h4 id="code-breaker" class="headerLink">
+    <a href="#code-breaker" class="header-mark"></a>Code Breaker</h4><p>I am a hecker, just like the ones in the movies LOL, that was an easy one. You just try all the possible char at one index, if the score changes, then it&rsquo;s a correct one, keep it and move to the next index.
+PS: Here I used <code>sleep</code> but it&rsquo;s not needed, the server doesn&rsquo;t block you anyways :D.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">const</span> <span class="n">sleep</span> <span class="o">=</span> <span class="p">(</span><span class="n">ms</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">new</span> <span class="n">Promise</span><span class="p">(</span><span class="n">resolve</span> <span class="o">=&gt;</span> <span class="n">setTimeout</span><span class="p">(</span><span class="n">resolve</span><span class="p">,</span> <span class="n">ms</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="n">function</span> <span class="n">crackCode</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">const</span> <span class="n">targetCode</span> <span class="o">=</span> <span class="s2">&#34;-------&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">let</span> <span class="n">bestScore</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">let</span> <span class="n">currentCode</span> <span class="o">=</span> <span class="n">targetCode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">position</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">position</span> <span class="o">&lt;</span> <span class="n">targetCode</span><span class="o">.</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">position</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="n">of</span> <span class="s2">&#34;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">char</span> <span class="o">===</span> <span class="n">targetCode</span><span class="p">[</span><span class="n">position</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">const</span> <span class="n">newCode</span> <span class="o">=</span> <span class="n">currentCode</span><span class="o">.</span><span class="n">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span> <span class="o">+</span> <span class="n">char</span> <span class="o">+</span> <span class="n">currentCode</span><span class="o">.</span><span class="n">substring</span><span class="p">(</span><span class="n">position</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">const</span> <span class="n">score</span> <span class="o">=</span> <span class="k">await</span> <span class="n">CodeBreaker_submit</span><span class="p">(</span><span class="n">newCode</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">await</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">1200</span><span class="p">);</span> <span class="o">//</span> <span class="n">Simulating</span> <span class="n">a</span> <span class="n">delay</span><span class="p">,</span> <span class="n">replace</span> <span class="k">with</span> <span class="n">your</span> <span class="n">actual</span> <span class="n">requirements</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="err">`</span><span class="n">Code</span><span class="p">:</span> <span class="err">$</span><span class="p">{</span><span class="n">currentCode</span><span class="p">},</span> <span class="n">Score</span><span class="p">:</span> <span class="err">$</span><span class="p">{</span><span class="n">score</span><span class="p">}</span><span class="err">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">score</span> <span class="o">&gt;</span> <span class="n">bestScore</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">bestScore</span> <span class="o">=</span> <span class="n">score</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">currentCode</span> <span class="o">=</span> <span class="n">newCode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="o">//</span> <span class="n">Stop</span> <span class="n">trying</span> <span class="n">more</span> <span class="n">characters</span> <span class="k">for</span> <span class="n">this</span> <span class="n">position</span> <span class="k">if</span> <span class="n">the</span> <span class="n">score</span> <span class="n">changes</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="err">`</span><span class="n">Final</span> <span class="n">Code</span><span class="p">:</span> <span class="err">$</span><span class="p">{</span><span class="n">currentCode</span><span class="p">}</span><span class="err">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">crackCode</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
 
         <div class="sponsor">
         <div class="sponsor-avatar"></div><p class="sponsor-bio"><em>Say Hello :D</em></p><a href="https://github.com/AYehia0" title="Sponsor" target="_blank" class="sponsor-button" rel="noopener noreferrer">
