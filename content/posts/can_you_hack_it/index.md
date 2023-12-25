@@ -361,3 +361,25 @@ Now what?!, I got the desired date (here I got stuck lol, I didn't know how to s
 And btw, I am the first one to solve it :D
 
 {{< image src="solved_first_birthday.png" caption="I am the first one to solve it :D" >}}
+
+#### Secure OTP
+That was an easy one, once you got all the hints which btw can be found by submitting many times with wrong answers or seen in the response which first clicking the problem card, anyway let's jump to the solution.
+
+The hints : seed is given, digits are random int from 0 to 9. So based on these 2 factors we can regenerate the OTP.
+```python
+
+import random
+
+seed = 1701957089
+def generate_otp(seed):
+    random.seed(seed)
+    otp = ""
+    for _ in range(6):
+        digit = random.randint(0, 9)
+        otp += str(digit)
+    return otp
+
+otp = generate_otp(seed)
+print(f"Generated OTP with seed {seed}: {otp}")
+```
+PS: make sure to submit before the timer.
