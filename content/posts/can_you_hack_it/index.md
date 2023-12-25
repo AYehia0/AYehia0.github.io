@@ -313,3 +313,51 @@ With quick googling : I found this [wiki](https://en.uncyclopedia.co/wiki/C%2B%2
 We have the decoded message now : `It has been discovered that C++ provides a remarkable facility for concealing the trivial details of a program...`
 
 Finally I used [this](https://github.com/hellman/xortool) to get the key ! (as far as I remember lol)
+### Programming
+#### Birthday
+When I saw that it only gives you 5 points I thought it's going to be easy and I was wrong!, it took me so much time as I didn't know how to properly send the request lol, and what to do as the challenge leave you no where near the solution with really ambiguous hint : `[Birthday]: Yes, you need the year too. Hint: I'm alive and far from retirement.`
+
+Let's get started:
+- First Inspect the network : you will find that there exist a GET request when you first click on the challenge which fetches the data (date hashed in `SHA-256` and don't ask me how I know that!)
+
+{{< image src="response_birthday.png" caption="SHA-256 date" >}}
+
+- Try to crack the hash:
+The concept is easy as the hint suggests `"far from retirement"`, I will try all possible dates lol to `1900` hehe.
+
+```python
+import hashlib
+
+def calculate_sha256_hash(data):
+    sha256 = hashlib.sha256()
+    sha256.update(data.encode('utf-8'))
+    return sha256.hexdigest()
+
+def check_birthday_hash(target_hash):
+    for year in range(1900, 2023):  # Adjust the range based on reasonable birth years
+        for month in range(1, 13):
+            for day in range(1, 32):
+                try:
+                    birthday = f"{month:02d}/{day:02d}/{year}"
+                    calculated_hash = calculate_sha256_hash(birthday)
+                    if calculated_hash == target_hash:
+                        return birthday
+                except ValueError:
+                    continue
+
+    return None
+
+if __name__ == "__main__":
+    provided_hash = "6c833595c7502119465895442b340b3118a8c1aec222882d35e364f75e57b268"
+    birthday = check_birthday_hash(provided_hash)
+
+    print(f"Found birthday: {birthday}")
+```
+
+Now what?!, I got the desired date (here I got stuck lol, I didn't know how to send to the server lol). The answer is so easy but I was so dumb lol.
+
+{{< image src="answer_birthday.png" caption="And that's when I know, I am so stupid lol" >}}
+
+And btw, I am the first one to solve it :D
+
+{{< image src="solved_first_birthday.png" caption="I am the first one to solve it :D" >}}
