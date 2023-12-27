@@ -85,6 +85,7 @@ You can find my setup on my github.
     - [KVM](https://www.linux-kvm.org/page/Downloads)
     - For android: [Genymotion](https://www.genymotion.com/)
     - Android Emulator: [Android Emulator without Android Studio](https://github.com/brianwoo/how_to_install_android_emulator)
+    - [Virt-Manager](https://wiki.archlinux.org/title/Virt-manager)
  
 ### Social Media
 - Discord but better (with themes): [BetterDiscord](https://betterdiscord.app/)
