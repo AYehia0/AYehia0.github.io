@@ -72,9 +72,11 @@ alias python="python3"
 I am using SSH to connect to my main machine on the network : `ssh none@192.168.1.6`, and `scp` to upload/download content.
 ```bash
 # note the IP might change
+# Downloads from the server
 down () {
     scp -r none@192.168.1.6:$1 $2
 }
+# Uploads to the server
 up () {
     scp -r $1 none@192.168.1.6:$2
 }
