@@ -120,6 +120,7 @@ I am not responsible for what you do with these tools, use them at your own risk
 - crunch
 - arpspoof
 - frida
+- [Tg-get-remote-ip](https://github.com/n0a/telegram-get-remote-ip)
 
 ## Resources
 All the interesting resources (about tech obviously) I find in the internet.
