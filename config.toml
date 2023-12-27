@@ -7,6 +7,7 @@ enableRobotsTXT = true
 enableEmoji = true
 description = "A void place for those who seek for knowledge, fun and memes, better than your ::1"
 keywords = ["Void", "archlinux", "unixporn", "foss", "github", "personal", "hacking", "themes", "android", "memes"]
+enableLastMod = true
 
 # Author config
 [author]
