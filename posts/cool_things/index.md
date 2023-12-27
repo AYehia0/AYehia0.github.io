@@ -68,6 +68,7 @@ You can find my setup on my github.
 - Another nice drawing app: [Inkscape](https://inkscape.org/)
 - Design UI/UX: [Figam-Desktop](https://www.figma.com/downloads/)
 - Stylus Writing (pen): [Write](https://www.styluslabs.com/)
+- Logseq: Free notes app.
 
 ### Developement
 - API platform for testing and building APIs: [postman](https://www.postman.com/)
