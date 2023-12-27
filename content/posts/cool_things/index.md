@@ -1,7 +1,6 @@
 ---
 title: "Linux And Other Cool Things"
 date: 2023-11-08T12:33:28+02:00
-lastmod: 2023-11-08T12:33:28+02:00
 draft: true
 toc:
   enable: true

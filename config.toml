@@ -8,7 +8,10 @@ enableEmoji = true
 description = "A void place for those who seek for knowledge, fun and memes, better than your ::1"
 keywords = ["Void", "archlinux", "unixporn", "foss", "github", "personal", "hacking", "themes", "android", "memes"]
 enableLastMod = true
-lastmod = ["lastmod" ,':fileModTime', ":git", "date"]
+enableGitInfo = true
+
+[frontmatter]
+    lastmod = ["lastmod" ,':fileModTime', ":git", "date"]
 
 # Author config
 [author]
