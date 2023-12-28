@@ -1,7 +1,6 @@
 ---
 title: "Git for hackers"
 date: 2023-10-16T13:23:21Z
-lastmod: 2023-10-16T13:23:21Z
 draft: true
 toc:
   enable: true

@@ -1,7 +1,6 @@
 ---
 title: "Getting into hacking [Hacking Challenges]: Can you hack it?"
 date: 2023-12-01T21:36:06+02:00
-lastmod: 2023-12-01T21:36:06+02:00
 draft: true
 toc:
   enable: true

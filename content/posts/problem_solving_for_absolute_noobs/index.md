@@ -1,7 +1,6 @@
 ---
 title: "My Way For Problem solving!"
 date: 2023-02-16T08:04:42+02:00
-lastmod: 2023-02-16T08:04:42+02:00
 draft: true
 toc:
   enable: true

@@ -1,7 +1,6 @@
 ---
 title: "Askfm Reverse Engineering: Getting Threads Back!"
 date: 2023-11-02T13:50:11+02:00
-lastmod: 2023-11-02T13:50:11+02:00
 draft: true
 toc:
   enable: true

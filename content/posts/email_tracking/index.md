@@ -1,7 +1,6 @@
 ---
 title: "How email tracking works ?"
 date: 2023-03-02T08:11:12+02:00
-lastmod: 2023-03-02T08:11:12+02:00
 draft: true
 toc:
   enable: true
