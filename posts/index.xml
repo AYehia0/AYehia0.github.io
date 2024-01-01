@@ -10,7 +10,7 @@
         <name>Yehia</name>
     </author><guid>https://ayehia0.github.io/posts/wires_3/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="featured-image." referrerpolicy="no-referrer">
+                <img src="/posts/wires_3/featured-image.webp" referrerpolicy="no-referrer">
             </div><p>In this blog, we will install all the tools, development packages and to test you&rsquo;ll create a simple server in C#.</p>]]></description>
 </item><item>
     <title>Wires #2: System Design</title>
