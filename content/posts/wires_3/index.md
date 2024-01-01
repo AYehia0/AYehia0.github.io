@@ -17,8 +17,8 @@ series: []
 hiddenFromHomePage: false
 hiddenFromSearch: false
 
-featuredImage: "featured-image."
-featuredImagePreview: "featured-image."
+featuredImage: "featured-image.webp"
+featuredImagePreview: "featured-image.webp"
 ---
 
 In this blog, we will install all the tools, development packages and to test you'll create a simple server in C#.
