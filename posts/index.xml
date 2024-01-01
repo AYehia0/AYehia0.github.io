@@ -3,7 +3,16 @@
         <title>All Posts - ::1 404</title>
         <link>https://ayehia0.github.io/posts/</link>
         <description>All Posts | ::1 404</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 29 Dec 2023 13:55:42 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 01 Jan 2024 18:01:37 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Wires #3: Local Setup and Development Tools</title>
+    <link>https://ayehia0.github.io/posts/wires_3/</link>
+    <pubDate>Mon, 01 Jan 2024 18:01:37 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/posts/wires_3/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="featured-image." referrerpolicy="no-referrer">
+            </div><p>In this blog, we will install all the tools, development packages and to test you&rsquo;ll create a simple server in C#.</p>]]></description>
+</item><item>
     <title>Wires #2: System Design</title>
     <link>https://ayehia0.github.io/posts/wires_2/</link>
     <pubDate>Fri, 29 Dec 2023 13:55:42 &#43;0200</pubDate><author>
@@ -86,14 +95,5 @@ That&rsquo;s why I am sharing this thing :D</p>]]></description>
     <description><![CDATA[<div class="featured-image">
                 <img src="/posts/email_tracking/featured-image.png" referrerpolicy="no-referrer">
             </div><p>Have you ever wondered how could someone knows if you read their email or not ?</p>]]></description>
-</item><item>
-    <title>My Way For Problem solving!</title>
-    <link>https://ayehia0.github.io/posts/problem_solving_for_absolute_noobs/</link>
-    <pubDate>Thu, 16 Feb 2023 08:04:42 &#43;0200</pubDate><author>
-        <name>Yehia</name>
-    </author><guid>https://ayehia0.github.io/posts/problem_solving_for_absolute_noobs/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/posts/problem_solving_for_absolute_noobs/featured-image.jpeg" referrerpolicy="no-referrer">
-            </div><p>To be good at something, it requires you to practice a lot. Problem-solving isn&rsquo;t any different - it just requires a bit more creativity, patience, and probably a Math degree. (just kidding!).</p>]]></description>
 </item></channel>
 </rss>

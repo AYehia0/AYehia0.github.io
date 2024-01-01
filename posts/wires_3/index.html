@@ -7,40 +7,39 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title>How to update discord on archlinux ? - ::1 404</title><meta name="Description" content="How to manually update discord on archlinux ?"><meta property="og:title" content="How to update discord on archlinux ?" />
-<meta property="og:description" content="How to manually update discord on archlinux ?" />
+    <title>Wires #3: Local Setup and Development Tools - ::1 404</title><meta name="Description" content=""><meta property="og:title" content="Wires #3: Local Setup and Development Tools" />
+<meta property="og:description" content="In this blog, we will install all the tools, development packages and to test you&rsquo;ll create a simple server in C#." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ayehia0.github.io/posts/updating_discord_linux/" /><meta property="og:image" content="https://ayehia0.github.io/posts/updating_discord_linux/featured-image.jpg"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-11-24T23:18:52+02:00" />
+<meta property="og:url" content="https://ayehia0.github.io/posts/wires_3/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-01T18:01:37+02:00" />
 <meta property="article:modified_time" content="2024-01-01T20:22:25+00:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://ayehia0.github.io/posts/updating_discord_linux/featured-image.jpg"/>
-<meta name="twitter:title" content="How to update discord on archlinux ?"/>
-<meta name="twitter:description" content="How to manually update discord on archlinux ?"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Wires #3: Local Setup and Development Tools"/>
+<meta name="twitter:description" content="In this blog, we will install all the tools, development packages and to test you&rsquo;ll create a simple server in C#."/>
 <meta name="application-name" content="::1 404">
 <meta name="apple-mobile-web-app-title" content="::1 404">
 
 <meta name="theme-color" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://ayehia0.github.io/posts/updating_discord_linux/" /><link rel="prev" href="https://ayehia0.github.io/posts/cool_things/" /><link rel="next" href="https://ayehia0.github.io/posts/no_elect_no_internet_no_problem/" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://ayehia0.github.io/posts/wires_3/" /><link rel="prev" href="https://ayehia0.github.io/posts/wires_2/" />
 <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.css">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.css">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "How to update discord on archlinux ?",
+        "headline": "Wires #3: Local Setup and Development Tools",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/ayehia0.github.io\/posts\/updating_discord_linux\/"
-        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  147 ,
-        "url": "https:\/\/ayehia0.github.io\/posts\/updating_discord_linux\/","datePublished": "2023-11-24T23:18:52+02:00","dateModified": "2024-01-01T20:22:25+00:00","publisher": {
+            "@id": "https:\/\/ayehia0.github.io\/posts\/wires_3\/"
+        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  307 ,
+        "url": "https:\/\/ayehia0.github.io\/posts\/wires_3\/","datePublished": "2024-01-01T18:01:37+02:00","dateModified": "2024-01-01T20:22:25+00:00","publisher": {
             "@type": "Organization",
             "name": "Yehia"},"author": {
                 "@type": "Person",
                 "name": "Yehia"
-            },"description": "How to manually update discord on archlinux ?"
+            },"description": ""
     }
     </script><script src="//instant.page/5.2.0" defer type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
 </head>
@@ -119,72 +118,157 @@
         <h2 class="toc-title">Contents</h2>
         <div class="toc-content always-active" id="toc-content-auto"><nav id="TableOfContents">
   <ul>
-    <li><a href="#cheating-way">Cheating way</a></li>
-    <li><a href="#the-proper-way">The proper way</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#directory-structure">Directory Structure</a></li>
+    <li><a href="#backend-setup">Backend Setup</a></li>
+    <li><a href="#engine-setup">Engine Setup</a></li>
+    <li><a href="#frontend">Frontend</a></li>
+    <li><a href="#resources">Resources</a></li>
   </ul>
 </nav></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">How to update discord on archlinux ?</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Wires #3: Local Setup and Development Tools</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
-                </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">categories <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>linux</a>&nbsp;<a href="/categories/archlinux/"><i class="far fa-folder fa-fw"></i>archlinux</a>&nbsp;<a href="/categories/discord/"><i class="far fa-folder fa-fw"></i>discord</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-11-24">2023-11-24</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2024-01-01">2024-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;147 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;</div>
-        </div><div class="details toc" id="toc-static"  kept="">
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-01-01">2024-01-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2024-01-01">2024-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;307 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        
+        loading="eager"
+        src="featured-image."
+        srcset="featured-image., featured-image. 1.5x, featured-image. 2x"
+        sizes="auto"
+        alt="featured-image."
+        title="featured-image." height="auto"   width="auto" ></div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#cheating-way">Cheating way</a></li>
-    <li><a href="#the-proper-way">The proper way</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#directory-structure">Directory Structure</a></li>
+    <li><a href="#backend-setup">Backend Setup</a></li>
+    <li><a href="#engine-setup">Engine Setup</a></li>
+    <li><a href="#frontend">Frontend</a></li>
+    <li><a href="#resources">Resources</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>I hate discord updates!, they do lots of updates which prevents discord desktop from launching.
-Bad for me that I use Archlinux, as discord ships thier updates as <code>.deb</code>.</p>
-<figure><a class="lightgallery" href="/posts/updating_discord_linux/discord_update_screen.png" title="/posts/updating_discord_linux/discord_update_screen.png" data-thumbnail="/posts/updating_discord_linux/discord_update_screen.png" data-sub-html="<h2>When discord needs to be updated</h2>">
-        <img
-            
-            loading="lazy"
-            src="/posts/updating_discord_linux/discord_update_screen.png"
-            srcset="/posts/updating_discord_linux/discord_update_screen.png, /posts/updating_discord_linux/discord_update_screen.png 1.5x, /posts/updating_discord_linux/discord_update_screen.png 2x"
-            sizes="auto"
-            alt="/posts/updating_discord_linux/discord_update_screen.png" height="479"  width="421" >
-    </a><figcaption class="image-caption">When discord needs to be updated</figcaption>
-    </figure>
-<p>So how to manually update discord without waiting for the package maintainer to update it for you ?</p>
-<h2 id="cheating-way" class="headerLink">
-    <a href="#cheating-way" class="header-mark"></a>Cheating way</h2><p>This method allows you to trick the Discord into thinking it&rsquo;s been updated. First, check for the path of the discord executable</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">file <span class="k">$(</span>which discord<span class="k">)</span> 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Then edit the <code>resources/build_info.json</code> in that path.</p>
+            </div><div class="content" id="content"><p>In this blog, we will install all the tools, development packages and to test you&rsquo;ll create a simple server in C#.</p>
+<h2 id="getting-started" class="headerLink">
+    <a href="#getting-started" class="header-mark"></a>Getting Started</h2><p>Since i am developing this project on my archlinux btw, with very minimal setup tools, I won&rsquo;t use any bloated IDEs. Feel free to use whatever you want!
+Before getting started, make sure to install:</p>
+<ul>
+<li><code>git</code></li>
+<li><code>go</code></li>
+<li><code>dotnet</code></li>
+<li><code>docker</code></li>
+<li><code>docker-compose</code></li>
+</ul>
+<h2 id="directory-structure" class="headerLink">
+    <a href="#directory-structure" class="header-mark"></a>Directory Structure</h2><p>I will structure my project as modules, each module has other sub modules.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;releaseChannel&#34;</span><span class="p">:</span> <span class="s2">&#34;stable&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.0.xx&#34;</span> <span class="c1">// change to the latest version
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">├── backend/
+</span></span><span class="line"><span class="cl">├── engine/
+</span></span><span class="line"><span class="cl">├── frontend/
+</span></span><span class="line"><span class="cl">└── README.md
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="the-proper-way" class="headerLink">
-    <a href="#the-proper-way" class="header-mark"></a>The proper way</h2><p>This method involves using the <a href="https://wiki.archlinux.org/title/Arch_build_system" target="_blank" rel="noopener noreferrer">Arch Build System</a></p>
-<ol>
-<li>Download the <code>asp</code> through <code>yay</code> : <code>yay -S asp</code></li>
-<li>Export the <code>PKGBUILD</code> file from discord : <code>asp export discord</code></li>
-<li>Edit the <code>pkgver=0.0.xx</code> in the <code>PKGBUILD</code> with the current version.</li>
-<li>Build discord : <code>makepkg -si</code></li>
-</ol></div>
+</div><h2 id="backend-setup" class="headerLink">
+    <a href="#backend-setup" class="header-mark"></a>Backend Setup</h2><p>I am writing the backend in go and C#, for me here are my installed vesions.</p>
+<ul>
+<li>C# for the web API: <code>.NET 8.0.100</code>.</li>
+<li>Go for the simulation engine: <code>1.21.5 linux/amd64</code></li>
+<li>Docker and docker-compose : <code>24.0.7</code>, <code>2.23.3</code></li>
+</ul>
+<p>Let&rsquo;s create the initial backend, we&rsquo;ll use : <code>dotent new webapi</code> to create a barebone API.</p>
+<p>As it&rsquo;s shown below, the template API created by .NET has one simple GET route called : <code>/weatherforecast</code> which returns random values.
+<figure><a class="lightgallery" href="/posts/wires_3/backend.png" title="/posts/wires_3/backend.png" data-thumbnail="/posts/wires_3/backend.png" data-sub-html="<h2>The init API</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/wires_3/backend.png"
+            srcset="/posts/wires_3/backend.png, /posts/wires_3/backend.png 1.5x, /posts/wires_3/backend.png 2x"
+            sizes="auto"
+            alt="/posts/wires_3/backend.png" height="927"  width="1863" >
+    </a><figcaption class="image-caption">The init API</figcaption>
+    </figure></p>
+<p>.NET creates launchSettings:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">    <span class="s2">&#34;http&#34;</span><span class="err">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;commandName&#34;</span><span class="p">:</span> <span class="s2">&#34;Project&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;dotnetRunMessages&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;launchBrowser&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;launchUrl&#34;</span><span class="p">:</span> <span class="s2">&#34;swagger&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;applicationUrl&#34;</span><span class="p">:</span> <span class="s2">&#34;http://localhost:5086&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;environmentVariables&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;ASPNETCORE_ENVIRONMENT&#34;</span><span class="p">:</span> <span class="s2">&#34;Development&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="err">,</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Let&rsquo;s run (<code>dotnet run</code>) and call the API:
+<figure><a class="lightgallery" href="/posts/wires_3/api_call.png" title="/posts/wires_3/api_call.png" data-thumbnail="/posts/wires_3/api_call.png" data-sub-html="<h2>Calling the API for the first time!</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/wires_3/api_call.png"
+            srcset="/posts/wires_3/api_call.png, /posts/wires_3/api_call.png 1.5x, /posts/wires_3/api_call.png 2x"
+            sizes="auto"
+            alt="/posts/wires_3/api_call.png" height="947"  width="1394" >
+    </a><figcaption class="image-caption">Calling the API for the first time!</figcaption>
+    </figure></p>
+<h2 id="engine-setup" class="headerLink">
+    <a href="#engine-setup" class="header-mark"></a>Engine Setup</h2><p>Let&rsquo;s create a simple go project, contains just single <code>main.go</code>. Make sure to run : <code>go mod init github.com/AYehia0/wires/engine</code></p>
+<p>This creates a file called <code>go.mod</code> (will contain all the dependencies)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Engine has been started!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Run the engine using : <code>go run .</code></p>
+<h2 id="frontend" class="headerLink">
+    <a href="#frontend" class="header-mark"></a>Frontend</h2><p>As I am a backend guy + I hate frontend frameworks, I will force myself to use the easiest thing ever (not vanila JS). Idk now lol</p>
+<h2 id="resources" class="headerLink">
+    <a href="#resources" class="header-mark"></a>Resources</h2><ul>
+<li><a href="https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-8.0" target="_blank" rel="noopener noreferrer">Create a Web API with ASP.NET Core</a></li>
+</ul></div>
 
         <div class="sponsor">
         <div class="sponsor-avatar"></div><p class="sponsor-bio"><em>Say Hello :D</em></p><a href="https://github.com/AYehia0" title="Sponsor" target="_blank" class="sponsor-button" rel="noopener noreferrer">
@@ -200,7 +284,7 @@ Bad for me that I use Archlinux, as discord ships thier updates as <code>.deb</c
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
-            <div class="post-info-share"><button title="Share on Twitter" data-sharer="twitter" data-url="https://ayehia0.github.io/posts/updating_discord_linux/" data-title="How to update discord on archlinux ?"><span class="fab fa-twitter fa-fw"></span></button><button title="Share on Linkedin" data-sharer="linkedin" data-url="https://ayehia0.github.io/posts/updating_discord_linux/"><span class="fab fa-linkedin fa-fw"></span></button></div>
+            <div class="post-info-share"><button title="Share on Twitter" data-sharer="twitter" data-url="https://ayehia0.github.io/posts/wires_3/" data-title="Wires #3: Local Setup and Development Tools"><span class="fab fa-twitter fa-fw"></span></button><button title="Share on Linkedin" data-sharer="linkedin" data-url="https://ayehia0.github.io/posts/wires_3/"><span class="fab fa-linkedin fa-fw"></span></button></div>
         </div>
     </div>
 
@@ -211,8 +295,7 @@ Bad for me that I use Archlinux, as discord ships thier updates as <code>.deb</c
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/cool_things/" class="prev" rel="prev" title="Linux And Other Cool Things"><i class="fas fa-angle-left fa-fw"></i>Linux And Other Cool Things</a>
-            <a href="/posts/no_elect_no_internet_no_problem/" class="next" rel="next" title="Use you home modem when electricity is down !">Use you home modem when electricity is down !<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/posts/wires_2/" class="prev" rel="prev" title="Wires #2: System Design"><i class="fas fa-angle-left fa-fw"></i>Wires #2: System Design</a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
