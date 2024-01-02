@@ -7,40 +7,40 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title>How email tracking works ? - ::1 404</title><meta name="Description" content="Does your recipient see the email or not ?"><meta property="og:title" content="How email tracking works ?" />
-<meta property="og:description" content="Does your recipient see the email or not ?" />
+    <title>Wires #4: Production Server Setup - ::1 404</title><meta name="Description" content=""><meta property="og:title" content="Wires #4: Production Server Setup" />
+<meta property="og:description" content="Let&rsquo;s configure the production environment." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ayehia0.github.io/posts/email_tracking/" /><meta property="og:image" content="https://ayehia0.github.io/posts/email_tracking/featured-image.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-03-02T08:11:12+02:00" />
+<meta property="og:url" content="https://ayehia0.github.io/posts/wires_4/" /><meta property="og:image" content="https://ayehia0.github.io/posts/wires_4/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-01T23:41:49+02:00" />
 <meta property="article:modified_time" content="2024-01-02T13:52:18+00:00" />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://ayehia0.github.io/posts/email_tracking/featured-image.png"/>
-<meta name="twitter:title" content="How email tracking works ?"/>
-<meta name="twitter:description" content="Does your recipient see the email or not ?"/>
+<meta name="twitter:image" content="https://ayehia0.github.io/posts/wires_4/featured-image.png"/>
+<meta name="twitter:title" content="Wires #4: Production Server Setup"/>
+<meta name="twitter:description" content="Let&rsquo;s configure the production environment."/>
 <meta name="application-name" content="::1 404">
 <meta name="apple-mobile-web-app-title" content="::1 404">
 
 <meta name="theme-color" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://ayehia0.github.io/posts/email_tracking/" /><link rel="prev" href="https://ayehia0.github.io/posts/problem_solving_for_absolute_noobs/" /><link rel="next" href="https://ayehia0.github.io/posts/git_hacks/" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://ayehia0.github.io/posts/wires_4/" /><link rel="prev" href="https://ayehia0.github.io/posts/wires_3/" />
 <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.css">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.css">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "How email tracking works ?",
+        "headline": "Wires #4: Production Server Setup",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/ayehia0.github.io\/posts\/email_tracking\/"
-        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  204 ,
-        "url": "https:\/\/ayehia0.github.io\/posts\/email_tracking\/","datePublished": "2023-03-02T08:11:12+02:00","dateModified": "2024-01-02T13:52:18+00:00","publisher": {
+            "@id": "https:\/\/ayehia0.github.io\/posts\/wires_4\/"
+        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  284 ,
+        "url": "https:\/\/ayehia0.github.io\/posts\/wires_4\/","datePublished": "2024-01-01T23:41:49+02:00","dateModified": "2024-01-02T13:52:18+00:00","publisher": {
             "@type": "Organization",
             "name": "Yehia"},"author": {
                 "@type": "Person",
                 "name": "Yehia"
-            },"description": "Does your recipient see the email or not ?"
+            },"description": ""
     }
     </script><script src="//instant.page/5.2.0" defer type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
 </head>
@@ -119,76 +119,110 @@
         <h2 class="toc-title">Contents</h2>
         <div class="toc-content always-active" id="toc-content-auto"><nav id="TableOfContents">
   <ul>
-    <li><a href="#how-it-works-">How it works ?</a></li>
-    <li><a href="#implementation">Implementation</a>
+    <li><a href="#getting-a-domain">Getting a domain</a></li>
+    <li><a href="#getting-a-server">Getting a server</a>
       <ul>
-        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#connecting-to-the-server-through-ssh">Connecting to the Server through SSH</a></li>
+        <li><a href="#installing-dependencies">Installing dependencies</a></li>
+        <li><a href="#configuring-https">Configuring HTTPs</a></li>
       </ul>
     </li>
+    <li><a href="#all-together">All together</a></li>
   </ul>
 </nav></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">How email tracking works ?</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Wires #4: Production Server Setup</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
-                </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">categories <a href="/categories/hacking/"><i class="far fa-folder fa-fw"></i>hacking</a>&nbsp;<a href="/categories/learning/"><i class="far fa-folder fa-fw"></i>learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-03-02">2023-03-02</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2024-01-02">2024-01-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;204 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;</div>
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-01-01">2024-01-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2024-01-02">2024-01-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;284 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         
         loading="eager"
-        src="/posts/email_tracking/featured-image.png"
-        srcset="/posts/email_tracking/featured-image.png, /posts/email_tracking/featured-image.png 1.5x, /posts/email_tracking/featured-image.png 2x"
+        src="/posts/wires_4/featured-image.png"
+        srcset="/posts/wires_4/featured-image.png, /posts/wires_4/featured-image.png 1.5x, /posts/wires_4/featured-image.png 2x"
         sizes="auto"
-        alt="Does your recipient see the email or not ?"
-        title="Does your recipient see the email or not ?" height="1000"   width="2500" ></div><div class="details toc" id="toc-static"  kept="">
+        alt="/posts/wires_4/featured-image.png"
+        title="/posts/wires_4/featured-image.png" height="392"   width="784" ></div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#how-it-works-">How it works ?</a></li>
-    <li><a href="#implementation">Implementation</a>
+    <li><a href="#getting-a-domain">Getting a domain</a></li>
+    <li><a href="#getting-a-server">Getting a server</a>
       <ul>
-        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#connecting-to-the-server-through-ssh">Connecting to the Server through SSH</a></li>
+        <li><a href="#installing-dependencies">Installing dependencies</a></li>
+        <li><a href="#configuring-https">Configuring HTTPs</a></li>
       </ul>
     </li>
+    <li><a href="#all-together">All together</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>Have you ever wondered how could someone knows if you read their email or not ?</p>
-<h2 id="how-it-works-" class="headerLink">
-    <a href="#how-it-works-" class="header-mark"></a>How it works ?</h2><p>When you click a link some where over the internet, a request is sent to some server where it&rsquo;s being processed. That&rsquo;s exactly what happens here.</p>
-<p>That&rsquo;s if you clicked a link, but I am still tracked even though I didn&rsquo;t click any links!</p>
-<p>Imagine this, when you load a website client requests some data from the server and automatically makes some requests even though you just did one single GET request (initial request).</p>
-<br>
-<p align="center">
-    <img src="network_inspect.png" width="100%">
-</p>
-<p>When you open up some email with a embedded image, a request is made through some proxy.</p>
-<br>
-<p align="center">
-    <img src="email_inspect.png" width="100%">
-</p>
-<p>Since we don&rsquo;t have control over the image(link), we can create our server to process it and notify read to us.
-And there is a trick to hide that image by sending <a href="https://en.wikipedia.org/wiki/File:1x1.png" target="_blank" rel="noopener noreferrer">1X1 pixel image</a>.</p>
-<br>
-<p align="center">
-    <img src="design_flow.png" width="100%">
-</p>
-<h2 id="implementation" class="headerLink">
-    <a href="#implementation" class="header-mark"></a>Implementation</h2><p>I am going to build the server in <code>nodejs</code> for simplicity.</p>
-<h3 id="requirements" class="headerLink">
-    <a href="#requirements" class="header-mark"></a>Requirements</h3><ul>
-<li>I am using the <code>http</code> package to create a server, I could have used <code>express</code> but it&rsquo;s overkill for this example.</li>
-<li><code>dotenv</code> to save environment secrets.</li>
-<li><code>twilio</code> for api, could have used the vanila <code>https</code> package to send the request.</li>
+            </div><div class="content" id="content"><p>Let&rsquo;s configure the production environment.</p>
+<h2 id="getting-a-domain" class="headerLink">
+    <a href="#getting-a-domain" class="header-mark"></a>Getting a domain</h2><figure><a class="lightgallery" href="/posts/wires_4/godaddy.png" title="/posts/wires_4/godaddy.png" data-thumbnail="/posts/wires_4/godaddy.png" data-sub-html="<h2>Acquiring a domain from GoDaddy</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/wires_4/godaddy.png"
+            srcset="/posts/wires_4/godaddy.png, /posts/wires_4/godaddy.png 1.5x, /posts/wires_4/godaddy.png 2x"
+            sizes="auto"
+            alt="/posts/wires_4/godaddy.png" height="313"  width="657" >
+    </a><figcaption class="image-caption">Acquiring a domain from GoDaddy</figcaption>
+    </figure>
+<p>I have bought this domain: <a href="https://ayehia0.info" target="_blank" rel="noopener noreferrer">ayehia0.info</a> from godaddy and configured the DNS to point to github&rsquo;s IP. Now going to my domain opens up my personal website which is hosted on github pages.</p>
+<h2 id="getting-a-server" class="headerLink">
+    <a href="#getting-a-server" class="header-mark"></a>Getting a server</h2><p>I have also bought a server on digitalocean and created a droplet.
+To get started with your droplet you just created, you have to configure a user as root user is the default one (Imagine the nasty things you can do with that!). For me I have created a user called <code>none</code> and added my SSH public key to be able to connect in a secure way.</p>
+<figure><a class="lightgallery" href="/posts/wires_4/digitalocean.png" title="/posts/wires_4/digitalocean.png" data-thumbnail="/posts/wires_4/digitalocean.png" data-sub-html="<h2>Digital Ocean Droplet Settings!</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/wires_4/digitalocean.png"
+            srcset="/posts/wires_4/digitalocean.png, /posts/wires_4/digitalocean.png 1.5x, /posts/wires_4/digitalocean.png 2x"
+            sizes="auto"
+            alt="/posts/wires_4/digitalocean.png" height="567"  width="1326" >
+    </a><figcaption class="image-caption">Digital Ocean Droplet Settings!</figcaption>
+    </figure>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>Create a domain for your api<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">if you don&rsquo;t want to write your IP each time you connect to your server you need to create an <code>A</code> record in the DNS section which directs to your IP.</div>
+        </div>
+    </div>
+<h3 id="connecting-to-the-server-through-ssh" class="headerLink">
+    <a href="#connecting-to-the-server-through-ssh" class="header-mark"></a>Connecting to the Server through SSH</h3><p>Once you get everything configured, it&rsquo;s time to connect to the server and install all the packages and dependencies.</p>
+<figure><a class="lightgallery" href="/posts/wires_4/ssh_connect.png" title="/posts/wires_4/ssh_connect.png" data-thumbnail="/posts/wires_4/ssh_connect.png" data-sub-html="<h2>Connect to the server!</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/wires_4/ssh_connect.png"
+            srcset="/posts/wires_4/ssh_connect.png, /posts/wires_4/ssh_connect.png 1.5x, /posts/wires_4/ssh_connect.png 2x"
+            sizes="auto"
+            alt="/posts/wires_4/ssh_connect.png" height="310"  width="936" >
+    </a><figcaption class="image-caption">Connect to the server!</figcaption>
+    </figure>
+<h3 id="installing-dependencies" class="headerLink">
+    <a href="#installing-dependencies" class="header-mark"></a>Installing dependencies</h3><p>I installed dotnet, go and docker even through I can use docker directly.</p>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04" target="_blank" rel="noopener noreferrer">Installing docker</a></li>
 </ul>
-<script type="application/javascript" src="https://gist.github.com/AYehia0/5fa7b268c7eb25af6d59255d6d263826.js"></script>
-
-<p>And finally when the email is read!</p>
-<br>
-<p align="center">
-    <img src="got_sms.png" width="100%">
-</p></div>
+<h3 id="configuring-https" class="headerLink">
+    <a href="#configuring-https" class="header-mark"></a>Configuring HTTPs</h3><p>It&rsquo;s time to configure <code>HTTPs</code>, you don&rsquo;t want to host your website on HTTP for security reasons ofc.
+Fortunately, it&rsquo;s easy to achieve this using <a href="https://certbot.eff.org/pages/about" target="_blank" rel="noopener noreferrer">certbot</a> which use&rsquo;s <a href="https://letsencrypt.org/" target="_blank" rel="noopener noreferrer">Let&rsquo;s Encrypt</a>.</p>
+<p>Following the instructions on their page (which is straight forward btw), you get HTTPs!</p>
+<h2 id="all-together" class="headerLink">
+    <a href="#all-together" class="header-mark"></a>All together</h2><p>For now everything is manual, so if we want to update any functionality to the server, we will (which isn&rsquo;t ideal):</p>
+<ul>
+<li>SSH to the Server</li>
+<li>Make changes</li>
+<li>Run server</li>
+</ul>
+<p>In the upcoming blogs you will create some CI/CD.</p></div>
 
         <div class="sponsor">
         <div class="sponsor-avatar"></div><p class="sponsor-bio"><em>Say Hello :D</em></p><a href="https://github.com/AYehia0" title="Sponsor" target="_blank" class="sponsor-button" rel="noopener noreferrer">
@@ -204,7 +238,7 @@ And there is a trick to hide that image by sending <a href="https://en.wikipedia
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
-            <div class="post-info-share"><button title="Share on Twitter" data-sharer="twitter" data-url="https://ayehia0.github.io/posts/email_tracking/" data-title="How email tracking works ?"><span class="fab fa-twitter fa-fw"></span></button><button title="Share on Linkedin" data-sharer="linkedin" data-url="https://ayehia0.github.io/posts/email_tracking/"><span class="fab fa-linkedin fa-fw"></span></button></div>
+            <div class="post-info-share"><button title="Share on Twitter" data-sharer="twitter" data-url="https://ayehia0.github.io/posts/wires_4/" data-title="Wires #4: Production Server Setup"><span class="fab fa-twitter fa-fw"></span></button><button title="Share on Linkedin" data-sharer="linkedin" data-url="https://ayehia0.github.io/posts/wires_4/"><span class="fab fa-linkedin fa-fw"></span></button></div>
         </div>
     </div>
 
@@ -215,8 +249,7 @@ And there is a trick to hide that image by sending <a href="https://en.wikipedia
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/problem_solving_for_absolute_noobs/" class="prev" rel="prev" title="My Way For Problem solving!"><i class="fas fa-angle-left fa-fw"></i>My Way For Problem solving!</a>
-            <a href="/posts/git_hacks/" class="next" rel="next" title="Git for hackers">Git for hackers<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/posts/wires_3/" class="prev" rel="prev" title="Wires #3: Local Setup and Development Tools"><i class="fas fa-angle-left fa-fw"></i>Wires #3: Local Setup and Development Tools</a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
