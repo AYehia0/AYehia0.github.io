@@ -3,9 +3,20 @@
         <title>::1 404</title>
         <link>https://ayehia0.github.io/</link>
         <description>::1 404</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 01 Jan 2024 23:41:49 &#43;0200</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 03 Jan 2024 01:08:16 &#43;0200</lastBuildDate>
             <atom:link href="https://ayehia0.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Wires #5: Exploring the .NET Web API and enable HTTPs [Backend]</title>
+    <link>https://ayehia0.github.io/posts/wires_5/</link>
+    <pubDate>Wed, 03 Jan 2024 01:08:16 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/posts/wires_5/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/wires_5/featured-image.png" referrerpolicy="no-referrer">
+            </div>How to use Environment VariablesHow to use the Environment Variables to allow separate production from development
+How enable SSL on the applicationAs you know I issued a SSL Certificate using the certbot which uses let's encrypt, it took me so much time to figure this out as the docs aren&rsquo;t clear at all.
+I wasted 2 days trying to fix that, and I even gave up and switched to Go!]]></description>
+</item><item>
     <title>Wires #4: Production Server Setup</title>
     <link>https://ayehia0.github.io/posts/wires_4/</link>
     <pubDate>Mon, 01 Jan 2024 23:41:49 &#43;0200</pubDate><author>
@@ -88,14 +99,5 @@ That&rsquo;s why I am sharing this thing :D</p>]]></description>
     <description><![CDATA[<div class="featured-image">
                 <img src="/posts/askfm_reverse_engineering/featured-image.jpg" referrerpolicy="no-referrer">
             </div><p>So you heared it. Askfm Reverse Engineering! to get back the threads to the web version by creating a web extension that calls the mobile api to show the data and more.</p>]]></description>
-</item><item>
-    <title>Git for hackers</title>
-    <link>https://ayehia0.github.io/posts/git_hacks/</link>
-    <pubDate>Mon, 16 Oct 2023 13:23:21 &#43;0000</pubDate><author>
-        <name>Yehia</name>
-    </author><guid>https://ayehia0.github.io/posts/git_hacks/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/posts/git_hacks/featured-image.png" referrerpolicy="no-referrer">
-            </div><p>A practical guide for git with real life scenarios which can make your git experience better.</p>]]></description>
 </item></channel>
 </rss>

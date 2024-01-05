@@ -7,35 +7,39 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title>Wires #3: Local Setup and Development Tools - ::1 404</title><meta name="Description" content=""><meta property="og:title" content="Wires #3: Local Setup and Development Tools" />
-<meta property="og:description" content="In this blog, we will install all the tools, development packages and to test you&rsquo;ll create a simple server in C#." />
+    <title>Wires #5: Exploring the .NET Web API and enable HTTPs [Backend] - ::1 404</title><meta name="Description" content=""><meta property="og:title" content="Wires #5: Exploring the .NET Web API and enable HTTPs [Backend]" />
+<meta property="og:description" content="How to use Environment VariablesHow to use the Environment Variables to allow separate production from development
+How enable SSL on the applicationAs you know I issued a SSL Certificate using the certbot which uses let&#39;s encrypt, it took me so much time to figure this out as the docs aren&rsquo;t clear at all.
+I wasted 2 days trying to fix that, and I even gave up and switched to Go!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ayehia0.github.io/posts/wires_3/" /><meta property="og:image" content="https://ayehia0.github.io/posts/wires_3/featured-image.webp"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-01-01T18:01:37+02:00" />
+<meta property="og:url" content="https://ayehia0.github.io/posts/wires_5/" /><meta property="og:image" content="https://ayehia0.github.io/posts/wires_5/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-03T01:08:16+02:00" />
 <meta property="article:modified_time" content="2024-01-05T18:30:12+00:00" />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://ayehia0.github.io/posts/wires_3/featured-image.webp"/>
-<meta name="twitter:title" content="Wires #3: Local Setup and Development Tools"/>
-<meta name="twitter:description" content="In this blog, we will install all the tools, development packages and to test you&rsquo;ll create a simple server in C#."/>
+<meta name="twitter:image" content="https://ayehia0.github.io/posts/wires_5/featured-image.png"/>
+<meta name="twitter:title" content="Wires #5: Exploring the .NET Web API and enable HTTPs [Backend]"/>
+<meta name="twitter:description" content="How to use Environment VariablesHow to use the Environment Variables to allow separate production from development
+How enable SSL on the applicationAs you know I issued a SSL Certificate using the certbot which uses let&#39;s encrypt, it took me so much time to figure this out as the docs aren&rsquo;t clear at all.
+I wasted 2 days trying to fix that, and I even gave up and switched to Go!"/>
 <meta name="application-name" content="::1 404">
 <meta name="apple-mobile-web-app-title" content="::1 404">
 
 <meta name="theme-color" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://ayehia0.github.io/posts/wires_3/" /><link rel="prev" href="https://ayehia0.github.io/posts/wires_2/" /><link rel="next" href="https://ayehia0.github.io/posts/wires_4/" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://ayehia0.github.io/posts/wires_5/" /><link rel="prev" href="https://ayehia0.github.io/posts/wires_4/" />
 <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.css">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.css">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Wires #3: Local Setup and Development Tools",
+        "headline": "Wires #5: Exploring the .NET Web API and enable HTTPs [Backend]",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/ayehia0.github.io\/posts\/wires_3\/"
-        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  307 ,
-        "url": "https:\/\/ayehia0.github.io\/posts\/wires_3\/","datePublished": "2024-01-01T18:01:37+02:00","dateModified": "2024-01-05T18:30:12+00:00","publisher": {
+            "@id": "https:\/\/ayehia0.github.io\/posts\/wires_5\/"
+        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  475 ,
+        "url": "https:\/\/ayehia0.github.io\/posts\/wires_5\/","datePublished": "2024-01-03T01:08:16+02:00","dateModified": "2024-01-05T18:30:12+00:00","publisher": {
             "@type": "Organization",
             "name": "Yehia"},"author": {
                 "@type": "Person",
@@ -119,130 +123,65 @@
         <h2 class="toc-title">Contents</h2>
         <div class="toc-content always-active" id="toc-content-auto"><nav id="TableOfContents">
   <ul>
-    <li><a href="#getting-started">Getting Started</a></li>
-    <li><a href="#directory-structure">Directory Structure</a></li>
-    <li><a href="#backend-setup">Backend Setup</a></li>
-    <li><a href="#engine-setup">Engine Setup</a></li>
-    <li><a href="#frontend">Frontend</a></li>
-    <li><a href="#resources">Resources</a></li>
+    <li><a href="#how-to-use-environment-variables">How to use Environment Variables</a></li>
+    <li><a href="#how-enable-ssl-on-the-application">How enable SSL on the application</a></li>
+    <li><a href="#working-with-the-dotnet-cli">Working with the dotnet CLI</a></li>
+    <li><a href="#testing-the-api">Testing the API</a></li>
   </ul>
 </nav></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Wires #3: Local Setup and Development Tools</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Wires #5: Exploring the .NET Web API and enable HTTPs [Backend]</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-01-01">2024-01-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2024-01-05">2024-01-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;307 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-01-03">2024-01-03</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2024-01-05">2024-01-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;475 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         
         loading="eager"
-        src="/posts/wires_3/featured-image.webp"
-        srcset="/posts/wires_3/featured-image.webp, /posts/wires_3/featured-image.webp 1.5x, /posts/wires_3/featured-image.webp 2x"
+        src="/posts/wires_5/featured-image.png"
+        srcset="/posts/wires_5/featured-image.png, /posts/wires_5/featured-image.png 1.5x, /posts/wires_5/featured-image.png 2x"
         sizes="auto"
-        alt="/posts/wires_3/featured-image.webp"
-        title="/posts/wires_3/featured-image.webp" height="4274"   width="6417" ></div><div class="details toc" id="toc-static"  kept="">
+        alt="/posts/wires_5/featured-image.png"
+        title="/posts/wires_5/featured-image.png" height="900"   width="1720" ></div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#getting-started">Getting Started</a></li>
-    <li><a href="#directory-structure">Directory Structure</a></li>
-    <li><a href="#backend-setup">Backend Setup</a></li>
-    <li><a href="#engine-setup">Engine Setup</a></li>
-    <li><a href="#frontend">Frontend</a></li>
-    <li><a href="#resources">Resources</a></li>
+    <li><a href="#how-to-use-environment-variables">How to use Environment Variables</a></li>
+    <li><a href="#how-enable-ssl-on-the-application">How enable SSL on the application</a></li>
+    <li><a href="#working-with-the-dotnet-cli">Working with the dotnet CLI</a></li>
+    <li><a href="#testing-the-api">Testing the API</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>In this blog, we will install all the tools, development packages and to test you&rsquo;ll create a simple server in C#.</p>
-<h2 id="getting-started" class="headerLink">
-    <a href="#getting-started" class="header-mark"></a>Getting Started</h2><p>Since i am developing this project on my archlinux btw, with very minimal setup tools, I won&rsquo;t use any bloated IDEs. Feel free to use whatever you want!
-Before getting started, make sure to install:</p>
-<ul>
-<li><code>git</code></li>
-<li><code>go</code></li>
-<li><code>dotnet</code></li>
-<li><code>docker</code></li>
-<li><code>docker-compose</code></li>
-</ul>
-<h2 id="directory-structure" class="headerLink">
-    <a href="#directory-structure" class="header-mark"></a>Directory Structure</h2><p>I will structure my project as modules, each module has other sub modules.</p>
+            </div><div class="content" id="content"><h2 id="how-to-use-environment-variables" class="headerLink">
+    <a href="#how-to-use-environment-variables" class="header-mark"></a>How to use Environment Variables</h2><p>How to use the Environment Variables to allow separate production from development</p>
+<h2 id="how-enable-ssl-on-the-application" class="headerLink">
+    <a href="#how-enable-ssl-on-the-application" class="header-mark"></a>How enable SSL on the application</h2><p>As you know I issued a SSL Certificate using the certbot which uses <code>let's encrypt</code>, it took me so much time to figure this out as the docs aren&rsquo;t clear at all.</p>
+<figure><a class="lightgallery" href="/posts/wires_5/ssl_errors.png" title="/posts/wires_5/ssl_errors.png" data-thumbnail="/posts/wires_5/ssl_errors.png" data-sub-html="<h2>I wasted 2 days trying to fix that, and I even gave up and switched to Go!</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/wires_5/ssl_errors.png"
+            srcset="/posts/wires_5/ssl_errors.png, /posts/wires_5/ssl_errors.png 1.5x, /posts/wires_5/ssl_errors.png 2x"
+            sizes="auto"
+            alt="/posts/wires_5/ssl_errors.png" height="756"  width="1889" >
+    </a><figcaption class="image-caption">I wasted 2 days trying to fix that, and I even gave up and switched to Go!</figcaption>
+    </figure>
+<p>Certbot generates some <code>.pem</code> files, which is used by almost all the apis expect .NET or Idk how to use them with <code>Kestrel</code>. Anyway certs and keys need to be converted from <code>.pem</code> file to <code>.pfx</code>.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.
-</span></span><span class="line"><span class="cl">├── backend/
-</span></span><span class="line"><span class="cl">├── engine/
-</span></span><span class="line"><span class="cl">├── frontend/
-</span></span><span class="line"><span class="cl">└── README.md
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo openssl pkcs12 -export -out cert.pfx \
+</span></span><span class="line"><span class="cl">    -inkey /etc/letsencrypt/live/&lt;domain&gt;/privkey.pem \
+</span></span><span class="line"><span class="cl">    -in /etc/letsencrypt/live/&lt;domain&gt;/fullchain.pem
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="backend-setup" class="headerLink">
-    <a href="#backend-setup" class="header-mark"></a>Backend Setup</h2><p>I am writing the backend in go and C#, for me here are my installed vesions.</p>
-<ul>
-<li>C# for the web API: <code>.NET 8.0.100</code>.</li>
-<li>Go for the simulation engine: <code>1.21.5 linux/amd64</code></li>
-<li>Docker and docker-compose : <code>24.0.7</code>, <code>2.23.3</code></li>
-</ul>
-<p>Let&rsquo;s create the initial backend, we&rsquo;ll use : <code>dotent new webapi</code> to create a barebone API.</p>
-<p>As it&rsquo;s shown below, the template API created by .NET has one simple GET route called : <code>/weatherforecast</code> which returns random values.
-<figure><a class="lightgallery" href="/posts/wires_3/backend.png" title="/posts/wires_3/backend.png" data-thumbnail="/posts/wires_3/backend.png" data-sub-html="<h2>The init API</h2>">
-        <img
-            
-            loading="lazy"
-            src="/posts/wires_3/backend.png"
-            srcset="/posts/wires_3/backend.png, /posts/wires_3/backend.png 1.5x, /posts/wires_3/backend.png 2x"
-            sizes="auto"
-            alt="/posts/wires_3/backend.png" height="927"  width="1863" >
-    </a><figcaption class="image-caption">The init API</figcaption>
-    </figure></p>
-<p>.NET creates launchSettings:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">    <span class="s2">&#34;http&#34;</span><span class="err">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;commandName&#34;</span><span class="p">:</span> <span class="s2">&#34;Project&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;dotnetRunMessages&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;launchBrowser&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;launchUrl&#34;</span><span class="p">:</span> <span class="s2">&#34;swagger&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;applicationUrl&#34;</span><span class="p">:</span> <span class="s2">&#34;http://localhost:5086&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;environmentVariables&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;ASPNETCORE_ENVIRONMENT&#34;</span><span class="p">:</span> <span class="s2">&#34;Development&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="err">,</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Let&rsquo;s run (<code>dotnet run</code>) and call the API:
-<figure><a class="lightgallery" href="/posts/wires_3/api_call.png" title="/posts/wires_3/api_call.png" data-thumbnail="/posts/wires_3/api_call.png" data-sub-html="<h2>Calling the API for the first time!</h2>">
-        <img
-            
-            loading="lazy"
-            src="/posts/wires_3/api_call.png"
-            srcset="/posts/wires_3/api_call.png, /posts/wires_3/api_call.png 1.5x, /posts/wires_3/api_call.png 2x"
-            sizes="auto"
-            alt="/posts/wires_3/api_call.png" height="947"  width="1394" >
-    </a><figcaption class="image-caption">Calling the API for the first time!</figcaption>
-    </figure></p>
-<h2 id="engine-setup" class="headerLink">
-    <a href="#engine-setup" class="header-mark"></a>Engine Setup</h2><p>Let&rsquo;s create a simple go project, contains just single <code>main.go</code>. Make sure to run : <code>go mod init github.com/AYehia0/wires/engine</code></p>
-<p>This creates a file called <code>go.mod</code> (will contain all the dependencies)</p>
+</div><p>It will ask for a password which is used later to configure <code>Kestrel</code>.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -251,25 +190,57 @@ Before getting started, make sure to install:</p>
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Engine has been started!&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// enable https</span>
+</span></span><span class="line"><span class="cl"><span class="n">builder</span><span class="p">.</span><span class="n">WebHost</span><span class="p">.</span><span class="n">UseKestrel</span><span class="p">(</span><span class="n">options</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">options</span><span class="p">.</span><span class="n">ListenAnyIP</span><span class="p">(</span><span class="m">443</span><span class="p">,</span> <span class="n">listenOptions</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">listenOptions</span><span class="p">.</span><span class="n">UseHttps</span><span class="p">(</span><span class="s">&#34;cert.pfx&#34;</span><span class="p">,</span> <span class="s">&#34;password&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Run the engine using : <code>go run .</code></p>
-<h2 id="frontend" class="headerLink">
-    <a href="#frontend" class="header-mark"></a>Frontend</h2><p>As I am a backend guy + I hate frontend frameworks, I will force myself to use the easiest thing ever (not vanila JS). Idk now lol</p>
-<h2 id="resources" class="headerLink">
-    <a href="#resources" class="header-mark"></a>Resources</h2><ul>
-<li><a href="https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-8.0" target="_blank" rel="noopener noreferrer">Create a Web API with ASP.NET Core</a></li>
-</ul></div>
+</div><p>PS: I hate how C# loves to waste a new line for <code>{}</code></p>
+<h2 id="working-with-the-dotnet-cli" class="headerLink">
+    <a href="#working-with-the-dotnet-cli" class="header-mark"></a>Working with the dotnet CLI</h2><p>Navigate to the <a href="https://learn.microsoft.com/en-us/dotnet/core/tools/" target="_blank" rel="noopener noreferrer">docs</a> to learn more about the dotnet CLI.</p>
+<ul>
+<li>How to create a template webapi with controllers : <code>dotnet new webapi --use-controllers -n backend</code></li>
+<li>Build vs Publish</li>
+</ul>
+<p><code>Building</code> is the process of compiling the source code of your application into executable files or libraries. When you build a .NET application, the compiler translates your source code (written in C#, F#, or another supported language) into Intermediate Language (IL) code, which is then packaged into assemblies.</p>
+<p>The build process involves several steps:</p>
+<ol>
+<li>Compilation: The compiler translates the source code into IL code.</li>
+<li>Assembly Generation: The IL code is packaged into assemblies, which may include executable files (e.g., .exe for console applications) and/or dynamic link libraries (DLLs).</li>
+<li>Dependency Resolution: Dependencies are resolved, and required libraries are referenced.</li>
+<li>Output Generation: The compiled application or library is generated as output.</li>
+</ol>
+<p><code>Publishing</code> is the process of preparing and packaging your application for deployment. It involves not only building the application but also including all necessary files and dependencies to ensure that the application can run on the target environment.</p>
+<p>The publish process includes the following steps:</p>
+<ol>
+<li>Build: The application is built, following the same steps as in the build process.</li>
+<li>Dependency Packaging: All required dependencies (including .NET runtime components) are packaged with the application.</li>
+<li>Configuration Transformation: Configuration files may be transformed based on the target environment.</li>
+<li>Output Packaging: The application is packaged into a directory or a single executable file.</li>
+</ol>
+<h2 id="testing-the-api" class="headerLink">
+    <a href="#testing-the-api" class="header-mark"></a>Testing the API</h2><p>Before this step, I created a domain called <code>api</code> which I will link the application to server on it using HTTPs (Make sure to also create a cert if you haven&rsquo;t).</p>
+<p>Let&rsquo;s publish and run the server!</p>
+<ol>
+<li>Publish: <code>dotnet publish</code></li>
+<li>Run: Make run that the server is running with <code>sudo</code> as for ports lower than <code>1024</code> : <code>sudo dotnet backend.dll</code></li>
+</ol>
+<figure><a class="lightgallery" href="/posts/wires_5/https.png" title="/posts/wires_5/https.png" data-thumbnail="/posts/wires_5/https.png" data-sub-html="<h2>Now API works with HTTPs</h2>">
+        <img
+            
+            loading="lazy"
+            src="/posts/wires_5/https.png"
+            srcset="/posts/wires_5/https.png, /posts/wires_5/https.png 1.5x, /posts/wires_5/https.png 2x"
+            sizes="auto"
+            alt="/posts/wires_5/https.png" height="176"  width="691" >
+    </a><figcaption class="image-caption">Now API works with HTTPs</figcaption>
+    </figure>
+</div>
 
         <div class="sponsor">
         <div class="sponsor-avatar"></div><p class="sponsor-bio"><em>Say Hello :D</em></p><a href="https://github.com/AYehia0" title="Sponsor" target="_blank" class="sponsor-button" rel="noopener noreferrer">
@@ -285,7 +256,7 @@ Before getting started, make sure to install:</p>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
-            <div class="post-info-share"><button title="Share on Twitter" data-sharer="twitter" data-url="https://ayehia0.github.io/posts/wires_3/" data-title="Wires #3: Local Setup and Development Tools"><span class="fab fa-twitter fa-fw"></span></button><button title="Share on Linkedin" data-sharer="linkedin" data-url="https://ayehia0.github.io/posts/wires_3/"><span class="fab fa-linkedin fa-fw"></span></button></div>
+            <div class="post-info-share"><button title="Share on Twitter" data-sharer="twitter" data-url="https://ayehia0.github.io/posts/wires_5/" data-title="Wires #5: Exploring the .NET Web API and enable HTTPs [Backend]"><span class="fab fa-twitter fa-fw"></span></button><button title="Share on Linkedin" data-sharer="linkedin" data-url="https://ayehia0.github.io/posts/wires_5/"><span class="fab fa-linkedin fa-fw"></span></button></div>
         </div>
     </div>
 
@@ -296,8 +267,7 @@ Before getting started, make sure to install:</p>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/wires_2/" class="prev" rel="prev" title="Wires #2: System Design"><i class="fas fa-angle-left fa-fw"></i>Wires #2: System Design</a>
-            <a href="/posts/wires_4/" class="next" rel="next" title="Wires #4: Production Server Setup">Wires #4: Production Server Setup<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/posts/wires_4/" class="prev" rel="prev" title="Wires #4: Production Server Setup"><i class="fas fa-angle-left fa-fw"></i>Wires #4: Production Server Setup</a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
