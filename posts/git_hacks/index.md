@@ -187,7 +187,12 @@ An orphan branch is a branch that starts with no commit history but exists along
 2. Starting a New Project: if for example you're creating a full stack application and you want to make the server side and front side in one big repo (which I don't recommend) you can have 2 branches, main one and the orphan frontend (coz you know backend comes first).
 
 ```bash
-git checkout --orphan <branch-name>
-git rm -rf .
+$ git checkout --orphan gh-pages
+
+# preview files to be deleted
+$ git rm -rf --dry-run .
+
+# actually delete the files
+$ git rm -rf .
 ```
 
