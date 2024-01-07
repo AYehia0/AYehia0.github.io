@@ -19,4 +19,5 @@ jobs:
         uses: chabad360/hugo-gh-pages@master
         with:
           githubToken: ${{ secrets.SECRET_VOID }}
+          cname: ayehia0.info
           args: --buildDrafts
