@@ -21,6 +21,9 @@ hiddenFromSearch: false
 featuredImage: "featured-image.png"
 featuredImagePreview: "featured-image.png"
 ---
+Let's explore dotnet everyone :D
+
+<!--more-->
 
 ## How to use Environment Variables
 How to use the Environment Variables to allow separate production from development
