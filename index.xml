@@ -3,9 +3,18 @@
         <title>::1 404</title>
         <link>https://ayehia0.github.io/</link>
         <description>::1 404</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 03 Jan 2024 01:08:16 &#43;0200</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 19 Jan 2024 06:04:41 &#43;0200</lastBuildDate>
             <atom:link href="https://ayehia0.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Wires 6: Drawing The Map [Frontend]</title>
+    <link>https://ayehia0.github.io/posts/wires_6/</link>
+    <pubDate>Fri, 19 Jan 2024 06:04:41 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/posts/wires_6/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/wires_6/featured-image.jpeg" referrerpolicy="no-referrer">
+            </div><p>You read it right, there is no dought this is going to be a nightmare for me but anyways I am going to do my best.</p>]]></description>
+</item><item>
     <title>Wires #5: Exploring the .NET Web API and enable HTTPs [Backend]</title>
     <link>https://ayehia0.github.io/posts/wires_5/</link>
     <pubDate>Wed, 03 Jan 2024 01:08:16 &#43;0200</pubDate><author>
@@ -13,9 +22,7 @@
     </author><guid>https://ayehia0.github.io/posts/wires_5/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/posts/wires_5/featured-image.png" referrerpolicy="no-referrer">
-            </div>How to use Environment VariablesHow to use the Environment Variables to allow separate production from development
-How enable SSL on the applicationAs you know I issued a SSL Certificate using the certbot which uses let's encrypt, it took me so much time to figure this out as the docs aren&rsquo;t clear at all.
-I wasted 2 days trying to fix that, and I even gave up and switched to Go!]]></description>
+            </div><p>Let&rsquo;s explore dotnet everyone :D</p>]]></description>
 </item><item>
     <title>Wires #4: Production Server Setup</title>
     <link>https://ayehia0.github.io/posts/wires_4/</link>
@@ -90,14 +97,5 @@ Bad for me that I use Archlinux, as discord ships thier updates as <code>.deb</c
                 <img src="/posts/cool_things/featured-image1.jpg" referrerpolicy="no-referrer">
             </div><p>Life is a long journey of learning and experience, once you stop learning you die!, also sharing is caring.
 That&rsquo;s why I am sharing this thing :D</p>]]></description>
-</item><item>
-    <title>Askfm Reverse Engineering: Getting Threads Back!</title>
-    <link>https://ayehia0.github.io/posts/askfm_reverse_engineering/</link>
-    <pubDate>Thu, 02 Nov 2023 13:50:11 &#43;0200</pubDate><author>
-        <name>Yehia</name>
-    </author><guid>https://ayehia0.github.io/posts/askfm_reverse_engineering/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/posts/askfm_reverse_engineering/featured-image.jpg" referrerpolicy="no-referrer">
-            </div><p>So you heared it. Askfm Reverse Engineering! to get back the threads to the web version by creating a web extension that calls the mobile api to show the data and more.</p>]]></description>
 </item></channel>
 </rss>
