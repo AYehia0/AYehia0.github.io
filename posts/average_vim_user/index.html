@@ -1,0 +1,435 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title>But can your text editor do this ? | Avearge Vim User Experience - ::1 404</title><meta name="Description" content=""><meta property="og:title" content="But can your text editor do this ? | Avearge Vim User Experience" />
+<meta property="og:description" content="Yes, you read it right!, I use vim as my daily driver coding kit!, some people say you can&rsquo;t and others just doubt that saying; you can&rsquo;t do proper coding on real production projects unless you have a bloated IDE like VS Studio or intellij, in this blog I will prove the opposite!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ayehia0.github.io/posts/average_vim_user/" /><meta property="og:image" content="https://ayehia0.github.io/posts/average_vim_user/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-02T00:36:24+02:00" />
+<meta property="article:modified_time" content="2024-02-05T09:12:55+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://ayehia0.github.io/posts/average_vim_user/featured-image.png"/>
+<meta name="twitter:title" content="But can your text editor do this ? | Avearge Vim User Experience"/>
+<meta name="twitter:description" content="Yes, you read it right!, I use vim as my daily driver coding kit!, some people say you can&rsquo;t and others just doubt that saying; you can&rsquo;t do proper coding on real production projects unless you have a bloated IDE like VS Studio or intellij, in this blog I will prove the opposite!"/>
+<meta name="application-name" content="::1 404">
+<meta name="apple-mobile-web-app-title" content="::1 404">
+
+<meta name="theme-color" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://ayehia0.github.io/posts/average_vim_user/" /><link rel="prev" href="https://ayehia0.github.io/posts/wires_6/" />
+<link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.css">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.css">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "But can your text editor do this ? | Avearge Vim User Experience",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/ayehia0.github.io\/posts\/average_vim_user\/"
+        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","keywords": "vim","wordcount":  1199 ,
+        "url": "https:\/\/ayehia0.github.io\/posts\/average_vim_user\/","datePublished": "2024-02-02T00:36:24+02:00","dateModified": "2024-02-05T09:12:55+00:00","publisher": {
+            "@type": "Organization",
+            "name": "Yehia"},"author": {
+                "@type": "Person",
+                "name": "Yehia"
+            },"description": ""
+    }
+    </script><script src="//instant.page/5.2.0" defer type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
+</head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme); document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark'); window.theme = theme;   window.isDark = window.theme !== 'light' }
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+        window.switchThemeEventSet = new Set()
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="::1 404"><span class="header-title-pre"><i class="fas fa-splotch"></i></span><span id="desktop-header-typeit" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="::1 404"><span class="header-title-pre"><i class="fas fa-splotch"></i></span><span id="mobile-header-typeit" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">Contents</h2>
+        <div class="toc-content always-active" id="toc-content-auto"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-vim-">Why Vim ?</a></li>
+    <li><a href="#should-you-use-vim-">Should you use vim ?</a>
+      <ul>
+        <li><a href="#dont-use-vim-if-">Don&rsquo;t use vim if &hellip;</a>
+          <ul>
+            <li><a href="#you-think-vim-is-an-ide">You think vim is an IDE</a></li>
+            <li><a href="#have-a-work-and-you-have-to-do-it-now">Have a work and you have to do it now</a></li>
+            <li><a href="#you-cant-afford-the-time-and-effort-to-learn-it">You can&rsquo;t afford the time and effort to learn it</a></li>
+            <li><a href="#the-job-can-be-done-in-a-better-way">The job can be done in a better way</a></li>
+          </ul>
+        </li>
+        <li><a href="#who-is-vim-for--who-isnt-">Who is vim for ? who isn&rsquo;t ?</a></li>
+      </ul>
+    </li>
+    <li><a href="#can-your-ide-do-this-">Can your IDE do this ?</a>
+      <ul>
+        <li><a href="#speed-boi">Speed boi</a></li>
+        <li><a href="#marks">Marks</a></li>
+        <li><a href="#folding-and-unfolding-text">Folding and unfolding text</a></li>
+        <li><a href="#macros">Macros</a></li>
+        <li><a href="#bonus">Bonus</a>
+          <ul>
+            <li><a href="#norm">norm</a></li>
+            <li><a href="#-command">! command</a></li>
+            <li><a href="#encryption">Encryption!</a></li>
+            <li><a href="#spell-checking">Spell Checking</a></li>
+          </ul>
+        </li>
+        <li><a href="#arithematics">Arithematics</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">But can your text editor do this ? | Avearge Vim User Experience</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-02-02">2024-02-02</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2024-02-05">2024-02-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1199 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;6 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        
+        loading="eager"
+        src="/posts/average_vim_user/featured-image.png"
+        srcset="/posts/average_vim_user/featured-image.png, /posts/average_vim_user/featured-image.png 1.5x, /posts/average_vim_user/featured-image.png 2x"
+        sizes="auto"
+        alt="/posts/average_vim_user/featured-image.png"
+        title="/posts/average_vim_user/featured-image.png" height="819"   width="1024" ></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-vim-">Why Vim ?</a></li>
+    <li><a href="#should-you-use-vim-">Should you use vim ?</a>
+      <ul>
+        <li><a href="#dont-use-vim-if-">Don&rsquo;t use vim if &hellip;</a>
+          <ul>
+            <li><a href="#you-think-vim-is-an-ide">You think vim is an IDE</a></li>
+            <li><a href="#have-a-work-and-you-have-to-do-it-now">Have a work and you have to do it now</a></li>
+            <li><a href="#you-cant-afford-the-time-and-effort-to-learn-it">You can&rsquo;t afford the time and effort to learn it</a></li>
+            <li><a href="#the-job-can-be-done-in-a-better-way">The job can be done in a better way</a></li>
+          </ul>
+        </li>
+        <li><a href="#who-is-vim-for--who-isnt-">Who is vim for ? who isn&rsquo;t ?</a></li>
+      </ul>
+    </li>
+    <li><a href="#can-your-ide-do-this-">Can your IDE do this ?</a>
+      <ul>
+        <li><a href="#speed-boi">Speed boi</a></li>
+        <li><a href="#marks">Marks</a></li>
+        <li><a href="#folding-and-unfolding-text">Folding and unfolding text</a></li>
+        <li><a href="#macros">Macros</a></li>
+        <li><a href="#bonus">Bonus</a>
+          <ul>
+            <li><a href="#norm">norm</a></li>
+            <li><a href="#-command">! command</a></li>
+            <li><a href="#encryption">Encryption!</a></li>
+            <li><a href="#spell-checking">Spell Checking</a></li>
+          </ul>
+        </li>
+        <li><a href="#arithematics">Arithematics</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Yes, you read it right!, I use vim as my daily driver coding kit!, some people say you can&rsquo;t and others just doubt that saying; you can&rsquo;t do proper coding on real production projects unless you have a bloated IDE like VS Studio or intellij, in this blog I will prove the opposite!</p>
+<h2 id="why-vim-" class="headerLink">
+    <a href="#why-vim-" class="header-mark"></a>Why Vim ?</h2><p>It started 6 years ago, when I doing my BCs degree in Computer Engineering, I had a really old ass laptop with 4gb RAM and 2 Cores old AMD CPU with HDD!, it was damn too slow, I could just do one thing a time (VS code or Browser) and I was also using linux (the n00b way). The struggle was real till I was editing the sudoers file <code>/etc/sudoers</code> and I was so frustrated that I couldn&rsquo;t exit vim lol, and I have been using vim since then!, just kidding I had to restart my laptop lol.</p>
+<br>
+<p align="center">
+    <img src="cant_exit_vim.jpg">
+</p>
+<p>Anyways, I found vim really lightweight and customizable which suited me a lot!. 2 years later I switched to vim as my main editor and learned a lot during that journey!</p>
+<p>So, why vim ?</p>
+<ul>
+<li>Lightweight and highly customizable</li>
+<li>Efficient keyboard-driven interface which I just fall in love coz I just hate switching back and forth to my mouse!</li>
+<li>Wide range of plugins and extensions available</li>
+<li>Works well on remote servers or low-resource environments, just ssh into remote servers and do magic using vim</li>
+</ul>
+<p>There are way many features vim has that will make you a faster engineer (I will discuss later), but first should you use vim ?</p>
+<h2 id="should-you-use-vim-" class="headerLink">
+    <a href="#should-you-use-vim-" class="header-mark"></a>Should you use vim ?</h2><p>Is it worth learning vim and replace your editors/IDEs ?</p>
+<br>
+<p align="center">
+    <img src="vim_curve.png">
+</p>
+<p>Vim is hard but it&rsquo;s worth the effort to learn, investing in the tools and workflows have a serious payoff over time! and will make you more productive, but here is the catch!</p>
+<h3 id="dont-use-vim-if-" class="headerLink">
+    <a href="#dont-use-vim-if-" class="header-mark"></a>Don&rsquo;t use vim if &hellip;</h3><h4 id="you-think-vim-is-an-ide" class="headerLink">
+    <a href="#you-think-vim-is-an-ide" class="header-mark"></a>You think vim is an IDE</h4><p>It depends on how you define an IDE, if you think an IDE is some program with that mostly edit text with some utilities then I guess you&rsquo;re excused!, sadly that&rsquo;s not how IDEs work at all! IDEs are bloated with many features like debuggers and other things but they aren&rsquo;t bloated for nothing, they do lots of things which require lots of RAM and resources!, but if what you need is a tool to edit, navigate and search text then vim is the way to go.</p>
+<p>Vim can be customized with some plugins to provide the basic programming needs!</p>
+<h4 id="have-a-work-and-you-have-to-do-it-now" class="headerLink">
+    <a href="#have-a-work-and-you-have-to-do-it-now" class="header-mark"></a>Have a work and you have to do it now</h4><p>Don&rsquo;t get me wrong on this, what I mean is that if you&rsquo;re just decided to use vim and your boss asked you to do something, don&rsquo;t use vim for it as it will make you slower!. Vim takes some time to learn, may be weeks! If you are serious about learning Vim, do it on the side, progressively, without taking any of the shortcuts you would be tempted to take if you had to learn it on the spot.</p>
+<p>If you are in a hurry, use a familiar editor/IDE.</p>
+<h4 id="you-cant-afford-the-time-and-effort-to-learn-it" class="headerLink">
+    <a href="#you-cant-afford-the-time-and-effort-to-learn-it" class="header-mark"></a>You can&rsquo;t afford the time and effort to learn it</h4><p>Vim is a very powerful text editor that exposes an incredible breadth and depth of functionalities. Learning everything would take a lifetime and learning what you need right now will take months. If you lack the curiosity and the drive required to go past those months, then you should keep using your current text editor.</p>
+<p>In general: if you are used to <code>$FOO</code> and consider switching to <code>$BAR</code>, learn <code>$BAR</code> before actually switching to it.</p>
+<h4 id="the-job-can-be-done-in-a-better-way" class="headerLink">
+    <a href="#the-job-can-be-done-in-a-better-way" class="header-mark"></a>The job can be done in a better way</h4><p>Choose the right tool for the job, specialized tools are very often better alternatives to Vim. Even pen and paper (or marker on whiteboard) can be better for many uses.</p>
+<h3 id="who-is-vim-for--who-isnt-" class="headerLink">
+    <a href="#who-is-vim-for--who-isnt-" class="header-mark"></a>Who is vim for ? who isn&rsquo;t ?</h3><p>Vim is good for:</p>
+<ul>
+<li>Incredible fast movements</li>
+<li>Highly customizable</li>
+<li>No distractions</li>
+<li>Shell access</li>
+<li>Huge community</li>
+<li>How to exit vim memes</li>
+</ul>
+<p>Not good for:</p>
+<ul>
+<li>It&rsquo;s not an IDE</li>
+<li>Those who don&rsquo;t have time to learn it</li>
+</ul>
+<p>Will using vim make you a better software engineer ? Probably not, but will make you more productive and if productivity makes you better engineer then vim will!
+Also vim will make you know what happens under the hood when you press that green button! as it will require you to setup everything and connect things together, so a better developer yes!. <code>MASTER YOUR TOOLS</code></p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/m7no4O-JKDA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="can-your-ide-do-this-" class="headerLink">
+    <a href="#can-your-ide-do-this-" class="header-mark"></a>Can your IDE do this ?</h2><h3 id="speed-boi" class="headerLink">
+    <a href="#speed-boi" class="header-mark"></a>Speed boi</h3><p>Vim is fast!, I have been using vim for more than 3 years that I have developed a seamlessly workflow, I want to search something boom (fuzzy finder), want to create and edit files eazy!!, want to write code (LSP and Treesitter) and some other customizations!</p>
+<p><video src="vim_navigation.webm" autoplay loop></video></p>
+<h3 id="marks" class="headerLink">
+    <a href="#marks" class="header-mark"></a>Marks</h3><p>Marks is one feature I really like about vim, it allows quickly jumping from one point in file to another point in the same file or other files.</p>
+<div class="details admonition example">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-list-ol fa-fw"></i>How to use marks ?<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ul>
+<li><code>me</code> to mark lines with identifier <code>e</code></li>
+<li><code>'e</code> to jump to line identified by <code>e</code></li>
+<li><code>mA</code> to mark line with identifier <code>A</code> but globally</li>
+</ul>
+</div>
+        </div>
+    </div>
+<br>
+<p align="center">
+    <img src="marks_vim.gif">
+</p>
+<h3 id="folding-and-unfolding-text" class="headerLink">
+    <a href="#folding-and-unfolding-text" class="header-mark"></a>Folding and unfolding text</h3><p>Folding text is a nice feature in vim that makes your text more readable and lets you foucs on other parts.</p>
+<div class="details admonition example open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-list-ol fa-fw"></i>How to fold and unfold text ?<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ul>
+<li><code>zf</code> to fold lines</li>
+<li><code>zo</code> to open folded lines</li>
+<li><code>zO</code> to open all folded lines</li>
+<li><code>zc</code> to close folded lines</li>
+<li><code>zC</code> to close all folded lines</li>
+</ul>
+</div>
+        </div>
+    </div>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>Toggling and foldmethod<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ul>
+<li><code>za</code> to toggle close/open</li>
+<li><code>zA</code> to toggle all</li>
+<li><code>zm</code> to cycle folding, <code>zM</code> to fold all in the file</li>
+<li><code>zr</code> to cycle unfolding, <code>zR</code> to unfold all in the file</li>
+</ul>
+</div>
+        </div>
+    </div>
+<br>
+<p align="center">
+    <img src="folding_vim.gif">
+</p>
+<h3 id="macros" class="headerLink">
+    <a href="#macros" class="header-mark"></a>Macros</h3><p>Vim macros are a very powerful feature to allow recording and replaying sequences of commands. This feature is particularly handy for tasks like refactoring code, formatting text, or performing repetitive edits across multiple files.</p>
+<p>Here&rsquo;s a real example that shows how powerful this is; when writing a blog or markdown file, sometimes I need to paste some youtube links and I need them to be shown as bullet points and I also want to have the video title, doing this by hand would take some time, so let&rsquo;s automate it.</p>
+<div class="details admonition example open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-list-ol fa-fw"></i>How to achieve this ?<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ul>
+<li><code>qa</code> to record a macro with in <code>a</code></li>
+<li><code>0y$</code> copy the current line into register 0</li>
+<li>Execute some command</li>
+<li><code>j</code> to move to the next line</li>
+<li><code>q</code> to end the macro</li>
+<li><code>5@a</code> to execute the macro 5 times</li>
+</ul>
+</div>
+        </div>
+    </div>
+<p>I am using <code>yt-dlp</code> to get the title of the video.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="p">:</span><span class="nx">execute</span> <span class="s1">&#39;.!yt-dlp --get-title &#34;&#39;</span> . @<span class="m">0</span> . <span class="s1">&#39;&#34; | tr -d &#34;\n&#34; | xargs -I {} echo &#34;- [{}](&#39;</span> . @<span class="m">0</span> . <span class="s1">&#39;)&#34;&#39;</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>@0</code> the value stored in the register 0</li>
+<li><code>:execute</code> like eval in some languages</li>
+<li><code>.!</code> the <code>.</code> to replace the output with the current line, <code>!</code> to exeucte shell command</li>
+</ul>
+<br>
+<p align="center">
+    <img src="macros_vim.gif">
+</p>
+<h3 id="bonus" class="headerLink">
+    <a href="#bonus" class="header-mark"></a>Bonus</h3><h4 id="norm" class="headerLink">
+    <a href="#norm" class="header-mark"></a>norm</h4><p>You can perform commands in normal mode too!</p>
+<br>
+<p align="center">
+    <img src="norm.gif">
+</p>
+<h4 id="-command" class="headerLink">
+    <a href="#-command" class="header-mark"></a>! command</h4><p>You can use the <code>!</code> to perform external commands!</p>
+<br>
+<p align="center">
+    <img src="sort_vim.gif">
+</p>
+<h4 id="encryption" class="headerLink">
+    <a href="#encryption" class="header-mark"></a>Encryption!</h4><p>You can encrypt files in vim, (doesn&rsquo;t work on neovim).</p>
+<br>
+<p align="center">
+    <img src="encrypt_vim.gif">
+</p>
+<h4 id="spell-checking" class="headerLink">
+    <a href="#spell-checking" class="header-mark"></a>Spell Checking</h4><ul>
+<li>Set the spell lang : <code>set spell! spelllang=en_us</code></li>
+<li>To get suggestions : <code>z=</code></li>
+</ul>
+<h3 id="arithematics" class="headerLink">
+    <a href="#arithematics" class="header-mark"></a>Arithematics</h3><p>You can perform some math operations like increament and decreament</p>
+<br>
+<p align="center">
+    <img src="math.gif">
+</p></div>
+
+        <div class="sponsor">
+        <div class="sponsor-avatar"></div><p class="sponsor-bio"><em>Say Hello :D</em></p><a href="https://github.com/AYehia0" title="Sponsor" target="_blank" class="sponsor-button" rel="noopener noreferrer">
+                <i class="far fa-heart fa-fw icon" style="color: #ec6cb9;"></i>
+                <span>Sponsor</span>
+            </a></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-02-05</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share"><button title="Share on Twitter" data-sharer="twitter" data-url="https://ayehia0.github.io/posts/average_vim_user/" data-title="But can your text editor do this ? | Avearge Vim User Experience" data-hashtags="vim"><span class="fab fa-twitter fa-fw"></span></button><button title="Share on Linkedin" data-sharer="linkedin" data-url="https://ayehia0.github.io/posts/average_vim_user/"><span class="fab fa-linkedin fa-fw"></span></button></div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vim/">vim</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/wires_6/" class="prev" rel="prev" title="Wires 6: Drawing The Map [Frontend]"><i class="fas fa-angle-left fa-fw"></i>Wires 6: Drawing The Map [Frontend]</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/AYehia0" target="_blank" rel="noopener noreferrer">Yehia</a></span></div>
+            <div class="footer-line"></div>
+            <div class="footer-line">
+            </div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="Back to Top">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":40},"comment":{},"data":{"desktop-header-typeit":"~/None","mobile-header-typeit":"~/None"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":true,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"sharerjs":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"desktop-header-typeit":["desktop-header-typeit"],"mobile-header-typeit":["mobile-header-typeit"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script></div>
+</body>
+
+</html>

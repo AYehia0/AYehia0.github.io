@@ -3,7 +3,16 @@
         <title>All Posts - ::1 404</title>
         <link>https://ayehia0.github.io/posts/</link>
         <description>All Posts | ::1 404</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 19 Jan 2024 06:04:41 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 02 Feb 2024 00:36:24 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>But can your text editor do this ? | Avearge Vim User Experience</title>
+    <link>https://ayehia0.github.io/posts/average_vim_user/</link>
+    <pubDate>Fri, 02 Feb 2024 00:36:24 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/posts/average_vim_user/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/average_vim_user/Vim.webp" referrerpolicy="no-referrer">
+            </div><p>Yes, you read it right!, I use vim as my daily driver coding kit!, some people say you can&rsquo;t and others just doubt that saying; you can&rsquo;t do proper coding on real production projects unless you have a bloated IDE like VS Studio or intellij, in this blog I will prove the opposite!</p>]]></description>
+</item><item>
     <title>Wires 6: Drawing The Map [Frontend]</title>
     <link>https://ayehia0.github.io/posts/wires_6/</link>
     <pubDate>Fri, 19 Jan 2024 06:04:41 &#43;0200</pubDate><author>
@@ -85,15 +94,5 @@
                 <img src="/posts/updating_discord_linux/featured-image.jpg" referrerpolicy="no-referrer">
             </div><p>I hate discord updates!, they do lots of updates which prevents discord desktop from launching.
 Bad for me that I use Archlinux, as discord ships thier updates as <code>.deb</code>.</p>]]></description>
-</item><item>
-    <title>Linux And Other Cool Things</title>
-    <link>https://ayehia0.github.io/posts/cool_things/</link>
-    <pubDate>Wed, 08 Nov 2023 12:33:28 &#43;0200</pubDate><author>
-        <name>Yehia</name>
-    </author><guid>https://ayehia0.github.io/posts/cool_things/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/posts/cool_things/featured-image1.jpg" referrerpolicy="no-referrer">
-            </div><p>Life is a long journey of learning and experience, once you stop learning you die!, also sharing is caring.
-That&rsquo;s why I am sharing this thing :D</p>]]></description>
 </item></channel>
 </rss>
