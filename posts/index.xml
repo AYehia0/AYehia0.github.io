@@ -3,7 +3,16 @@
         <title>All Posts - ::1 404</title>
         <link>https://ayehia0.github.io/posts/</link>
         <description>All Posts | ::1 404</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 02 Feb 2024 00:36:24 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 25 Feb 2024 14:27:58 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Setup multiple github emails on a single machine</title>
+    <link>https://ayehia0.github.io/posts/multiple_github_emails/</link>
+    <pubDate>Sun, 25 Feb 2024 14:27:58 &#43;0200</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/posts/multiple_github_emails/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/multiple_github_emails/featured-image1.png" referrerpolicy="no-referrer">
+            </div><p>How to handle multiple github emails linked to the same github account, for example if you have a personal email used to manage your personal projects and you have a professional email for work or something else, it&rsquo;s ideal to use each account on the correct place, but sometimes it can be tedious!</p>]]></description>
+</item><item>
     <title>But can your text editor do this ? | Avearge Vim User Experience</title>
     <link>https://ayehia0.github.io/posts/average_vim_user/</link>
     <pubDate>Fri, 02 Feb 2024 00:36:24 &#43;0200</pubDate><author>
@@ -84,15 +93,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/posts/no_elect_no_internet_no_problem/featured-image.jpg" referrerpolicy="no-referrer">
             </div><p>In the palce I live in, electricity goes off everyday for 2 hours and I really need the internet connectoin that time, because you know it&rsquo;s 2023, Internet is a like water, no one can live without it.</p>]]></description>
-</item><item>
-    <title>How to update discord on archlinux ?</title>
-    <link>https://ayehia0.github.io/posts/updating_discord_linux/</link>
-    <pubDate>Fri, 24 Nov 2023 23:18:52 &#43;0200</pubDate><author>
-        <name>Yehia</name>
-    </author><guid>https://ayehia0.github.io/posts/updating_discord_linux/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/posts/updating_discord_linux/featured-image.jpg" referrerpolicy="no-referrer">
-            </div><p>I hate discord updates!, they do lots of updates which prevents discord desktop from launching.
-Bad for me that I use Archlinux, as discord ships thier updates as <code>.deb</code>.</p>]]></description>
 </item></channel>
 </rss>

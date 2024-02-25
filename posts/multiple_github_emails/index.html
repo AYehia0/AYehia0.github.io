@@ -7,35 +7,35 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title>Wires #4: Production Server Setup - ::1 404</title><meta name="Description" content=""><meta property="og:title" content="Wires #4: Production Server Setup" />
-<meta property="og:description" content="Let&rsquo;s configure the production environment." />
+    <title>Setup multiple github emails on a single machine - ::1 404</title><meta name="Description" content=""><meta property="og:title" content="Setup multiple github emails on a single machine" />
+<meta property="og:description" content="How to handle multiple github emails linked to the same github account, for example if you have a personal email used to manage your personal projects and you have a professional email for work or something else, it&rsquo;s ideal to use each account on the correct place, but sometimes it can be tedious!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ayehia0.github.io/posts/wires_4/" /><meta property="og:image" content="https://ayehia0.github.io/posts/wires_4/featured-image.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-01-01T23:41:49+02:00" />
+<meta property="og:url" content="https://ayehia0.github.io/posts/multiple_github_emails/" /><meta property="og:image" content="https://ayehia0.github.io/posts/multiple_github_emails/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-25T14:27:58+02:00" />
 <meta property="article:modified_time" content="2024-02-25T14:06:48+00:00" />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://ayehia0.github.io/posts/wires_4/featured-image.png"/>
-<meta name="twitter:title" content="Wires #4: Production Server Setup"/>
-<meta name="twitter:description" content="Let&rsquo;s configure the production environment."/>
+<meta name="twitter:image" content="https://ayehia0.github.io/posts/multiple_github_emails/featured-image.png"/>
+<meta name="twitter:title" content="Setup multiple github emails on a single machine"/>
+<meta name="twitter:description" content="How to handle multiple github emails linked to the same github account, for example if you have a personal email used to manage your personal projects and you have a professional email for work or something else, it&rsquo;s ideal to use each account on the correct place, but sometimes it can be tedious!"/>
 <meta name="application-name" content="::1 404">
 <meta name="apple-mobile-web-app-title" content="::1 404">
 
 <meta name="theme-color" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://ayehia0.github.io/posts/wires_4/" /><link rel="prev" href="https://ayehia0.github.io/posts/wires_3/" /><link rel="next" href="https://ayehia0.github.io/posts/wires_5/" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://ayehia0.github.io/posts/multiple_github_emails/" /><link rel="prev" href="https://ayehia0.github.io/posts/average_vim_user/" />
 <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.css">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.css">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Wires #4: Production Server Setup",
+        "headline": "Setup multiple github emails on a single machine",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/ayehia0.github.io\/posts\/wires_4\/"
-        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  284 ,
-        "url": "https:\/\/ayehia0.github.io\/posts\/wires_4\/","datePublished": "2024-01-01T23:41:49+02:00","dateModified": "2024-02-25T14:06:48+00:00","publisher": {
+            "@id": "https:\/\/ayehia0.github.io\/posts\/multiple_github_emails\/"
+        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  286 ,
+        "url": "https:\/\/ayehia0.github.io\/posts\/multiple_github_emails\/","datePublished": "2024-02-25T14:27:58+02:00","dateModified": "2024-02-25T14:06:48+00:00","publisher": {
             "@type": "Organization",
             "name": "Yehia"},"author": {
                 "@type": "Person",
@@ -119,110 +119,132 @@
         <h2 class="toc-title">Contents</h2>
         <div class="toc-content always-active" id="toc-content-auto"><nav id="TableOfContents">
   <ul>
-    <li><a href="#getting-a-domain">Getting a domain</a></li>
-    <li><a href="#getting-a-server">Getting a server</a>
-      <ul>
-        <li><a href="#connecting-to-the-server-through-ssh">Connecting to the Server through SSH</a></li>
-        <li><a href="#installing-dependencies">Installing dependencies</a></li>
-        <li><a href="#configuring-https">Configuring HTTPs</a></li>
-      </ul>
-    </li>
-    <li><a href="#all-together">All together</a></li>
+    <li><a href="#directory-separatation">Directory Separatation</a></li>
+    <li><a href="#bonus--signing-the-commits">Bonus : Signing the commits</a></li>
   </ul>
 </nav></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Wires #4: Production Server Setup</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Setup multiple github emails on a single machine</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
                 </span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-01-01">2024-01-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2024-02-25">2024-02-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;284 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-02-25">2024-02-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2024-02-25">2024-02-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;286 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         
         loading="eager"
-        src="/posts/wires_4/featured-image.png"
-        srcset="/posts/wires_4/featured-image.png, /posts/wires_4/featured-image.png 1.5x, /posts/wires_4/featured-image.png 2x"
+        src="/posts/multiple_github_emails/featured-image.png"
+        srcset="/posts/multiple_github_emails/featured-image.png, /posts/multiple_github_emails/featured-image.png 1.5x, /posts/multiple_github_emails/featured-image.png 2x"
         sizes="auto"
-        alt="/posts/wires_4/featured-image.png"
-        title="/posts/wires_4/featured-image.png" height="392"   width="784" ></div><div class="details toc" id="toc-static"  kept="">
+        alt="/posts/multiple_github_emails/featured-image.png"
+        title="/posts/multiple_github_emails/featured-image.png" height="498"   width="1178" ></div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#getting-a-domain">Getting a domain</a></li>
-    <li><a href="#getting-a-server">Getting a server</a>
-      <ul>
-        <li><a href="#connecting-to-the-server-through-ssh">Connecting to the Server through SSH</a></li>
-        <li><a href="#installing-dependencies">Installing dependencies</a></li>
-        <li><a href="#configuring-https">Configuring HTTPs</a></li>
-      </ul>
-    </li>
-    <li><a href="#all-together">All together</a></li>
+    <li><a href="#directory-separatation">Directory Separatation</a></li>
+    <li><a href="#bonus--signing-the-commits">Bonus : Signing the commits</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>Let&rsquo;s configure the production environment.</p>
-<h2 id="getting-a-domain" class="headerLink">
-    <a href="#getting-a-domain" class="header-mark"></a>Getting a domain</h2><figure><a class="lightgallery" href="/posts/wires_4/godaddy.png" title="/posts/wires_4/godaddy.png" data-thumbnail="/posts/wires_4/godaddy.png" data-sub-html="<h2>Acquiring a domain from GoDaddy</h2>">
-        <img
-            
-            loading="lazy"
-            src="/posts/wires_4/godaddy.png"
-            srcset="/posts/wires_4/godaddy.png, /posts/wires_4/godaddy.png 1.5x, /posts/wires_4/godaddy.png 2x"
-            sizes="auto"
-            alt="/posts/wires_4/godaddy.png" height="313"  width="657" >
-    </a><figcaption class="image-caption">Acquiring a domain from GoDaddy</figcaption>
-    </figure>
-<p>I have bought this domain: <a href="https://ayehia0.info" target="_blank" rel="noopener noreferrer">ayehia0.info</a> from godaddy and configured the DNS to point to github&rsquo;s IP. Now going to my domain opens up my personal website which is hosted on github pages.</p>
-<h2 id="getting-a-server" class="headerLink">
-    <a href="#getting-a-server" class="header-mark"></a>Getting a server</h2><p>I have also bought a server on digitalocean and created a droplet.
-To get started with your droplet you just created, you have to configure a user as root user is the default one (Imagine the nasty things you can do with that!). For me I have created a user called <code>none</code> and added my SSH public key to be able to connect in a secure way.</p>
-<figure><a class="lightgallery" href="/posts/wires_4/digitalocean.png" title="/posts/wires_4/digitalocean.png" data-thumbnail="/posts/wires_4/digitalocean.png" data-sub-html="<h2>Digital Ocean Droplet Settings!</h2>">
-        <img
-            
-            loading="lazy"
-            src="/posts/wires_4/digitalocean.png"
-            srcset="/posts/wires_4/digitalocean.png, /posts/wires_4/digitalocean.png 1.5x, /posts/wires_4/digitalocean.png 2x"
-            sizes="auto"
-            alt="/posts/wires_4/digitalocean.png" height="567"  width="1326" >
-    </a><figcaption class="image-caption">Digital Ocean Droplet Settings!</figcaption>
-    </figure>
-<div class="details admonition tip open">
+            </div><div class="content" id="content"><p>How to handle multiple github emails linked to the same github account, for example if you have a personal email used to manage your personal projects and you have a professional email for work or something else, it&rsquo;s ideal to use each account on the correct place, but sometimes it can be tedious!</p>
+<h2 id="directory-separatation" class="headerLink">
+    <a href="#directory-separatation" class="header-mark"></a>Directory Separatation</h2><p>While you could configure the email and username for each repo:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config user.name <span class="s2">&#34;personal&#34;</span>
+</span></span><span class="line"><span class="cl">git config user.email <span class="s2">&#34;personal@email.com&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>a directory separatation is a better option in this case, what I mean here is that you need to create <code>/work</code> and <code>/personal</code> or just <code>/work</code> and consider any other directory as personal.</p>
+<p>Change the global configs in : <code>~/.gitconfig</code> to use another <code>.gitconfig</code> in the work directory:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="p">;</span> the global config
+</span></span><span class="line"><span class="cl"><span class="o">[</span>user<span class="o">]</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">name</span> <span class="o">=</span> personal
+</span></span><span class="line"><span class="cl">	<span class="nv">email</span> <span class="o">=</span> personal@email.com
+</span></span><span class="line"><span class="cl">	<span class="nv">editor</span> <span class="o">=</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">;</span> the work dir
+</span></span><span class="line"><span class="cl"><span class="o">[</span>includeIf <span class="s2">&#34;gitdir:~/work/&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">path</span> <span class="o">=</span> ~/work/.gitconfig
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>credential<span class="o">]</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">helper</span> <span class="o">=</span> cache --timeout<span class="o">=</span><span class="m">3600</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>core<span class="o">]</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">editor</span> <span class="o">=</span> nvim
+</span></span><span class="line"><span class="cl">	<span class="nv">autocrlf</span> <span class="o">=</span> input
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Add the specific configs in the <code>~/work/.gitconfig</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>user<span class="o">]</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">name</span> <span class="o">=</span> Work
+</span></span><span class="line"><span class="cl">	<span class="nv">email</span> <span class="o">=</span> work@email.com
+</span></span><span class="line"><span class="cl">	<span class="nv">editor</span> <span class="o">=</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">signingkey</span> <span class="o">=</span> 57A1D460DSFMK210
+</span></span><span class="line"><span class="cl"><span class="o">[</span>commit<span class="o">]</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">gpgsign</span> <span class="o">=</span> <span class="nb">true</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="bonus--signing-the-commits" class="headerLink">
+    <a href="#bonus--signing-the-commits" class="header-mark"></a>Bonus : Signing the commits</h2><p>Follow the documentations from github to sign your commits and get the verified badge: <a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits" target="_blank" rel="noopener noreferrer">here</a></p>
+<div class="details admonition tip">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw"></i>Create a domain for your api<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-lightbulb fa-fw"></i>How to avoid writing the passphrase each time you commit a message ?<i class="details-icon fas fa-angle-right fa-fw"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content">if you don&rsquo;t want to write your IP each time you connect to your server you need to create an <code>A</code> record in the DNS section which directs to your IP.</div>
+            <div class="admonition-content"><p>If you used a passphrase when creating a gpg key, make sure to cache it to avoid writing it each time you commit a message!</p>
+<p>Edit the gnupg config : <code>~/.gnupg/gpg-agent.conf</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># cache for 2 days</span>
+</span></span><span class="line"><span class="cl">default-cache-ttl <span class="m">172800</span>
+</span></span><span class="line"><span class="cl">max-cache-ttl <span class="m">172800</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>And reload : <code>gpgconf --reload gpg-agent</code></p>
+</div>
         </div>
-    </div>
-<h3 id="connecting-to-the-server-through-ssh" class="headerLink">
-    <a href="#connecting-to-the-server-through-ssh" class="header-mark"></a>Connecting to the Server through SSH</h3><p>Once you get everything configured, it&rsquo;s time to connect to the server and install all the packages and dependencies.</p>
-<figure><a class="lightgallery" href="/posts/wires_4/ssh_connect.png" title="/posts/wires_4/ssh_connect.png" data-thumbnail="/posts/wires_4/ssh_connect.png" data-sub-html="<h2>Connect to the server!</h2>">
-        <img
-            
-            loading="lazy"
-            src="/posts/wires_4/ssh_connect.png"
-            srcset="/posts/wires_4/ssh_connect.png, /posts/wires_4/ssh_connect.png 1.5x, /posts/wires_4/ssh_connect.png 2x"
-            sizes="auto"
-            alt="/posts/wires_4/ssh_connect.png" height="310"  width="936" >
-    </a><figcaption class="image-caption">Connect to the server!</figcaption>
-    </figure>
-<h3 id="installing-dependencies" class="headerLink">
-    <a href="#installing-dependencies" class="header-mark"></a>Installing dependencies</h3><p>I installed dotnet, go and docker even through I can use docker directly.</p>
-<ul>
-<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04" target="_blank" rel="noopener noreferrer">Installing docker</a></li>
-</ul>
-<h3 id="configuring-https" class="headerLink">
-    <a href="#configuring-https" class="header-mark"></a>Configuring HTTPs</h3><p>It&rsquo;s time to configure <code>HTTPs</code>, you don&rsquo;t want to host your website on HTTP for security reasons ofc.
-Fortunately, it&rsquo;s easy to achieve this using <a href="https://certbot.eff.org/pages/about" target="_blank" rel="noopener noreferrer">certbot</a> which use&rsquo;s <a href="https://letsencrypt.org/" target="_blank" rel="noopener noreferrer">Let&rsquo;s Encrypt</a>.</p>
-<p>Following the instructions on their page (which is straight forward btw), you get HTTPs!</p>
-<h2 id="all-together" class="headerLink">
-    <a href="#all-together" class="header-mark"></a>All together</h2><p>For now everything is manual, so if we want to update any functionality to the server, we will (which isn&rsquo;t ideal):</p>
-<ul>
-<li>SSH to the Server</li>
-<li>Make changes</li>
-<li>Run server</li>
-</ul>
-<p>In the upcoming blogs you will create some CI/CD.</p></div>
+    </div></div>
 
         <div class="sponsor">
         <div class="sponsor-avatar"></div><p class="sponsor-bio"><em>Say Hello :D</em></p><a href="https://github.com/AYehia0" title="Sponsor" target="_blank" class="sponsor-button" rel="noopener noreferrer">
@@ -238,7 +260,7 @@ Fortunately, it&rsquo;s easy to achieve this using <a href="https://certbot.eff.
         </div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
-            <div class="post-info-share"><button title="Share on Twitter" data-sharer="twitter" data-url="https://ayehia0.github.io/posts/wires_4/" data-title="Wires #4: Production Server Setup"><span class="fab fa-twitter fa-fw"></span></button><button title="Share on Linkedin" data-sharer="linkedin" data-url="https://ayehia0.github.io/posts/wires_4/"><span class="fab fa-linkedin fa-fw"></span></button></div>
+            <div class="post-info-share"><button title="Share on Twitter" data-sharer="twitter" data-url="https://ayehia0.github.io/posts/multiple_github_emails/" data-title="Setup multiple github emails on a single machine"><span class="fab fa-twitter fa-fw"></span></button><button title="Share on Linkedin" data-sharer="linkedin" data-url="https://ayehia0.github.io/posts/multiple_github_emails/"><span class="fab fa-linkedin fa-fw"></span></button></div>
         </div>
     </div>
 
@@ -249,8 +271,7 @@ Fortunately, it&rsquo;s easy to achieve this using <a href="https://certbot.eff.
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/wires_3/" class="prev" rel="prev" title="Wires #3: Local Setup and Development Tools"><i class="fas fa-angle-left fa-fw"></i>Wires #3: Local Setup and Development Tools</a>
-            <a href="/posts/wires_5/" class="next" rel="next" title="Wires #5: Exploring the .NET Web API and enable HTTPs [Backend]">Wires #5: Exploring the .NET Web API and enable HTTPs [Backend]<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/posts/average_vim_user/" class="prev" rel="prev" title="But can your text editor do this ? | Avearge Vim User Experience"><i class="fas fa-angle-left fa-fw"></i>But can your text editor do this ? | Avearge Vim User Experience</a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
