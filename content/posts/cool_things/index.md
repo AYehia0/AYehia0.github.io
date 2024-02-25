@@ -182,6 +182,12 @@ Channels
 
 Videos (probably most of these videos are from the above channels lol)
 - [I regret doing this...](https://www.youtube.com/watch?v=pmQMTfSABhw)
+- [This Will Make Everyone Understand Golang Interfaces](https://www.youtube.com/watch?v=rH0bpx7I2Dk)
+- [Stealing Storage from Telegram](https://www.youtube.com/watch?v=QiGKrBDqmKg)
+- [Taking Advantage of Using Snippets with UltiSnips and Vim-Snippets](https://youtu.be/Co4S_uJYb1o)
+- [LSP: Building a Language Server From Scratch](https://www.youtube.com/watch?v=Xo5VXTRoL6Q)
+- [From VSCode To Vim | Prime Reacts](https://www.youtube.com/watch?v=-cn3MAovsN4)
+- [Difference between Double Ampersand and Semicolon in a Shell Script](https://www.youtube.com/watch?v=l9DhnM0Q_ms)
 
 ### Others
 
