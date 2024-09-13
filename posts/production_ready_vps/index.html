@@ -1,0 +1,897 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title>Setup production ready VPS - ::1 404</title><meta name="Description" content=""><meta property="og:title" content="Setup production ready VPS" />
+<meta property="og:description" content="How to setup a production ready server with very minimal requirements/specs with CI/CD pipeline and standard security enabled ?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ayehia0.github.io/posts/production_ready_vps/" /><meta property="og:image" content="https://ayehia0.github.io/posts/production_ready_vps/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-09-13T16:00:46+03:00" />
+<meta property="article:modified_time" content="2024-09-13T22:43:40+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://ayehia0.github.io/posts/production_ready_vps/featured-image.png"/>
+<meta name="twitter:title" content="Setup production ready VPS"/>
+<meta name="twitter:description" content="How to setup a production ready server with very minimal requirements/specs with CI/CD pipeline and standard security enabled ?"/>
+<meta name="application-name" content="::1 404">
+<meta name="apple-mobile-web-app-title" content="::1 404">
+
+<meta name="theme-color" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://ayehia0.github.io/posts/production_ready_vps/" /><link rel="prev" href="https://ayehia0.github.io/posts/multiple_github_emails/" />
+<link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.css">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.css">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Setup production ready VPS",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/ayehia0.github.io\/posts\/production_ready_vps\/"
+        },"image": ["https:\/\/ayehia0.github.io\/images\/me.jpg"],"genre": "posts","wordcount":  2119 ,
+        "url": "https:\/\/ayehia0.github.io\/posts\/production_ready_vps\/","datePublished": "2024-09-13T16:00:46+03:00","dateModified": "2024-09-13T22:43:40+00:00","publisher": {
+            "@type": "Organization",
+            "name": "Yehia"},"author": {
+                "@type": "Person",
+                "name": "Yehia"
+            },"description": ""
+    }
+    </script><script src="//instant.page/5.2.0" defer type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
+</head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme); document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark'); window.theme = theme;   window.isDark = window.theme !== 'light' }
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+        window.switchThemeEventSet = new Set()
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="::1 404"><span class="header-title-pre"><i class="fas fa-splotch"></i></span><span id="desktop-header-typeit" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="::1 404"><span class="header-title-pre"><i class="fas fa-splotch"></i></span><span id="mobile-header-typeit" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">Contents</h2>
+        <div class="toc-content always-active" id="toc-content-auto"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#getting-started">Getting started</a></li>
+    <li><a href="#vps-setup">VPS Setup</a></li>
+    <li><a href="#dns-pointing">DNS Pointing</a></li>
+    <li><a href="#vps-security">VPS Security</a>
+      <ul>
+        <li><a href="#add-non-root-user">Add non-root user</a></li>
+        <li><a href="#hardening-ssh">Hardening SSH</a></li>
+        <li><a href="#firewall">Firewall</a></li>
+      </ul>
+    </li>
+    <li><a href="#server-setup">Server setup</a></li>
+    <li><a href="#deployment-flow">Deployment flow</a>
+      <ul>
+        <li><a href="#flow-in-detail">Flow in detail</a>
+          <ul>
+            <li><a href="#watchtower">watchtower</a></li>
+            <li><a href="#traefik">traefik</a></li>
+            <li><a href="#application">application</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#final-touches">Final touches</a></li>
+  </ul>
+</nav></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Setup production ready VPS</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a href="https://github.com/AYehia0" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yehia</a>
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-09-13">2024-09-13</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2024-09-13">2024-09-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2119 words&nbsp;<i class="far fa-clock fa-fw"></i>&nbsp;10 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        
+        loading="eager"
+        src="/posts/production_ready_vps/featured-image.webp"
+        srcset="/posts/production_ready_vps/featured-image.webp, /posts/production_ready_vps/featured-image.webp 1.5x, /posts/production_ready_vps/featured-image.webp 2x"
+        sizes="auto"
+        alt="/posts/production_ready_vps/featured-image.webp"
+        title="/posts/production_ready_vps/featured-image.webp" height="841"   width="1599" ></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#getting-started">Getting started</a></li>
+    <li><a href="#vps-setup">VPS Setup</a></li>
+    <li><a href="#dns-pointing">DNS Pointing</a></li>
+    <li><a href="#vps-security">VPS Security</a>
+      <ul>
+        <li><a href="#add-non-root-user">Add non-root user</a></li>
+        <li><a href="#hardening-ssh">Hardening SSH</a></li>
+        <li><a href="#firewall">Firewall</a></li>
+      </ul>
+    </li>
+    <li><a href="#server-setup">Server setup</a></li>
+    <li><a href="#deployment-flow">Deployment flow</a>
+      <ul>
+        <li><a href="#flow-in-detail">Flow in detail</a>
+          <ul>
+            <li><a href="#watchtower">watchtower</a></li>
+            <li><a href="#traefik">traefik</a></li>
+            <li><a href="#application">application</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#final-touches">Final touches</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>How to setup a production ready server with very minimal requirements/specs with CI/CD pipeline and standard security enabled ?</p>
+<h1 id="achievementstodo" class="headerLink">
+    <a href="#achievementstodo" class="header-mark"></a>Achievements/todo</h1><p>Below the requirements for a production ready application:</p>
+<ul>
+<li><i class="far fa-check-square fa-fw"></i> Has a domain name</li>
+<li><i class="far fa-check-square fa-fw"></i> Application must be running</li>
+<li><i class="far fa-check-square fa-fw"></i> Domain must have secure connection through HTTPS with auto-renewed TLS Certificate</li>
+<li><i class="far fa-check-square fa-fw"></i> SSH hardened to prevent unauthorized access</li>
+<li><i class="far fa-check-square fa-fw"></i> Application must be protected by a firewall</li>
+<li><i class="far fa-check-square fa-fw"></i> Load balancer to distrubute instances access multiple nodes in case on crashed</li>
+<li><i class="far fa-check-square fa-fw"></i> Automated deployments: pushing to certain branch triggers deployment with minimal down time</li>
+<li><i class="far fa-check-square fa-fw"></i> Monitoring: know if the service is down or something happened</li>
+<li><i class="far fa-check-square fa-fw"></i> No infrastructure as code like terraform</li>
+</ul>
+<h2 id="getting-started" class="headerLink">
+    <a href="#getting-started" class="header-mark"></a>Getting started</h2><p><figure><a class="lightgallery" href="./shareem.png" title="./shareem.png" data-thumbnail="./shareem.png">
+        <img
+            
+            loading="lazy"
+            src="./shareem.png"
+            srcset="./shareem.png, ./shareem.png 1.5x, ./shareem.png 2x"
+            sizes="auto"
+            alt="./shareem.png">
+    </a></figure>
+I am going to be deploying a very simple golang application called <a href="https://github.com/ayehia0/shareem" target="_blank" rel="noopener noreferrer">shareem</a> made just for demonstration purposes and to show some really cool and powerful deployment and setup tools, alnog side with best practices you should follow when deploying your app.</p>
+<h2 id="vps-setup" class="headerLink">
+    <a href="#vps-setup" class="header-mark"></a>VPS Setup</h2><p>Since we&rsquo;re going very minimal, I am not going with fully-fledged solutions like AWS or Google Cloud, instead I am going with a VPS (Virtual Private Server) with a very limited resources (I chose DigitalOcean as I am already subscribed)</p>
+<a class="lightgallery" href="/posts/production_ready_vps/vps.png" title="/posts/production_ready_vps/vps.png" data-thumbnail="/posts/production_ready_vps/vps.png">
+        <img
+            
+            loading="lazy"
+            src="/posts/production_ready_vps/vps.png"
+            srcset="/posts/production_ready_vps/vps.png, /posts/production_ready_vps/vps.png 1.5x, /posts/production_ready_vps/vps.png 2x"
+            sizes="auto"
+            alt="/posts/production_ready_vps/vps.png" height="615"  width="1743" >
+    </a>
+<p>The specs of the machine is a bit overkill for the project but I decided to go with higher RAM for a reason (Spining multiple instances of the application in case one failed or crashed):</p>
+<ul>
+<li>2 vCPUs</li>
+<li>4 GB RAM</li>
+<li>120 GB SSD Storage</li>
+</ul>
+<p>The machine is running an Ubuntu LTS (Long Term Support) OS!</p>
+<h2 id="dns-pointing" class="headerLink">
+    <a href="#dns-pointing" class="header-mark"></a>DNS Pointing</h2><a class="lightgallery" href="/posts/production_ready_vps/dns.png" title="/posts/production_ready_vps/dns.png" data-thumbnail="/posts/production_ready_vps/dns.png">
+        <img
+            
+            loading="lazy"
+            src="/posts/production_ready_vps/dns.png"
+            srcset="/posts/production_ready_vps/dns.png, /posts/production_ready_vps/dns.png 1.5x, /posts/production_ready_vps/dns.png 2x"
+            sizes="auto"
+            alt="/posts/production_ready_vps/dns.png" height="595"  width="1349" >
+    </a>
+<p>I am going to use my existing domain <code>ayehia0.info</code> to create a sub domain to be used for accessing the application instead of using the <code>ip</code> (Yeah, that&rsquo;s basically DNS), by creating a DNS record to point to the VSP IP address and give it some time to populate to the global DNS registery.</p>
+<p>Now we can access our application by visiting: <a href="https://shareem.ayehia0.info" target="_blank" rel="noopener noreferrer">https://shareem.ayehia0.info</a> (<code>ofc it's not yet deployed!</code>)</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>Using the domain name to SSH into the machine<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>Check if the DNS record has been probagated by running a nslookup:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ nslookup shareem.ayehia0.info
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Server:         127.0.0.53
+</span></span><span class="line"><span class="cl">Address:        127.0.0.53#53
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Non-authoritative answer:
+</span></span><span class="line"><span class="cl">Name:   shareem.ayehia0.info
+</span></span><span class="line"><span class="cl">Address: 159.223.215.229
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>As you can see <code>shareem.ayehia0.info</code> is resolving to the correct address of the machine.</p>
+<p>Now we can ssh by: <code>ssh none@shareem.ayehia0.info</code></p>
+</div>
+        </div>
+    </div>
+<h2 id="vps-security" class="headerLink">
+    <a href="#vps-security" class="header-mark"></a>VPS Security</h2><h3 id="add-non-root-user" class="headerLink">
+    <a href="#add-non-root-user" class="header-mark"></a>Add non-root user</h3><p>It&rsquo;s recommended to add a non-root user with limited access as working with root user isn&rsquo;t advised.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">adduser none
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Adding sudo permission to the created user:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usermod -aG sudo none
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Testing the user <code>none</code> with sudo permission:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">su - none
+</span></span><span class="line"><span class="cl">sudo ls /
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="hardening-ssh" class="headerLink">
+    <a href="#hardening-ssh" class="header-mark"></a>Hardening SSH</h3><p>My friend Hossam wrote a great blog <a href="https://hossamdash.hashnode.dev/securing-and-optimizing-ssh" target="_blank" rel="noopener noreferrer">here</a> which shows the best practices for securing and optimizing SSH connections in Unix and Linux Systems. for my case I am not going to follow all of his recommendations but I will prevent SSH Bruteforcing by disabling password authentication in SSH.</p>
+<p>Before doing this let&rsquo;s copy the SSH public key for the non-root user <code>none</code> I tried using the ssh-copy-id :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-copy-id -i ~/.ssh/id_rsa.pub none@159.223.215.229
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>but it gave me Permission denied (publickey), so I did it the hard way (manually):</p>
+<ol>
+<li>SSH into the machine as root: <code>ssh root@159.223.215.229</code></li>
+<li>Switch to <code>none</code> user (non-root): <code>su - none</code></li>
+<li>Copy your public ssh key to the <code>none</code> home directory: <code>~/.ssh/authorized_keys</code></li>
+</ol>
+<p>Now it&rsquo;s time to disable the ssh password auth and do some hardening, by editing the ssh config file under <code>/etc/ssh/sshd_config</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">PasswordAuthentication no
+</span></span><span class="line"><span class="cl">PermitRootLogin no
+</span></span><span class="line"><span class="cl">UsePAM no
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Then reload the ssh service: <code>sudo systemctl reload ssh</code> and try to login again with the root user: <code>ssh root@159.223.215.229</code> it should fail!</p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>Changing the port number the ssh is running on<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">To add more security SSH you can change the port in which the SSH is running on, but it&rsquo;s kinda overkill.</div>
+        </div>
+    </div>
+<h3 id="firewall" class="headerLink">
+    <a href="#firewall" class="header-mark"></a>Firewall</h3><p>Let&rsquo;s enable a firewall to our machine, we want to enable only these ports:</p>
+<ul>
+<li><code>22</code> for SSH</li>
+<li><code>80</code> for HTTP</li>
+<li><code>443</code> for HTTPS</li>
+</ul>
+<p>I am going to be using the pre-installed utility called <code>ufw</code> (Uncomplicated Firewall):</p>
+<ol>
+<li>Rule to disable all incoming requests: as general mask</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ufw default deny incoming
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>Rule to enable all outgoing requests</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ufw default allow outgoing
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>Rule to enable incoming requests from SSH (OpenSSH)</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ufw allow OpenSSH
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>Enable the rules</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ufw <span class="nb">enable</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition danger open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-skull-crossbones fa-fw"></i>Don&#39;t forget to enable incoming requests to the SSH port :80<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Don&rsquo;t forget to enable incoming requests to the SSH port :80 or you won&rsquo;t be able to access the machine lol</div>
+        </div>
+    </div>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>Port 80 should be block, right ?<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>This is known issue with ufw and docker as docker configurations overwrite the ip table (ufw configs), so your application running on port 80 will still work!</p>
+<p>A workaround is to use this : <code>127.0.0.1:8080:8080</code> instead of <code>8080:8080</code> in your docker-compose file, but it&rsquo;s not ideal!, the ideal solution is to use a reverse proxy!</p>
+</div>
+        </div>
+    </div>
+<h2 id="server-setup" class="headerLink">
+    <a href="#server-setup" class="header-mark"></a>Server setup</h2><p>There are multiple solutions for running an application on a server, one is to build and run manually but it&rsquo;s not ideal!, and another one is using containers! and that&rsquo;s what we will go for.</p>
+<ul>
+<li>
+<p>So we need to have docker installed on the machine: achieved by following this <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04" target="_blank" rel="noopener noreferrer">tutorial</a></p>
+</li>
+<li>
+<p>Then we need to clone the repo on the server, add any nesserary secrets: in our case <code>db/password.txt</code> is required, and <code>.env</code> which contains the email address (used to renew the SSL Certificate)</p>
+</li>
+<li>
+<p>Running the server using docker: <code>docker compose -f docker-compose.prod.yml up</code></p>
+</li>
+</ul>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>Github packages<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Make sure to make the package public otherwise you will have to use the Github Personal Token to be able to pull it!</div>
+        </div>
+    </div>
+<h2 id="deployment-flow" class="headerLink">
+    <a href="#deployment-flow" class="header-mark"></a>Deployment flow</h2><a class="lightgallery" href="/posts/production_ready_vps/flow.svg" title="/posts/production_ready_vps/flow.svg" data-thumbnail="/posts/production_ready_vps/flow.svg">
+        <img
+            
+            loading="lazy"
+            src="/posts/production_ready_vps/flow.svg"
+            srcset="/posts/production_ready_vps/flow.svg, /posts/production_ready_vps/flow.svg 1.5x, /posts/production_ready_vps/flow.svg 2x"
+            sizes="auto"
+            alt="/posts/production_ready_vps/flow.svg">
+    </a>
+<p>The flow is pretty simple, when I, the developer, push changes to my <code>master</code> branch on github. A github action is triggered which builds and pushes the image to github registry:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy to github registry</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="s1">&#39;master&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">permissions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">packages</span><span class="p">:</span><span class="w"> </span><span class="l">write</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build-and-push-image</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout repository</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Log in to the Container registry</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">docker/login-action@v3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">registry</span><span class="p">:</span><span class="w"> </span><span class="l">https://ghcr.io</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">${{ github.actor }} </span><span class="w"> </span><span class="c"># the current user</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.TOKEN }}</span><span class="w"> </span><span class="c"># the PAT</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build and push Docker image</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">docker/build-push-action@v6</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">.</span><span class="w"> </span><span class="c"># uses the Dockerfile which is the production one</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="l">ghcr.io/ayehia0/shareem:prod</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>The server running watchtower scans the registry and replaces the old image with the new one!</p>
+<p>But what about traefik ? it works as load balancer, reverse proxy and auto-renews the SSL certificate! (Pretty cool)</p>
+<h3 id="flow-in-detail" class="headerLink">
+    <a href="#flow-in-detail" class="header-mark"></a>Flow in detail</h3><p>Blew are the docker-compose services used in this application, I will only explain the most important ones (watchtower, traefik and the interaction with the application services <code>shareem</code>)</p>
+<h4 id="watchtower" class="headerLink">
+    <a href="#watchtower" class="header-mark"></a>watchtower</h4><p>First of all the <code>watchtower</code> service:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="w">  </span><span class="nt">watchtower</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">containrrr/watchtower</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--label-enable&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--interval&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;30&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--rolling-restart&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">/var/run/docker.sock:/var/run/docker.sock</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>--label-enable</code> : monitor and update containers that have a <code>com.centurylinklabs.watchtower.enable</code> label set to true, in our case the <code>shareem</code> container.</li>
+<li><code>--interval</code>: poll interval (in seconds). This value controls how frequently watchtower will poll for new images, in our case it&rsquo;s <code>30s</code></li>
+<li><code>--rolling-restart</code>: restart one image at time instead of stopping and starting all at once. Useful in conjunction with lifecycle hooks to implement zero-downtime deploy. This allows us to minimize the down-time as the user will (maybe) hit one of the instances.</li>
+</ul>
+<h4 id="traefik" class="headerLink">
+    <a href="#traefik" class="header-mark"></a>traefik</h4><p>Secondly, <code>traefik</code> is a reverse proxy and load balancer that helps route traffic to our application containers. In this setup, Traefik dynamically discovers Docker containers that have been started with appropriate labels and routes traffic based on domain names and ports. This configuration also includes automatic HTTPS support using Let&rsquo;s Encrypt and TLS challenge for domain validation.</p>
+<p>Let&rsquo;s break down the key configurations:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="w">  </span><span class="nt">reverse-proxy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">traefik:v3.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">EMAIL</span><span class="p">:</span><span class="w"> </span><span class="l">${EMAIL}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--providers.docker&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--providers.docker.exposedbydefault=false&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--entryPoints.websecure.address=:443&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--certificatesresolvers.myresolver.acme.tlschallenge=true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--certificatesresolvers.myresolver.acme.email=${EMAIL}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--entrypoints.web.address=:80&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--entrypoints.web.http.redirections.entrypoint.to=websecure&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--entrypoints.web.http.redirections.entrypoint.scheme=https&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;80:80&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;443:443&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">letsencrypt:/letsencrypt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">/var/run/docker.sock:/var/run/docker.sock</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Key configurations explained:</p>
+<ul>
+<li>
+<p><code>--providers.docker</code>: Traefik is set up to use Docker as a provider. This means that Traefik will discover the Docker containers running on the host and route traffic to them based on their labels.</p>
+</li>
+<li>
+<p><code>--providers.docker.exposedbydefault=false</code>: By default, Traefik does not expose Docker containers unless explicitly specified using labels on each container. This provides better security by ensuring that only labeled services are available externally.</p>
+</li>
+<li>
+<p><code>--entryPoints.websecure.address=:443</code>: This defines an entry point for secure HTTPS traffic on port 443. This is where all HTTPS traffic will be routed.</p>
+</li>
+<li>
+<p><code>--certificatesresolvers.myresolver.acme.tlschallenge=true</code>: Traefik is configured to use the ACME protocol with TLS challenge to automatically generate and renew SSL certificates via Let&rsquo;s Encrypt.</p>
+</li>
+<li>
+<p><code>--certificatesresolvers.myresolver.acme.email=${EMAIL}</code>: The email parameter required by Let&rsquo;s Encrypt is passed from the environment variable ${EMAIL}. This ensures that the email address is not hardcoded, making the Docker Compose file flexible and secure.</p>
+</li>
+<li>
+<p><code>--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json</code>: This defines where Traefik will store the SSL certificates generated by Let&rsquo;s Encrypt. In this case, they are stored in the /letsencrypt/acme.json file, which is persisted across container restarts using the letsencrypt volume.</p>
+</li>
+<li>
+<p><code>--entrypoints.web.address=:80</code>: This defines an entry point for HTTP traffic on port 80. HTTP traffic will be automatically redirected to HTTPS.</p>
+</li>
+<li>
+<p><code>--entrypoints.web.http.redirections.entrypoint.to=websecure</code>: This tells Traefik to automatically redirect all incoming HTTP requests on port 80 to HTTPS (port 443).</p>
+</li>
+<li>
+<p><code>--entrypoints.web.http.redirections.entrypoint.scheme=https</code>: This ensures the redirection from HTTP to HTTPS uses the correct scheme.</p>
+</li>
+</ul>
+<p>The following ports are exposed in the configuration:</p>
+<p>ports:</p>
+<ul>
+<li>&ldquo;80:80&rdquo;</li>
+<li>&ldquo;443:443&rdquo;</li>
+</ul>
+<p>This means that Traefik will listen for traffic on both ports, handling HTTP and HTTPS traffic, with HTTP being redirected to HTTPS.</p>
+<h4 id="application" class="headerLink">
+    <a href="#application" class="header-mark"></a>application</h4><p>In order to make the application fully work with watchtower and traefik, we need to have these labels:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="w">  </span><span class="nt">shareem</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">ghcr.io/ayehia0/shareem:prod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik.enable=true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik.http.routers.shareem.rule=Host(`shareem.ayehia0.info`)&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik.http.routers.shareem.entrypoints=websecure&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik.http.routers.shareem.tls.certresolver=myresolver&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;com.centurylinklabs.watchtower.enable=true&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p><code>traefik.enable=true</code>:
+This label tells Traefik to manage this container. If this label is set to true, Traefik will consider this container for routing traffic. If set to false, Traefik will ignore it.</p>
+</li>
+<li>
+<p><code>traefik.http.routers.shareem.rule=Host(shareem.ayehia0.info)&quot;</code>:
+This label defines the routing rule for the shareem service. It specifies that Traefik should route requests to this container if the request&rsquo;s Host header matches shareem.ayehia0.info. This allows Traefik to direct traffic to the correct service based on the domain name.</p>
+</li>
+<li>
+<p><code>traefik.http.routers.shareem.entrypoints=websecure</code>:
+This label specifies that the shareem service should use the websecure entry point, which is configured to handle HTTPS traffic on port 443. This means that Traefik will route HTTPS traffic to this service.</p>
+</li>
+<li>
+<p><code>traefik.http.routers.shareem.tls.certresolver=myresolver</code>:
+This label instructs Traefik to use the myresolver certificate resolver to automatically obtain and renew TLS certificates for the shareem service. The myresolver is configured in the Traefik settings to use Let&rsquo;s Encrypt for issuing certificates.</p>
+</li>
+<li>
+<p><code>com.centurylinklabs.watchtower.enable=true</code>:
+This label enables Watchtower&rsquo;s monitoring and update features for this container. Watchtower will check for updates to the shareem image and perform rolling restarts if a new version is available, ensuring that the container runs the latest version without downtime.</p>
+</li>
+</ul>
+<p>Here is the full <code>docker-compose</code> file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">watchtower</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">containrrr/watchtower</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--label-enable&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--interval&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;30&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--rolling-restart&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">/var/run/docker.sock:/var/run/docker.sock</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">reverse-proxy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">traefik:v3.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">EMAIL</span><span class="p">:</span><span class="w"> </span><span class="l">${EMAIL}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--providers.docker&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--providers.docker.exposedbydefault=false&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--entryPoints.websecure.address=:443&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--certificatesresolvers.myresolver.acme.tlschallenge=true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--certificatesresolvers.myresolver.acme.email=${EMAIL}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--entrypoints.web.address=:80&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--entrypoints.web.http.redirections.entrypoint.to=websecure&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;--entrypoints.web.http.redirections.entrypoint.scheme=https&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;80:80&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;443:443&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">letsencrypt:/letsencrypt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">/var/run/docker.sock:/var/run/docker.sock</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">shareem</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">ghcr.io/ayehia0/shareem:prod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik.enable=true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik.http.routers.shareem.rule=Host(`shareem.ayehia0.info`)&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik.http.routers.shareem.entrypoints=websecure&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;traefik.http.routers.shareem.tls.certresolver=myresolver&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;com.centurylinklabs.watchtower.enable=true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">secrets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">db-password</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">POSTGRES_HOST=db</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">POSTGRES_PASSWORD_FILE=/run/secrets/db-password</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">POSTGRES_USER=postgres</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">POSTGRES_DB=shares</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">POSTGRES_PORT=5432</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">POSTGRES_SSLMODE=disable</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">deploy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l">replicated</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">db</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l">service_healthy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">db</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">postgres</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l">postgres</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">secrets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">db-password</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">db-data:/var/lib/postgresql/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">POSTGRES_DB=shares</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">POSTGRES_PASSWORD_FILE=/run/secrets/db-password</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">expose</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">5432</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;CMD&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;pg_isready&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l">10s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l">5s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">db-data</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">letsencrypt</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">secrets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">db-password</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l">db/password.txt</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="final-touches" class="headerLink">
+    <a href="#final-touches" class="header-mark"></a>Final touches</h2><p>We&rsquo;re almost there, one little piece is missing! remember when we required to have monitoring ? since we just need to get notified when the service is down we can use a service called <a href="https://uptimerobot.com/" target="_blank" rel="noopener noreferrer">UptimeRobot</a> for that!</p>
+<p><figure><a class="lightgallery" href="./finally.gif" title="./finally.gif" data-thumbnail="./finally.gif">
+        <img
+            
+            loading="lazy"
+            src="./finally.gif"
+            srcset="./finally.gif, ./finally.gif 1.5x, ./finally.gif 2x"
+            sizes="auto"
+            alt="./finally.gif">
+    </a></figure></p>
+<p>Since you reached this point, here is a fun fact for you: Did you know that if you hold your breath for long time you can sleep for ever.</p></div>
+
+        <div class="sponsor">
+        <div class="sponsor-avatar"></div><p class="sponsor-bio"><em>Say Hello :D</em></p><a href="https://github.com/AYehia0" title="Sponsor" target="_blank" class="sponsor-button" rel="noopener noreferrer">
+                <i class="far fa-heart fa-fw icon" style="color: #ec6cb9;"></i>
+                <span>Sponsor</span>
+            </a></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-09-13</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share"><button title="Share on Twitter" data-sharer="twitter" data-url="https://ayehia0.github.io/posts/production_ready_vps/" data-title="Setup production ready VPS"><span class="fab fa-twitter fa-fw"></span></button><button title="Share on Linkedin" data-sharer="linkedin" data-url="https://ayehia0.github.io/posts/production_ready_vps/"><span class="fab fa-linkedin fa-fw"></span></button></div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/multiple_github_emails/" class="prev" rel="prev" title="Setup multiple github emails on a single machine"><i class="fas fa-angle-left fa-fw"></i>Setup multiple github emails on a single machine</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/AYehia0" target="_blank" rel="noopener noreferrer">Yehia</a></span></div>
+            <div class="footer-line"></div>
+            <div class="footer-line">
+            </div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="Back to Top">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":40},"comment":{},"data":{"desktop-header-typeit":"~/None","mobile-header-typeit":"~/None"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":true,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"sharerjs":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"desktop-header-typeit":["desktop-header-typeit"],"mobile-header-typeit":["mobile-header-typeit"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script></div>
+</body>
+
+</html>

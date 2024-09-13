@@ -3,7 +3,16 @@
         <title>All Posts - ::1 404</title>
         <link>https://ayehia0.github.io/posts/</link>
         <description>All Posts | ::1 404</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 25 Feb 2024 14:27:58 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 13 Sep 2024 16:00:46 &#43;0300</lastBuildDate><atom:link href="https://ayehia0.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Setup production ready VPS</title>
+    <link>https://ayehia0.github.io/posts/production_ready_vps/</link>
+    <pubDate>Fri, 13 Sep 2024 16:00:46 &#43;0300</pubDate><author>
+        <name>Yehia</name>
+    </author><guid>https://ayehia0.github.io/posts/production_ready_vps/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/production_ready_vps/featured-image.png" referrerpolicy="no-referrer">
+            </div><p>How to setup a production ready server with very minimal requirements/specs with CI/CD pipeline and standard security enabled ?</p>]]></description>
+</item><item>
     <title>Setup multiple github emails on a single machine</title>
     <link>https://ayehia0.github.io/posts/multiple_github_emails/</link>
     <pubDate>Sun, 25 Feb 2024 14:27:58 &#43;0200</pubDate><author>
@@ -84,14 +93,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/posts/can_you_hack_it/featured-image.png" referrerpolicy="no-referrer">
             </div><p>This is my attempt to solve the &ldquo;Can you hack it?&rdquo; Challenge. I will share the solutions and how to achieve thme, without spoiling the secrets.</p>]]></description>
-</item><item>
-    <title>Use you home modem when electricity is down !</title>
-    <link>https://ayehia0.github.io/posts/no_elect_no_internet_no_problem/</link>
-    <pubDate>Mon, 27 Nov 2023 18:21:53 &#43;0200</pubDate><author>
-        <name>Yehia</name>
-    </author><guid>https://ayehia0.github.io/posts/no_elect_no_internet_no_problem/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/posts/no_elect_no_internet_no_problem/featured-image.jpg" referrerpolicy="no-referrer">
-            </div><p>In the palce I live in, electricity goes off everyday for 2 hours and I really need the internet connectoin that time, because you know it&rsquo;s 2023, Internet is a like water, no one can live without it.</p>]]></description>
 </item></channel>
 </rss>
