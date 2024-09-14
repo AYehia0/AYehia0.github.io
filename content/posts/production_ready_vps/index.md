@@ -32,10 +32,10 @@ Below the requirements for a production ready application:
 - [X] Domain must have secure connection through HTTPS with auto-renewed TLS Certificate
 - [X] SSH hardened to prevent unauthorized access
 - [X] Application must be protected by a firewall
-- [X] Load balancer to distrubute instances access multiple nodes in case on crashed
-- [X] Automated deployments: pushing to certain branch triggers deployment with minimal down time
-- [X] Monitoring: know if the service is down or something happened
-- [X] No infrastructure as code like terraform
+- [X] Load balancer to distribute load across multiple nodes in case one crashed
+- [X] Automated deployments: pushing to certain branch triggers deployment with minimal downtime
+- [X] Monitoring: know if the service is down
+- [X] No infrastructure as code like terraform or bloated solutions like AWS
 
 
 ## Getting started
