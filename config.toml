@@ -3,6 +3,7 @@ defaultContentLanguage = "en"
 languageCode = "en"
 title = "::1 404"
 theme = "DoIt"
+version = "0.3.X"
 enableRobotsTXT = true
 enableEmoji = true
 description = "A void place for those who seek for knowledge, fun and memes, better than your ::1"
@@ -10,22 +11,21 @@ keywords = ["Void", "archlinux", "unixporn", "foss", "github", "personal", "hack
 enableLastMod = true
 enableGitInfo = true
 
+
 [frontmatter]
     lastmod = ["lastmod" ,':fileModTime', ":git", "date"]
 
-# Author config
-[author]
-  name = "Yehia"
-  email = ""
-  link = "https://github.com/AYehia0"
-  gravatarEmail = ""
-
 [params]
-    version = "0.2.X"
     defaultTheme = "auto"
 
+    # Author config
+    [params.author]
+      name = "Yehia"
+      email = ""
+      link = "https://github.com/AYehia0"
+      gravatarEmail = ""
+
     [params.page]
-        fontawesome = true
         lightgallery = true
         ruby = true
         pageStyle = "normal"
