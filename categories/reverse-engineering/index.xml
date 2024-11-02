@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>reverse engineering - Category - ::1 404</title>
+        <title>Reverse Engineering - Category - ::1 404</title>
         <link>https://ayehia0.github.io/categories/reverse-engineering/</link>
-        <description>reverse engineering - Category - ::1 404</description>
+        <description>Reverse Engineering - Category - ::1 404</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 02 Nov 2023 13:50:11 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/categories/reverse-engineering/" rel="self" type="application/rss+xml" /><item>
     <title>Askfm Reverse Engineering: Getting Threads Back!</title>
     <link>https://ayehia0.github.io/posts/askfm_reverse_engineering/</link>

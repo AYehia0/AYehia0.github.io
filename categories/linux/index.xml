@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>linux - Category - ::1 404</title>
+        <title>Linux - Category - ::1 404</title>
         <link>https://ayehia0.github.io/categories/linux/</link>
-        <description>linux - Category - ::1 404</description>
+        <description>Linux - Category - ::1 404</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 01 Dec 2023 21:36:06 &#43;0200</lastBuildDate><atom:link href="https://ayehia0.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
     <title>Getting into hacking [Hacking Challenges]: Can you hack it?</title>
     <link>https://ayehia0.github.io/posts/can_you_hack_it/</link>
@@ -40,8 +40,16 @@ That&rsquo;s why I am sharing this thing :D</p>]]></description>
     </author><guid>https://ayehia0.github.io/posts/setup_mpd_bspwm/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/posts/setup_mpd_bspwm/featured-image.png" referrerpolicy="no-referrer">
-            </div>What is mpd ?MPD (Music Player Daemon) is an audio player, used to play audio tracks, organize playlists with some database for musics. In order to interface with it, a client is needed (in our case (ncmpcpp)[https://rybczak.net/ncmpcpp/] is used).
-Installation Install mpd and ncmpcpp on ArchLinux : sudo pacman -S mpd ncmpcpp Install mpDris2 (provides MPRIS 2 support to mpd): yay -S mpdris2 Setup AutostartThere are multiple ways to auto-run mpd and mpdris2 :]]></description>
+            </div><h2 id="what-is-mpd-" class="headerLink">
+    <a href="#what-is-mpd-" class="header-mark"></a>What is mpd ?</h2><p>MPD (Music Player Daemon) is an audio player, used to play audio tracks, organize playlists with some database for musics. In order to interface with it, a client is needed (in our case (ncmpcpp)[https://rybczak.net/ncmpcpp/] is used).</p>
+<h2 id="installation" class="headerLink">
+    <a href="#installation" class="header-mark"></a>Installation</h2><ul>
+<li>Install mpd and ncmpcpp on ArchLinux : <code>sudo pacman -S mpd ncmpcpp</code></li>
+<li>Install mpDris2 (provides MPRIS 2 support to mpd): <code>yay -S mpdris2</code></li>
+</ul>
+<h2 id="setup" class="headerLink">
+    <a href="#setup" class="header-mark"></a>Setup</h2><h3 id="autostart" class="headerLink">
+    <a href="#autostart" class="header-mark"></a>Autostart</h3><p>There are multiple ways to auto-run <code>mpd and mpdris2</code> :</p>]]></description>
 </item><item>
     <title>How to setup tmux for advanced users ?</title>
     <link>https://ayehia0.github.io/posts/tmux_setup/</link>
@@ -50,7 +58,8 @@ Installation Install mpd and ncmpcpp on ArchLinux : sudo pacman -S mpd ncmpcpp I
     </author><guid>https://ayehia0.github.io/posts/tmux_setup/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/posts/tmux_setup/featured-image.png" referrerpolicy="no-referrer">
-            </div>Why you should use tmux ?Tmux is a terminal multiplexer, it lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and re-attach them to a different terminal.
-It also allows you to have multiple panes open at the same time, each with their own shell running, with a single SSH connection (yes, it supports SSH). Not only that, you can also have multiple windows open at the same time, a bit like tabs with more panes in them.]]></description>
+            </div><h2 id="why-you-should-use-tmux-" class="headerLink">
+    <a href="#why-you-should-use-tmux-" class="header-mark"></a>Why you should use tmux ?</h2><p>Tmux is a terminal multiplexer, it lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and re-attach them to a different terminal.</p>
+<p>It also allows you to have multiple panes open at the same time, each with their own shell running, with a single SSH connection (yes, it supports SSH). Not only that, you can also have multiple windows open at the same time, a bit like tabs with more panes in them.</p>]]></description>
 </item></channel>
 </rss>

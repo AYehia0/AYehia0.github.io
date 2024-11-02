@@ -11,7 +11,15 @@
     </author><guid>https://ayehia0.github.io/posts/android_setup_dev/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/posts/android_setup_dev/featured-image.webp" referrerpolicy="no-referrer">
-            </div>Getting StartedBefore Starting, it&rsquo;s a good idea to install a Custom ROM for your old device just to get the best out of it. Head to XDA and search for your device. But why you might ask ?
-The installed custom ROM would bring you newer Android version + new kernel version. (not always) Root access (more control in general). In my case, I am using SM-T585 which came with Android 8.]]></description>
+            </div><a class="lightgallery" href="/posts/android_setup_dev/tablet.jpg" title="anlinux-fedora" data-thumbnail="/posts/android_setup_dev/tablet.jpg"><img  loading="lazy" src=https://ayehia0.github.io/posts/android_setup_dev/tablet.jpg   alt="anlinux-fedora" height="3000" width="4000"></a>
+<h2 id="getting-started" class="headerLink">
+    <a href="#getting-started" class="header-mark"></a>Getting Started</h2><p>Before Starting, it&rsquo;s a good idea to install a Custom ROM for your old device just to get the best out of it.
+Head to <a href="https://www.xda-developers.com/" target="_blank" rel="noopener noreferrer">XDA</a> and search for your device.
+But why you might ask ?</p>
+<ul>
+<li>The installed custom ROM would bring you newer Android version + new kernel version. (not always)</li>
+<li>Root access (more control in general).</li>
+</ul>
+<p>In my case, I am using <a href="https://www.gsmarena.com/samsung_galaxy_tab_a_10_1_%282016%29-8090.php" target="_blank" rel="noopener noreferrer">SM-T585</a> which came with Android <code>8.1</code> and later on I upgraded to <code>9</code>.</p>]]></description>
 </item></channel>
 </rss>
