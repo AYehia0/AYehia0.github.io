@@ -54,9 +54,6 @@ I have made contributions to various open source projects, and I'd like to share
 Gimme is an application that helps users to reach unoffical stores and get their items by tusted users, "from the people to the people".
 It's built with NodeJS, with lots of integrations and microservices like AWS S3, Firebase FCM, and more.
 
-<br>
-{{< image src="slide.svg" alt="stats" position="center" style="border-radius: 8px;" >}}
-
 ### [Trash](https://github.com/AYehia0/Trash)
 Well, that was a fun project to make, `Trash` is a programming language (coz, why not) written for my interpreter in Go.
 

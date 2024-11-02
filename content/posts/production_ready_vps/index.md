@@ -180,7 +180,7 @@ Make sure to make the package public otherwise you will have to use the Github P
 
 ## Deployment flow
 
-{{< image src="flow.svg" position="center" style="border-radius: 8px;" >}}
+{{< image src="flow.png" position="center" style="border-radius: 8px;" >}}
 
 The flow is pretty simple, when I, the developer, push changes to my `master` branch on github. A github action is triggered which builds and pushes the image to github registry:
 
