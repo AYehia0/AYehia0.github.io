@@ -10,14 +10,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@master
+      - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Publish Site
-        uses: chabad360/hugo-gh-pages@master
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
         with:
-          githubToken: ${{ secrets.SECRET_VOID }}
+          hugo-version: 'latest'
+          extended: true
+          github_token: ${{ secrets.SECRET_VOID }}
           cname: ayehia0.info
-          args: --buildDrafts
+
+      - name: Build
+        run: hugo --buildDrafts
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/gh-pages'
+        with:
+          github_token: ${{ secrets.SECRET_VOID }}
+          publish_dir: ./public
+
